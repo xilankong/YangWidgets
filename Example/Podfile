@@ -1,7 +1,7 @@
 use_frameworks!
 inhibit_all_warnings!
 target 'YangWidgets_Example' do
-  pod 'YangWidgets', :path => '../'
+  pod 'YangWidgets/DragButton', :path => '../'
 
   target 'YangWidgets_Tests' do
     inherit! :search_paths

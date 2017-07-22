@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "summary": "widgets in development",
   "description": "TODO: widgets in development",
+  "platforms": {
+    "ios": "8.0"
+  },
   "homepage": "https://github.com/xilankong/YangWidgets",
   "license": {
     "type": "MIT",
@@ -15,9 +18,22 @@
     "git": "https://github.com/xilankong/YangWidgets.git",
     "tag": "0.1.0"
   },
-  "platforms": {
-    "ios": "8.0"
-  },
-  "source_files": "YangWidgets/Classes/**/*",
-  "resources": "YangWidgets/Assets/**/*"
+  "public_header_files": "Pod/Classes/**/*.h",
+  "subspecs": [
+    {
+      "name": "YangPageControl",
+      "source_files": "YangWidgets/Classes/YangPageControl/**/*",
+      "resources": "YangWidgets/Assets/YangPageControl/**/*"
+    },
+    {
+      "name": "DropMenuView",
+      "source_files": "YangWidgets/Classes/DropMenuView/**/*",
+      "resources": "YangWidgets/Assets/DropMenuView/**/*"
+    },
+    {
+      "name": "DragButton",
+      "source_files": "YangWidgets/Classes/DragButton/**/*",
+      "resources": "YangWidgets/Assets/DragButton/**/*"
+    }
+  ]
 }

@@ -8,19 +8,28 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 TODO: widgets in development
                        DESC
-
+  s.ios.deployment_target = '8.0'
   s.homepage         = 'https://github.com/xilankong/YangWidgets'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'xilankong' => '851384557@qq.com' }
   s.source           = { :git => 'https://github.com/xilankong/YangWidgets.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+    s.subspec 'YangPageControl' do |page|
+        page.source_files = 'YangWidgets/Classes/YangPageControl/**/*'
+        page.resource = 'YangWidgets/Assets/YangPageControl/**/*'
+    end
 
-  s.source_files = 'YangWidgets/Classes/**/*'
-  s.resource = 'YangWidgets/Assets/**/*'
+    s.subspec 'DropMenuView' do |menu|
+        menu.source_files = 'YangWidgets/Classes/DropMenuView/**/*'
+        menu.resource = 'YangWidgets/Assets/DropMenuView/**/*'
+    end
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+    s.subspec 'DragButton' do |drag|
+        drag.source_files = 'YangWidgets/Classes/DragButton/**/*'
+        drag.resource = 'YangWidgets/Assets/DragButton/**/*'
+    end
+
+  s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
