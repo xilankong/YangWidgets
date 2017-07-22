@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+ios above 8.0
+
 ## Installation
 
 YangWidgets is available through [CocoaPods](http://cocoapods.org). To install
@@ -18,13 +20,43 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "YangWidgets"
+pod "YangWidgets/DropMenuView"
+pod "YangWidgets/DragButton"
+pod "YangWidgets/YangPageControl"
 ```
 
 ## Author
 
-xilankong, 851384557@qq.com
+yang
 
-## License
+xilankong@126.com
 
-YangWidgets is available under the MIT license. See the LICENSE file for more info.
 # YangWidgets
+
+小工具集合：
+
+1、下拉菜单
+
+2、拖拽悬浮块
+
+3、分页指示器
+
+4、导航条
+
+5、ActionSheet
+
+6、sliderPage
+
+7、混排Label
+
+8、图片轮播器
+
+9、键盘防遮挡
+
+10、刷新控件
+
+11、标签Label
+
+12、进度条
+
+13、pop view
