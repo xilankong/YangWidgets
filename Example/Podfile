@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YangWidgets_Example' do
+  pod 'YangWidgets', :path => '../'
+
+  target 'YangWidgets_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
