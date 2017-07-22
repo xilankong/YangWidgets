@@ -1,0 +1,23 @@
+{
+  "name": "YangWidgets",
+  "version": "0.1.0",
+  "summary": "widgets in development",
+  "description": "TODO: widgets in development",
+  "homepage": "https://github.com/xilankong/YangWidgets",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xilankong": "851384557@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/xilankong/YangWidgets.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "YangWidgets/Classes/**/*",
+  "resources": "YangWidgets/Assets/**/*"
+}

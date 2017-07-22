@@ -1,0 +1,16 @@
+PODS:
+  - YangWidgets (0.1.0)
+
+DEPENDENCIES:
+  - YangWidgets (from `../`)
+
+EXTERNAL SOURCES:
+  YangWidgets:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YangWidgets: 33aa3f5beb5e5c6cb0451fc8d747e5484af37812
+
+PODFILE CHECKSUM: ef08c7b24b21c9216c3478938ef98727e0323064
+
+COCOAPODS: 1.2.1

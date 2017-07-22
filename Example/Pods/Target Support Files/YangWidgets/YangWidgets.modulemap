@@ -1,0 +1,6 @@
+framework module YangWidgets {
+  umbrella header "YangWidgets-umbrella.h"
+
+  export *
+  module * { export * }
+}
