@@ -12,20 +12,20 @@
 import UIKit
 
 // MARK: - 指示器切换事件响应代理
-protocol YangPageControlDelegate: class {
+public protocol YangPageControlDelegate: class {
     
     func pageControlChangeTo(page: NSInteger)
     
 }
 
 // MARK: - 指示器点对象，只针对图片处理
-class YangPageDot: NSObject {
-    var dotIndicatorImage: UIImage?
-    var hightLightDotIndicatorImage: UIImage?
+public class YangPageDot: NSObject {
+   public  var dotIndicatorImage: UIImage?
+    public var hightLightDotIndicatorImage: UIImage?
 }
 
 // MARK: - Page指示器
-class YangPageControl: UIView {
+public class YangPageControl: UIView {
     
     static let defaultPageIndicatorTintColor: UIColor = UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 0.8)
     static let defaultCurrentPageIndicatorTintColor: UIColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
@@ -33,7 +33,7 @@ class YangPageControl: UIView {
     // MARK: - 圆角
     fileprivate var _dotRadius: CGFloat = 0
     
-    open var dotRadius: CGFloat {
+    public var dotRadius: CGFloat {
         get { return _dotRadius }
         set {
             _dotRadius = newValue
@@ -44,7 +44,7 @@ class YangPageControl: UIView {
     // MARK: - 未选中时色值
     fileprivate var _pageIndicatorTintColor: UIColor = defaultPageIndicatorTintColor
     
-    open var pageIndicatorTintColor: UIColor {
+    public var pageIndicatorTintColor: UIColor {
         get { return _pageIndicatorTintColor }
         set {
             _pageIndicatorTintColor = newValue
@@ -55,7 +55,7 @@ class YangPageControl: UIView {
     // MARK: - 选中时色值
     fileprivate var _currentPageIndicatorTintColor: UIColor = defaultCurrentPageIndicatorTintColor
     
-    open var currentPageIndicatorTintColor: UIColor {
+    public var currentPageIndicatorTintColor: UIColor {
         get { return _currentPageIndicatorTintColor }
         set {
             _currentPageIndicatorTintColor = newValue
@@ -66,7 +66,7 @@ class YangPageControl: UIView {
     // MARK: - 未选中时图片 优先级 > 颜色
     fileprivate var _pageIndicatorImage: UIImage?
     
-    open var pageIndicatorImage: UIImage? {
+    public var pageIndicatorImage: UIImage? {
         get { return _pageIndicatorImage }
         set {
             _pageIndicatorImage = newValue
@@ -77,7 +77,7 @@ class YangPageControl: UIView {
     // MARK: - 选中时图片
     fileprivate var _currentPageIndicatorImage: UIImage?
     
-    open var currentPageIndicatorImage: UIImage? {
+    public var currentPageIndicatorImage: UIImage? {
         get { return _currentPageIndicatorImage }
         set {
             _currentPageIndicatorImage = newValue
@@ -87,7 +87,7 @@ class YangPageControl: UIView {
     
     // MARK: - 位置
     fileprivate var _position: CGPoint = CGPoint(x: 0, y: 0)
-    open var position: CGPoint {
+    public var position: CGPoint {
         get { return _position }
         set {
             _position = newValue
@@ -97,7 +97,7 @@ class YangPageControl: UIView {
     
     // MARK: - 当前选中页
     fileprivate var _currentPage: Int = 0
-    open var currentPage: Int {
+    public var currentPage: Int {
         get { return _currentPage }
         set {
             if _currentPage >= 0 && _currentPage < self.numberOfPages && _currentPage != newValue {
@@ -112,7 +112,7 @@ class YangPageControl: UIView {
     
     // MARK: - 全自定义 优先级大于 图片
     fileprivate var _dotArray: [YangPageDot] = []
-    open var dotArray: [YangPageDot] {
+    public var dotArray: [YangPageDot] {
         get { return _dotArray }
         set {
             _dotArray = newValue
@@ -122,12 +122,12 @@ class YangPageControl: UIView {
     // MARK: - 代理对象
     weak var delegate: YangPageControlDelegate?
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - 初始化
-    init(withDotSize size: CGSize, andNumberOfPages number: Int, andDotMargin margin: CGFloat) {
+   public init(withDotSize size: CGSize, andNumberOfPages number: Int, andDotMargin margin: CGFloat) {
         super.init(frame: CGRect(x: 0, y: 0, width: size.width * CGFloat(number) + margin * CGFloat(number - 1), height: size.height))
         
         numberOfPages = number
@@ -154,7 +154,7 @@ extension YangPageControl {
     }
     
     //MARK: - 更新指示点
-    func updateDotButton() {
+    fileprivate func updateDotButton() {
         for (index, view) in self.subviews.enumerated() {
             if view.tag == currentPage {
                 if let currentButton = view as? UIButton {
@@ -193,7 +193,7 @@ extension YangPageControl {
     }
     
     //MARK: - 更新圆角
-    func updateDotButtonRadius() {
+    fileprivate func updateDotButtonRadius() {
         for view in self.subviews {
             view.layer.cornerRadius = dotRadius
             view.layer.masksToBounds = true

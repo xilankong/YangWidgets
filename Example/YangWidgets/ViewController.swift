@@ -8,17 +8,16 @@
 
 import UIKit
 import YangWidgets
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let pageControl = YangPageControl(withDotSize: CGSize(width: 20, height: 20), andNumberOfPages: 4, andDotMargin: 5)
         view.addSubview(pageControl)
         pageControl.position = CGPoint(x: 50, y: 250)
-        pageControl.currentPageIndicatorImage = #imageLiteral(resourceName: "portrait")
-        pageControl.pageIndicatorImage = #imageLiteral(resourceName: "bgImageView")
+        pageControl.currentPageIndicatorImage = #imageLiteral(resourceName: "guidance_v34_dot_1_normal")
+        pageControl.pageIndicatorImage = #imageLiteral(resourceName: "guidance_v34_dot_1_normal")
         var array: [YangPageDot] = []
         for index in 1..<5 {
             let dot = YangPageDot()

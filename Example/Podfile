@@ -1,5 +1,5 @@
 use_frameworks!
-
+inhibit_all_warnings!
 target 'YangWidgets_Example' do
   pod 'YangWidgets', :path => '../'
 
