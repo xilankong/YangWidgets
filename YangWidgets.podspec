@@ -19,14 +19,14 @@ TODO: widgets in development
         page.resource = 'YangWidgets/Assets/YangPageControl/**/*'
     end
 
-    s.subspec 'DropMenuView' do |menu|
-        menu.source_files = 'YangWidgets/Classes/DropMenuView/**/*'
-        menu.resource = 'YangWidgets/Assets/DropMenuView/**/*'
+    s.subspec 'YangDropMenuView' do |menu|
+        menu.source_files = 'YangWidgets/Classes/YangDropMenuView/**/*'
+        menu.resource = 'YangWidgets/Assets/YangDropMenuView/**/*'
     end
 
-    s.subspec 'DragButton' do |drag|
-        drag.source_files = 'YangWidgets/Classes/DragButton/**/*'
-        drag.resource = 'YangWidgets/Assets/DragButton/**/*'
+    s.subspec 'YangDragButton' do |drag|
+        drag.source_files = 'YangWidgets/Classes/YangDragButton/**/*'
+        drag.resource = 'YangWidgets/Assets/YangDragButton/**/*'
     end
 
   s.public_header_files = 'Pod/Classes/**/*.h'

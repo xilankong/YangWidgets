@@ -28,6 +28,7 @@ class ViewController: UIViewController {
 //        pageControl.dotArray = array
 //        //        pageControl.dotRadius = 5
         //        pageControl.currentPage = 0
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -20,8 +20,11 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "YangWidgets"
-pod "YangWidgets/DropMenuView"
-pod "YangWidgets/DragButton"
+or
+pod "YangWidgets/YangDropMenuView"
+or
+pod "YangWidgets/YangDragButton"
+or
 pod "YangWidgets/YangPageControl"
 ```
 

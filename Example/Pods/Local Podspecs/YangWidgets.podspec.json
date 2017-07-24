@@ -26,14 +26,14 @@
       "resources": "YangWidgets/Assets/YangPageControl/**/*"
     },
     {
-      "name": "DropMenuView",
-      "source_files": "YangWidgets/Classes/DropMenuView/**/*",
-      "resources": "YangWidgets/Assets/DropMenuView/**/*"
+      "name": "YangDropMenuView",
+      "source_files": "YangWidgets/Classes/YangDropMenuView/**/*",
+      "resources": "YangWidgets/Assets/YangDropMenuView/**/*"
     },
     {
-      "name": "DragButton",
-      "source_files": "YangWidgets/Classes/DragButton/**/*",
-      "resources": "YangWidgets/Assets/DragButton/**/*"
+      "name": "YangDragButton",
+      "source_files": "YangWidgets/Classes/YangDragButton/**/*",
+      "resources": "YangWidgets/Assets/YangDragButton/**/*"
     }
   ]
 }

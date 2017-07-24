@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		0863F6792F1D321874626D082D3EC555 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		0C54D8CD219A241716596E33570F0E6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		16D1A77BA2334D7042CEA50A52DC643F /* YangGuidPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9C834DF9A49230833E04018668C49 /* YangGuidPageViewController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		182340459A20E7B62E18A94034DE2E3F /* YangPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199990CB203A5DF9169EFF19F3D32F7 /* YangPageControl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		26ACF5A564D7153BA99511628D5629C4 /* YangWidgets-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBB17AED67B74810305E0ADE3594AD77 /* YangWidgets-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16D1A77BA2334D7042CEA50A52DC643F /* YangGuidPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D457B3A71C02672C0904D74C53B7A /* YangGuidPageViewController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		182340459A20E7B62E18A94034DE2E3F /* YangPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C89AF06D6FF73E979358364BBADBB0B /* YangPageControl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		26ACF5A564D7153BA99511628D5629C4 /* YangWidgets-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58AAE1DF0F51C9B45CB723FCFB9F5DE3 /* YangWidgets-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		467D6CE59BFE8C9D8C031088FD528D9F /* Pods-YangWidgets_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0EB8F280BED0505FAF67C9D99B145A7 /* Pods-YangWidgets_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		553845B76534AD82D245216B08F7414F /* Pods-YangWidgets_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CED149AD88AF677201A2F3F63AA387 /* Pods-YangWidgets_Example-dummy.m */; };
 		553B0F3F1AC09E88A3DA5344676553A6 /* Pods-YangWidgets_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A758719D092B9189EE27750B1C499F9 /* Pods-YangWidgets_Tests-dummy.m */; };
 		6BFF108D6CD48A3B8B9AAAB1DF8F8FBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D7489F8BAA671D369CCF11C6C8A36152 /* DragButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB05CD24DFC62E2698CB941F66F1C30 /* DragButton.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DB20A9F205E77C3CA6C6A4ECEE5037BC /* YangWidgets-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F7680FDF37B80B4BBA8F510ACE823 /* YangWidgets-dummy.m */; };
+		D7489F8BAA671D369CCF11C6C8A36152 /* DragButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D599D7EC068CFD475D881FA5E8E2B4 /* DragButton.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DB20A9F205E77C3CA6C6A4ECEE5037BC /* YangWidgets-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D487B72560CD6D72005E96CF3D575947 /* YangWidgets-dummy.m */; };
 		E583728EAA8985D8BD27876E56F262E4 /* Pods-YangWidgets_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D31A760BB158F116C68F511CB06430AC /* Pods-YangWidgets_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -32,40 +32,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C89AF06D6FF73E979358364BBADBB0B /* YangPageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangPageControl.swift; sourceTree = "<group>"; };
+		12F0E3360BCF84FEFB03576CD0424645 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A4319B90ED47054284A1D65652FE54 /* Pods-YangWidgets_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		279EF5CF79B73F9A84B0245A23C5CEB9 /* YangWidgets.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YangWidgets.modulemap; sourceTree = "<group>"; };
 		2A758719D092B9189EE27750B1C499F9 /* Pods-YangWidgets_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YangWidgets_Tests-dummy.m"; sourceTree = "<group>"; };
-		32C9C834DF9A49230833E04018668C49 /* YangGuidPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangGuidPageViewController.swift; sourceTree = "<group>"; };
+		2B9D033D34F49B4F4FCFD157DDDE3345 /* YangWidgets.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YangWidgets.xcconfig; sourceTree = "<group>"; };
 		35A871778DCCEAD9D1246ED8A5BC2744 /* Pods-YangWidgets_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		42F655DDDE832367511C83EB626DF169 /* Pods-YangWidgets_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		452775C2AC1D8E53B4E73C54841DA9F2 /* YangWidgets-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-prefix.pch"; sourceTree = "<group>"; };
 		4FC51993B095962CC693475D3A667568 /* Pods-YangWidgets_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YangWidgets_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5199990CB203A5DF9169EFF19F3D32F7 /* YangPageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangPageControl.swift; sourceTree = "<group>"; };
 		55419B7DBF6C244375F4BF3098B783C8 /* Pods-YangWidgets_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YangWidgets_Tests.modulemap"; sourceTree = "<group>"; };
+		58AAE1DF0F51C9B45CB723FCFB9F5DE3 /* YangWidgets-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-umbrella.h"; sourceTree = "<group>"; };
 		5FA30BCF593E75B8E634E666FDCA49F9 /* Pods-YangWidgets_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YangWidgets_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		613D0022BC10A523B24573D7405EF6C4 /* Pods-YangWidgets_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Tests-resources.sh"; sourceTree = "<group>"; };
+		622D457B3A71C02672C0904D74C53B7A /* YangGuidPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangGuidPageViewController.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6BB05CD24DFC62E2698CB941F66F1C30 /* DragButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DragButton.swift; sourceTree = "<group>"; };
 		72CED149AD88AF677201A2F3F63AA387 /* Pods-YangWidgets_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YangWidgets_Example-dummy.m"; sourceTree = "<group>"; };
-		89ABB1EDC42EDA961297D8FEE1172ACC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85F26C02E712C64A5A49CA4817F5D0F5 /* YangWidgets-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-prefix.pch"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97CC7AE879C5D3BEB855647B989B869C /* Pods-YangWidgets_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YangWidgets_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		9B775DF5EAA4EE95F9C419EFDB2C6608 /* YangWidgets.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YangWidgets.xcconfig; sourceTree = "<group>"; };
 		A4924F3FF5CBB5C607DC281BEEAAE8FC /* Pods-YangWidgets_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Example-frameworks.sh"; sourceTree = "<group>"; };
 		ADA063F37296CB77DE3B23DA7BCE7AC4 /* Pods-YangWidgets_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YangWidgets_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AFDA1B4AB400D5EDD75D224095270662 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2AF8664FF87BB2C79B4DCEE78C96705 /* Pods-YangWidgets_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YangWidgets_Example.modulemap"; sourceTree = "<group>"; };
 		B5EE4953EDC17797119C57DE1E4CC643 /* YangWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YangWidgets.framework; path = YangWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE3397A745B65FE7A2505606B29F0FD /* Pods-YangWidgets_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C0D599D7EC068CFD475D881FA5E8E2B4 /* DragButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DragButton.swift; sourceTree = "<group>"; };
 		C643E8073E36DFCE6D2BE830F31D9BA4 /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Tests.framework; path = "Pods-YangWidgets_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31A760BB158F116C68F511CB06430AC /* Pods-YangWidgets_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YangWidgets_Tests-umbrella.h"; sourceTree = "<group>"; };
+		D487B72560CD6D72005E96CF3D575947 /* YangWidgets-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YangWidgets-dummy.m"; sourceTree = "<group>"; };
 		D90DA262AB4253EC48AD0C1538407923 /* Pods-YangWidgets_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		E0EB8F280BED0505FAF67C9D99B145A7 /* Pods-YangWidgets_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YangWidgets_Example-umbrella.h"; sourceTree = "<group>"; };
 		E0EB9B1F7D96FE615FE1EAFE186E30B2 /* Pods_YangWidgets_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Example.framework; path = "Pods-YangWidgets_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E73F7680FDF37B80B4BBA8F510ACE823 /* YangWidgets-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YangWidgets-dummy.m"; sourceTree = "<group>"; };
 		E7657A3B048846005CF063352A04C755 /* Pods-YangWidgets_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Example-resources.sh"; sourceTree = "<group>"; };
-		EBB17AED67B74810305E0ADE3594AD77 /* YangWidgets-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-umbrella.h"; sourceTree = "<group>"; };
 		F1FB494AE3D2D98E08141AA22B0C3897 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBE3B89BAFB6F9C2F5EC338FF631CCEB /* YangWidgets.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YangWidgets.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +96,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C7BC22AF2DD2E43E9192564D0506FBC /* YangWidgets */ = {
-			isa = PBXGroup;
-			children = (
-				77FE0D65D6BAB38B929E7F9216CE09D3 /* Classes */,
-			);
-			name = YangWidgets;
-			path = YangWidgets;
-			sourceTree = "<group>";
-		};
 		2CBEAA7FFDF34672F3990EE7161D4542 /* Pods-YangWidgets_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,44 +114,42 @@
 			path = "Target Support Files/Pods-YangWidgets_Example";
 			sourceTree = "<group>";
 		};
-		3098BBFCDFD1FC9D893668B7C837A8EA /* DragButton */ = {
+		33382A7CBED705AB5DF2FA3B665C852B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CF450E73453D3F22B8661119EF8B680F /* YangWidgets */,
-			);
-			name = DragButton;
-			sourceTree = "<group>";
-		};
-		31690FDFBF4303BD8B64E343A2FBC75E /* DragButton */ = {
-			isa = PBXGroup;
-			children = (
-				6BB05CD24DFC62E2698CB941F66F1C30 /* DragButton.swift */,
-			);
-			name = DragButton;
-			path = DragButton;
-			sourceTree = "<group>";
-		};
-		3ABFE3482F5C1DDEF10BEC610E7AD083 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				89ABB1EDC42EDA961297D8FEE1172ACC /* Info.plist */,
-				279EF5CF79B73F9A84B0245A23C5CEB9 /* YangWidgets.modulemap */,
-				9B775DF5EAA4EE95F9C419EFDB2C6608 /* YangWidgets.xcconfig */,
-				E73F7680FDF37B80B4BBA8F510ACE823 /* YangWidgets-dummy.m */,
-				452775C2AC1D8E53B4E73C54841DA9F2 /* YangWidgets-prefix.pch */,
-				EBB17AED67B74810305E0ADE3594AD77 /* YangWidgets-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/YangWidgets";
-			sourceTree = "<group>";
-		};
-		5BC857B6B421BF4939FAA2345957D774 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				31690FDFBF4303BD8B64E343A2FBC75E /* DragButton */,
+				57373BCE98D11BFA4533420D8E8E6099 /* YangDragButton */,
 			);
 			name = Classes;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		51963622D69AF101DA7F45E65C4C96F6 /* YangWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				33382A7CBED705AB5DF2FA3B665C852B /* Classes */,
+			);
+			name = YangWidgets;
+			path = YangWidgets;
+			sourceTree = "<group>";
+		};
+		57373BCE98D11BFA4533420D8E8E6099 /* YangDragButton */ = {
+			isa = PBXGroup;
+			children = (
+				C0D599D7EC068CFD475D881FA5E8E2B4 /* DragButton.swift */,
+			);
+			name = YangDragButton;
+			path = YangDragButton;
+			sourceTree = "<group>";
+		};
+		5C32C9616C8FB5B07D7BE80E729C7EE4 /* YangWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				D9B9D0BC77C353643DEB5780E29B5B00 /* Support Files */,
+				979652D3B800A65E6B4FE0FA66B6DA2C /* YangDragButton */,
+				79F72378A92FE0C81C060155C144F95E /* YangPageControl */,
+			);
+			name = YangWidgets;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		70D95417F684FFA889C420CD82989F11 /* Targets Support Files */ = {
@@ -172,13 +161,22 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		77FE0D65D6BAB38B929E7F9216CE09D3 /* Classes */ = {
+		7810554C6506DE534F51E8D6808D6C24 /* YangPageControl */ = {
 			isa = PBXGroup;
 			children = (
-				C6C2B57241B1C17FB8C84F56791673B0 /* YangPageControl */,
+				622D457B3A71C02672C0904D74C53B7A /* YangGuidPageViewController.swift */,
+				0C89AF06D6FF73E979358364BBADBB0B /* YangPageControl.swift */,
 			);
-			name = Classes;
-			path = Classes;
+			name = YangPageControl;
+			path = YangPageControl;
+			sourceTree = "<group>";
+		};
+		79F72378A92FE0C81C060155C144F95E /* YangPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				E8B285297E5ECBB0522A146A310CA20E /* YangWidgets */,
+			);
+			name = YangPageControl;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -192,12 +190,21 @@
 			);
 			sourceTree = "<group>";
 		};
-		A0398785074264E3E382B742AB2B4BE2 /* YangPageControl */ = {
+		979652D3B800A65E6B4FE0FA66B6DA2C /* YangDragButton */ = {
 			isa = PBXGroup;
 			children = (
-				1C7BC22AF2DD2E43E9192564D0506FBC /* YangWidgets */,
+				51963622D69AF101DA7F45E65C4C96F6 /* YangWidgets */,
 			);
-			name = YangPageControl;
+			name = YangDragButton;
+			sourceTree = "<group>";
+		};
+		AB84BEA8630F8E1609C65980F0F94B2E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7810554C6506DE534F51E8D6808D6C24 /* YangPageControl */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -208,25 +215,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C6C2B57241B1C17FB8C84F56791673B0 /* YangPageControl */ = {
-			isa = PBXGroup;
-			children = (
-				32C9C834DF9A49230833E04018668C49 /* YangGuidPageViewController.swift */,
-				5199990CB203A5DF9169EFF19F3D32F7 /* YangPageControl.swift */,
-			);
-			name = YangPageControl;
-			path = YangPageControl;
-			sourceTree = "<group>";
-		};
-		CF450E73453D3F22B8661119EF8B680F /* YangWidgets */ = {
-			isa = PBXGroup;
-			children = (
-				5BC857B6B421BF4939FAA2345957D774 /* Classes */,
-			);
-			name = YangWidgets;
-			path = YangWidgets;
-			sourceTree = "<group>";
-		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,10 +223,24 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		D9B9D0BC77C353643DEB5780E29B5B00 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				12F0E3360BCF84FEFB03576CD0424645 /* Info.plist */,
+				FBE3B89BAFB6F9C2F5EC338FF631CCEB /* YangWidgets.modulemap */,
+				2B9D033D34F49B4F4FCFD157DDDE3345 /* YangWidgets.xcconfig */,
+				D487B72560CD6D72005E96CF3D575947 /* YangWidgets-dummy.m */,
+				85F26C02E712C64A5A49CA4817F5D0F5 /* YangWidgets-prefix.pch */,
+				58AAE1DF0F51C9B45CB723FCFB9F5DE3 /* YangWidgets-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/YangWidgets";
+			sourceTree = "<group>";
+		};
 		DD8A198A5DF988DA78AD932CF4B85DF0 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E61CDAC11FB81AFCB1F43A869316252A /* YangWidgets */,
+				5C32C9616C8FB5B07D7BE80E729C7EE4 /* YangWidgets */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -261,15 +263,13 @@
 			path = "Target Support Files/Pods-YangWidgets_Tests";
 			sourceTree = "<group>";
 		};
-		E61CDAC11FB81AFCB1F43A869316252A /* YangWidgets */ = {
+		E8B285297E5ECBB0522A146A310CA20E /* YangWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				3098BBFCDFD1FC9D893668B7C837A8EA /* DragButton */,
-				3ABFE3482F5C1DDEF10BEC610E7AD083 /* Support Files */,
-				A0398785074264E3E382B742AB2B4BE2 /* YangPageControl */,
+				AB84BEA8630F8E1609C65980F0F94B2E /* Classes */,
 			);
 			name = YangWidgets;
-			path = ../..;
+			path = YangWidgets;
 			sourceTree = "<group>";
 		};
 		F37715D2D901E047A8B2E2DF4CE2C207 /* Products */ = {
@@ -675,7 +675,7 @@
 		};
 		CA7A901D0B4804198502828C6579EFF9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B775DF5EAA4EE95F9C419EFDB2C6608 /* YangWidgets.xcconfig */;
+			baseConfigurationReference = 2B9D033D34F49B4F4FCFD157DDDE3345 /* YangWidgets.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -709,7 +709,7 @@
 		};
 		DBFFF778729A3C7856E6D6E418B06405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B775DF5EAA4EE95F9C419EFDB2C6608 /* YangWidgets.xcconfig */;
+			baseConfigurationReference = 2B9D033D34F49B4F4FCFD157DDDE3345 /* YangWidgets.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

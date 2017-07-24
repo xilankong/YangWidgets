@@ -1,9 +1,9 @@
 PODS:
-  - YangWidgets/DragButton (0.1.0)
+  - YangWidgets/YangDragButton (0.1.0)
   - YangWidgets/YangPageControl (0.1.0)
 
 DEPENDENCIES:
-  - YangWidgets/DragButton (from `../`)
+  - YangWidgets/YangDragButton (from `../`)
   - YangWidgets/YangPageControl (from `../`)
 
 EXTERNAL SOURCES:
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YangWidgets: 04ee776aaca4007c0b893d4789444ddaad22e640
+  YangWidgets: 581fa8062b0bbce3dd4b2610989af571f517c0a5
 
-PODFILE CHECKSUM: c7e94c4d520c7769bacfed2ac74170bf6ce439f4
+PODFILE CHECKSUM: 12b4556e81aa0c9f66980000e17445f3f950b1fa
 
 COCOAPODS: 1.2.1
