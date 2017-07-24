@@ -16,7 +16,7 @@
 //出现位置
 - (CGPoint)menu_positionInSuperView;
 //点击事件
-- (void)menu:(DropMenuView *)menu  didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)menu:(DropMenuView *)menu didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

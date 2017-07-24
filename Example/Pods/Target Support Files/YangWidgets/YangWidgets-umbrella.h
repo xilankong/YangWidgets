@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "DropMenuView.h"
 
 FOUNDATION_EXPORT double YangWidgetsVersionNumber;
 FOUNDATION_EXPORT const unsigned char YangWidgetsVersionString[];
