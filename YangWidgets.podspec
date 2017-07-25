@@ -29,6 +29,10 @@ TODO: widgets in development
         drag.resource = 'YangWidgets/Assets/YangDragButton/**/*'
     end
 
+    s.subspec 'YangSlideMenuView' do |slide|
+        slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
+        slide.resource = 'YangWidgets/Assets/YangSlideMenuView/**/*'
+    end
   s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'

@@ -3,9 +3,11 @@ PODS:
     - YangWidgets/YangDragButton (= 0.1.0)
     - YangWidgets/YangDropMenuView (= 0.1.0)
     - YangWidgets/YangPageControl (= 0.1.0)
+    - YangWidgets/YangSlideMenuView (= 0.1.0)
   - YangWidgets/YangDragButton (0.1.0)
   - YangWidgets/YangDropMenuView (0.1.0)
   - YangWidgets/YangPageControl (0.1.0)
+  - YangWidgets/YangSlideMenuView (0.1.0)
 
 DEPENDENCIES:
   - YangWidgets (from `../`)
@@ -15,7 +17,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YangWidgets: 581fa8062b0bbce3dd4b2610989af571f517c0a5
+  YangWidgets: 6e10079042a5f898ab33ab8cea3a26e1be7f8a7d
 
 PODFILE CHECKSUM: 03c1a775362354e6e421328009aa6dcad035806b
 
