@@ -8,6 +8,8 @@
 
 #import "UIViewController+Custom.h"
 #import <objc/runtime.h>
+#import "YangNavigationHelper.h"
+
 #define textColor [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0]
 #define lineColor [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0]
 
@@ -40,14 +42,12 @@ static NSInteger const kCATCustomExcludeAlphaTag = 999012;
     hisButton.frame = CGRectMake(0, 0, 25, 25);
     [hisButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
-    NSBundle*myBundle = [NSBundle bundleForClass:RTRootNavigationController.class];
-    
     if (self.preferredStatusBarStyle == UIStatusBarStyleLightContent) {
-        [hisButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-        [hisButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+        [hisButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [hisButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
     } else {
-        [hisButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-        [hisButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+        [hisButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [hisButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
     }
     [hisButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     self.rt_backButton = hisButton;
@@ -76,16 +76,14 @@ static NSInteger const kCATCustomExcludeAlphaTag = 999012;
     if (style == [self preferredStatusBarStyle]) {
         return;
     }
-    
-    NSBundle*myBundle = [NSBundle bundleForClass:RTRootNavigationController.class];
     if (style == UIStatusBarStyleDefault) {
         if (self.navigationController) {
             self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : textColor};
             self.rt_lightContentBar = NO;
             [self.navigationController.navigationBar lt_setLineColor:lineColor];
             if (self.rt_backButton) {
-                [self.rt_backButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-                [self.rt_backButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+                [self.rt_backButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+                [self.rt_backButton setImage:[UIImage imageNamed:@"blackarrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
             }
         }
     } else {
@@ -94,8 +92,8 @@ static NSInteger const kCATCustomExcludeAlphaTag = 999012;
             self.rt_lightContentBar = YES;
             [self.navigationController.navigationBar lt_setLineColor:[UIColor clearColor]];
             if (self.rt_backButton) {
-                [self.rt_backButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-                [self.rt_backButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+                [self.rt_backButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+                [self.rt_backButton setImage:[UIImage imageNamed:@"whitearrow" inBundle:NavBundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
             }
         }
     }

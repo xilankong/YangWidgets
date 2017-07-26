@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YangWidgets
 
 class HomeViewController: UIViewController {
     
@@ -46,10 +47,14 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = tableHeadViewInit()
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 15))
+        leftView.backgroundColor = UIColor.red
+        let button = self.navigationItem.addRightTextButtonItem(withTarget: self, action: Selector("backAction"), andText: "退出")
+        button?.titleLabel?.font = UIFont.systemFont(ofSize: 11.0)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func backAction() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

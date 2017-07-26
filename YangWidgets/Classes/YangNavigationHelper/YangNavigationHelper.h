@@ -15,4 +15,6 @@
 #import "UIViewController+Custom.h"
 #import "UINavigationItem+Custom.h"
 
+#define NavBundle [NSBundle bundleForClass:RTRootNavigationController.class]
+
 #endif /* YangNavigationHelper_h */
