@@ -33,6 +33,11 @@ TODO: widgets in development
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
         slide.resource = 'YangWidgets/Assets/YangSlideMenuView/**/*'
     end
+
+    s.subspec 'YangNavigationHelper' do |nav|
+        nav.source_files = 'YangWidgets/Classes/YangNavigationHelper/**/*'
+        nav.resource = 'YangWidgets/Assets/YangNavigationHelper/**/*'
+    end
   s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'

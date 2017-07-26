@@ -11,7 +11,7 @@
 #define hightLightColor [UIColor colorWithRed:0.259f green:0.812f blue:0.784f alpha:1.00f]
 #define normalColor [UIColor colorWithRed:0.17f green:0.17f blue:0.17f alpha:1.00f]
 
-@interface YangSlideLabel()
+@interface YangSlideLabel: UILabel
 
 @property(nonatomic, assign) BOOL hightLight;
 @property(nonatomic, assign) CGFloat width;
@@ -126,6 +126,7 @@
         YangSlideLabel *label = [self.labelList objectAtIndex:i];
         label.text = [data objectAtIndex:i];
         label.font = [UIFont systemFontOfSize:14];
+        label.tag = i;
         float width = label.width;
         label.frame = CGRectMake(contentSizeWidth, 0, width, self.frame.size.height);
         label.hightLight = (i == 0);
@@ -144,8 +145,8 @@
         obj.hightLight = NO;
     }];
     clickLabel.hightLight = YES;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(yang_menuItemClickAction:)]) {
-        [self.delegate yang_menuItemClickAction:clickLabel];
+    if (self.slideDelegate && [self.slideDelegate respondsToSelector:@selector(menuView:clickActionAtIndex:)]) {
+        [self.slideDelegate menuView:self clickActionAtIndex:clickLabel.tag];
     }
     if (self.contentSize.width >= self.frame.size.width - 30) {
         float offsetx = clickLabel.center.x - self.frame.size.width * 0.5;

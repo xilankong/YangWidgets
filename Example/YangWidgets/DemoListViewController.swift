@@ -8,9 +8,11 @@
 
 import UIKit
 import YangWidgets
-class ViewController: UIViewController {
+import SnapKit
 
-    @IBOutlet weak var tableView: UITableView!
+class DemoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var tableView: UITableView!
     var dataList: [String] = ["YangSliderMenuViewController",
          "YangSliderMenuViewController",
          "YangSliderMenuViewController"]
@@ -18,13 +20,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
     }
 
     
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension DemoListViewController {
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")

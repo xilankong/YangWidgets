@@ -7,22 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@class YangSlideLabel;
+@class YangSlideMenuView;
 @protocol YangSlideMenuViewDelegate <NSObject>
-
-- (void)yang_menuItemClickAction:(YangSlideLabel *) label;
-
-@end
-
-@interface YangSlideLabel : UILabel
-
+- (void)menuView:(YangSlideMenuView *) menuView clickActionAtIndex:(NSInteger) index;
 @end
 
 @interface YangSlideMenuView : UIScrollView
 
 @property (nonatomic, strong) UIColor *labelSelectColor;
 @property (nonatomic, strong) UIColor *labelUnSelectColor;
-@property (nonatomic, weak) id<YangSlideMenuViewDelegate> delegate;
+@property (nonatomic, weak) id<YangSlideMenuViewDelegate> slideDelegate;
 
 - (void)updateViewWithDataArray:(NSArray *) data;
 

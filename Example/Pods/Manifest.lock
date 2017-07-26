@@ -1,15 +1,19 @@
 PODS:
+  - SnapKit (3.2.0)
   - YangWidgets (0.1.0):
     - YangWidgets/YangDragButton (= 0.1.0)
     - YangWidgets/YangDropMenuView (= 0.1.0)
+    - YangWidgets/YangNavigationHelper (= 0.1.0)
     - YangWidgets/YangPageControl (= 0.1.0)
     - YangWidgets/YangSlideMenuView (= 0.1.0)
   - YangWidgets/YangDragButton (0.1.0)
   - YangWidgets/YangDropMenuView (0.1.0)
+  - YangWidgets/YangNavigationHelper (0.1.0)
   - YangWidgets/YangPageControl (0.1.0)
   - YangWidgets/YangSlideMenuView (0.1.0)
 
 DEPENDENCIES:
+  - SnapKit
   - YangWidgets (from `../`)
 
 EXTERNAL SOURCES:
@@ -17,8 +21,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YangWidgets: 6e10079042a5f898ab33ab8cea3a26e1be7f8a7d
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  YangWidgets: 0c4ba5106ce81fe4a5a21e91c7510a27eda8c1fa
 
-PODFILE CHECKSUM: 03c1a775362354e6e421328009aa6dcad035806b
+PODFILE CHECKSUM: 625bcb327f469e4cf003015c82ba4b0e8b5e5139
 
 COCOAPODS: 1.2.1
