@@ -15,6 +15,7 @@ class SkillViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: App.screenWidth, height: App.screenHeight - 44), style: UITableViewStyle.plain)
+         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         return tableView
     }()
     
@@ -26,7 +27,8 @@ class SkillViewController: UIViewController {
     func initUI() {
         self.rt_navigationBackgroundColor(App.navColor)
         self.rt_navigationStatusBarStatus(.lightContent)
-//          self.navigationController?.navigationBar.lt_setTranslationY(-44)
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationController?.navigationBar.isTranslucent = true
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
