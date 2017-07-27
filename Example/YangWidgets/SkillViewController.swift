@@ -24,8 +24,9 @@ class SkillViewController: UIViewController {
     }
     
     func initUI() {
-//        self.rt_navigationBackgroundColor(App.navColor)
-//        self.rt_navigationStatusBarStatus(.lightContent)
+        self.rt_navigationBackgroundColor(App.navColor)
+        self.rt_navigationStatusBarStatus(.lightContent)
+//          self.navigationController?.navigationBar.lt_setTranslationY(-44)
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,11 +52,12 @@ extension SkillViewController: UITableViewDelegate, UITableViewDataSource, UIScr
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.navigationController?.pushViewController(DetialViewController(), animated: true)
+        print(self.navigationController?.navigationBar)
+        self.navigationController?.pushViewController(DemoListViewController(), animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            var height = (-64 - (scrollView.contentOffset.y))
+            var height = (0 - (scrollView.contentOffset.y))
             if height < -44 {
                 height = -44
             } else if height > 0 {

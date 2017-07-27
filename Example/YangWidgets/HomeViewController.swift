@@ -34,11 +34,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        self.automaticallyAdjustsScrollViewInsets = false
     }
 
     func initUI() {
-        self.rt_navigationBackgroundColor(UIColor(white: 1, alpha: 0))
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.rt_navigationBackgroundColor(UIColor.clear)
         self.rt_navigationStatusBarStatus(.lightContent)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -92,7 +93,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
         return 25
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.navigationController?.pushViewController(DetialViewController(), animated: true)
+        self.navigationController?.pushViewController(SkillViewController(), animated: true)
     }
     
     

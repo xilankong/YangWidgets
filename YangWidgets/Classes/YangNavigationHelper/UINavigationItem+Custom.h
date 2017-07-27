@@ -126,5 +126,4 @@
  */
 - (void)addRightItemWithTarget:(id)target action:(SEL)action andView:(UIView *)rightView;
 
-
 @end

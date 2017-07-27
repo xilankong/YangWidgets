@@ -11,7 +11,6 @@
 - (void)lt_setBackgroundColor:(UIColor *)backgroundColor;
 - (void)lt_setLineColor:(UIColor *)color;
 - (void)lt_setElementsAlpha:(CGFloat)alpha;
-//不能和 lt_setBackgroundColor 一起在scroll环境用
 - (void)lt_setTranslationY:(CGFloat)translationY;
 - (void)lt_reset;
 @end

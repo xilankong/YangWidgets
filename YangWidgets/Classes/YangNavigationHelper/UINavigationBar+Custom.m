@@ -48,6 +48,7 @@ static char overlayLineKey;
         self.overlayLine.userInteractionEnabled = NO;
         
         [self.overlay addSubview:self.overlayLine];
+        self.backgroundColor = backgroundColor;
         [[self.subviews firstObject] insertSubview:self.overlay atIndex:0];
     }
     self.overlay.backgroundColor = backgroundColor;

@@ -27,6 +27,7 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
+        self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.white)
     }
 
     

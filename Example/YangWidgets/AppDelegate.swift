@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initConfig() {
-        
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
     }
     
     func initUI() {
