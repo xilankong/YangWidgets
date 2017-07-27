@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3DEF5BE31F22FD1400283C58 /* YangWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DEF5BE21F22FD1400283C58 /* YangWidgets.framework */; };
+		3DEF5BE91F2A2F6000283C58 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5BE81F2A2F6000283C58 /* ModalViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* DemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* DemoListViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		30B052E6A856064BF58EAD0B /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YangWidgets_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CAD1C84B12084FB214990D /* Pods-YangWidgets_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWidgets_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YangWidgets_Tests/Pods-YangWidgets_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DEF5BE21F22FD1400283C58 /* YangWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YangWidgets.framework; path = "../../../../Library/Developer/Xcode/DerivedData/YangWidgets-amzfeertzpgzbdcydoltuljpthxx/Build/Products/Debug-iphonesimulator/YangWidgets/YangWidgets.framework"; sourceTree = "<group>"; };
+		3DEF5BE81F2A2F6000283C58 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		4C52B90E85BD0EE861DF1245 /* Pods-YangWidgets_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWidgets_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YangWidgets_Example/Pods-YangWidgets_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5E64FFF221D8DEAB7034AEF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* YangWidgets_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YangWidgets_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				6F960B801F28425000DD551E /* HomeViewController.swift */,
 				6F960B811F28425000DD551E /* SkillViewController.swift */,
 				607FACD71AFB9204008FA782 /* DemoListViewController.swift */,
+				3DEF5BE81F2A2F6000283C58 /* ModalViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				6F960B7A1F28413900DD551E /* YangHelper.swift in Sources */,
 				6F960B821F28425000DD551E /* HomeViewController.swift in Sources */,
+				3DEF5BE91F2A2F6000283C58 /* ModalViewController.swift in Sources */,
 				6F960B7D1F28413900DD551E /* YangTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -61,8 +61,20 @@ static char overlayLineKey;
 
 - (void)lt_setTranslationY:(CGFloat)translationY
 {
+    //_UIBarBackground属于动态部署 的Y值等于self的Y值
+    //_UIBarBackground.height +_UIBarBackground.y = 44
+    //我们需要计算的时overlay的高度，当navigation刷新的时候
+    //会进行frame上的变化，变成自适应size，但是当刷新的时候，继续变更self、的translationY就会发现问题，_UIBarBackground的frame不再变成原样。
     self.transform = CGAffineTransformMakeTranslation(0, translationY);
+    CGFloat selfY = -(64 + translationY);
     
+    UIView *barbg = [self.subviews firstObject];
+    if (selfY > 0) {
+        barbg.frame = CGRectMake(0, 0, barbg.frame.size.width,44);
+    } else {
+        barbg.frame = CGRectMake(0, 44 + selfY, barbg.frame.size.width,-selfY);
+    }
+    self.overlay.frame = CGRectMake(0, 0, self.frame.size.width,barbg.frame.size.height);
 }
 
 - (void)lt_setElementsAlpha:(CGFloat)alpha
