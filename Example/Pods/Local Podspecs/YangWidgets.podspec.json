@@ -39,11 +39,6 @@
       "name": "YangSlideMenuView",
       "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*",
       "resources": "YangWidgets/Assets/YangSlideMenuView/**/*"
-    },
-    {
-      "name": "YangNavigationHelper",
-      "source_files": "YangWidgets/Classes/YangNavigationHelper/**/*",
-      "resources": "YangWidgets/Assets/YangNavigationHelper/**/*"
     }
   ]
 }
