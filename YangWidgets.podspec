@@ -16,24 +16,20 @@ TODO: widgets in development
 
     s.subspec 'YangPageControl' do |page|
         page.source_files = 'YangWidgets/Classes/YangPageControl/**/*'
-        page.resource = 'YangWidgets/Assets/YangPageControl/**/*'
     end
 
     s.subspec 'YangDropMenuView' do |menu|
         menu.source_files = 'YangWidgets/Classes/YangDropMenuView/**/*'
-        menu.resource = 'YangWidgets/Assets/YangDropMenuView/**/*'
     end
 
     s.subspec 'YangDragButton' do |drag|
         drag.source_files = 'YangWidgets/Classes/YangDragButton/**/*'
-        drag.resource = 'YangWidgets/Assets/YangDragButton/**/*'
     end
 
     s.subspec 'YangSlideMenuView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
-        slide.resource = 'YangWidgets/Assets/YangSlideMenuView/**/*'
     end
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'YangWidgets/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
