@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YangWidgets'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'widgets in development'
 
 # 开发中常用的小工具合集
@@ -15,7 +15,7 @@ TODO: widgets in development
   s.source           = { :git => 'https://github.com/xilankong/YangWidgets.git', :tag => s.version.to_s }
 
     s.subspec 'YangPageControl' do |page|
-        page.source_files = 'YangWidgets/Classes/YangPageControl/*.swift'
+        page.source_files = 'YangWidgets/Classes/YangPageControl/**/*'
 
         page.subspec 'more' do |more|
         more.source_files = 'YangWidgets/Classes/YangPageControl/more/**/*'

@@ -1,16 +1,16 @@
 PODS:
   - SnapKit (3.2.0)
-  - YangWidgets (1.0.1):
-    - YangWidgets/YangDragButton (= 1.0.1)
-    - YangWidgets/YangDropMenuView (= 1.0.1)
-    - YangWidgets/YangPageControl (= 1.0.1)
-    - YangWidgets/YangSlideMenuView (= 1.0.1)
-  - YangWidgets/YangDragButton (1.0.1)
-  - YangWidgets/YangDropMenuView (1.0.1)
-  - YangWidgets/YangPageControl (1.0.1):
-    - YangWidgets/YangPageControl/more (= 1.0.1)
-  - YangWidgets/YangPageControl/more (1.0.1)
-  - YangWidgets/YangSlideMenuView (1.0.1)
+  - YangWidgets (1.0.3):
+    - YangWidgets/YangDragButton (= 1.0.3)
+    - YangWidgets/YangDropMenuView (= 1.0.3)
+    - YangWidgets/YangPageControl (= 1.0.3)
+    - YangWidgets/YangSlideMenuView (= 1.0.3)
+  - YangWidgets/YangDragButton (1.0.3)
+  - YangWidgets/YangDropMenuView (1.0.3)
+  - YangWidgets/YangPageControl (1.0.3):
+    - YangWidgets/YangPageControl/more (= 1.0.3)
+  - YangWidgets/YangPageControl/more (1.0.3)
+  - YangWidgets/YangSlideMenuView (1.0.3)
 
 DEPENDENCIES:
   - SnapKit
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  YangWidgets: 05204141e7c25715bee0fcf958dff2328ee2cd69
+  YangWidgets: e43f5d5eefc101999d144130894bcfabfc99217b
 
 PODFILE CHECKSUM: 625bcb327f469e4cf003015c82ba4b0e8b5e5139
 
