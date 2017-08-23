@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YangWidgets'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'widgets in development'
 
 # 开发中常用的小工具合集
