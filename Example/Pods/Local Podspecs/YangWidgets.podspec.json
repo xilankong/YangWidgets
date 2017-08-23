@@ -1,6 +1,6 @@
 {
   "name": "YangWidgets",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "summary": "widgets in development",
   "description": "TODO: widgets in development",
   "platforms": {
@@ -16,29 +16,30 @@
   },
   "source": {
     "git": "https://github.com/xilankong/YangWidgets.git",
-    "tag": "0.1.0"
+    "tag": "1.0.1"
   },
-  "public_header_files": "Pod/Classes/**/*.h",
   "subspecs": [
     {
       "name": "YangPageControl",
-      "source_files": "YangWidgets/Classes/YangPageControl/**/*",
-      "resources": "YangWidgets/Assets/YangPageControl/**/*"
+      "source_files": "YangWidgets/Classes/YangPageControl/*.swift",
+      "subspecs": [
+        {
+          "name": "more",
+          "source_files": "YangWidgets/Classes/YangPageControl/more/**/*"
+        }
+      ]
     },
     {
       "name": "YangDropMenuView",
-      "source_files": "YangWidgets/Classes/YangDropMenuView/**/*",
-      "resources": "YangWidgets/Assets/YangDropMenuView/**/*"
+      "source_files": "YangWidgets/Classes/YangDropMenuView/**/*"
     },
     {
       "name": "YangDragButton",
-      "source_files": "YangWidgets/Classes/YangDragButton/**/*",
-      "resources": "YangWidgets/Assets/YangDragButton/**/*"
+      "source_files": "YangWidgets/Classes/YangDragButton/**/*"
     },
     {
       "name": "YangSlideMenuView",
-      "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*",
-      "resources": "YangWidgets/Assets/YangSlideMenuView/**/*"
+      "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*"
     }
   ]
 }
