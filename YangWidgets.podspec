@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YangWidgets'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'widgets in development'
 
 # 开发中常用的小工具合集
@@ -16,10 +16,6 @@ TODO: widgets in development
 
     s.subspec 'YangPageControl' do |page|
         page.source_files = 'YangWidgets/Classes/YangPageControl/**/*'
-
-        page.subspec 'more' do |more|
-        more.source_files = 'YangWidgets/Classes/YangPageControl/more/**/*'
-        end
     end
 
     s.subspec 'YangDropMenuView' do |menu|

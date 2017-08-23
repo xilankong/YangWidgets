@@ -7,9 +7,7 @@ PODS:
     - YangWidgets/YangSlideMenuView (= 1.0.3)
   - YangWidgets/YangDragButton (1.0.3)
   - YangWidgets/YangDropMenuView (1.0.3)
-  - YangWidgets/YangPageControl (1.0.3):
-    - YangWidgets/YangPageControl/more (= 1.0.3)
-  - YangWidgets/YangPageControl/more (1.0.3)
+  - YangWidgets/YangPageControl (1.0.3)
   - YangWidgets/YangSlideMenuView (1.0.3)
 
 DEPENDENCIES:
@@ -22,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  YangWidgets: e43f5d5eefc101999d144130894bcfabfc99217b
+  YangWidgets: 23e50b3d62a65d0490e669cf94243403de40b1d8
 
 PODFILE CHECKSUM: 625bcb327f469e4cf003015c82ba4b0e8b5e5139
 

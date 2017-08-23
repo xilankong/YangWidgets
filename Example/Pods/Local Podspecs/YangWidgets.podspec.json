@@ -21,13 +21,7 @@
   "subspecs": [
     {
       "name": "YangPageControl",
-      "source_files": "YangWidgets/Classes/YangPageControl/**/*",
-      "subspecs": [
-        {
-          "name": "more",
-          "source_files": "YangWidgets/Classes/YangPageControl/more/**/*"
-        }
-      ]
+      "source_files": "YangWidgets/Classes/YangPageControl/**/*"
     },
     {
       "name": "YangDropMenuView",
