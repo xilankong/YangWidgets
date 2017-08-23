@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YangWidgets'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'widgets in development'
 
 # 开发中常用的小工具合集
@@ -29,7 +29,6 @@ TODO: widgets in development
     s.subspec 'YangSlideMenuView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
     end
-  s.public_header_files = 'YangWidgets/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
