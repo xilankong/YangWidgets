@@ -1,6 +1,6 @@
 {
   "name": "YangWidgets",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "summary": "widgets in development",
   "description": "TODO: widgets in development",
   "platforms": {
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/xilankong/YangWidgets.git",
-    "tag": "1.0.3"
+    "tag": "1.0.4"
   },
   "subspecs": [
     {
@@ -34,6 +34,16 @@
     {
       "name": "YangSlideMenuView",
       "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*"
+    },
+    {
+      "name": "YangDefaultPage",
+      "source_files": "YangWidgets/Classes/YangDefaultPage/**/*",
+      "resources": "YangWidgets/Assets/YangDefaultPage/**/*",
+      "dependencies": {
+        "FLAnimatedImage": [
+
+        ]
+      }
     }
   ]
 }

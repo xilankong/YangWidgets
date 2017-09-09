@@ -1,0 +1,6 @@
+framework module YangNavigationHelper {
+  umbrella header "YangNavigationHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}

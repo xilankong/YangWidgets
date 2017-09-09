@@ -8,6 +8,7 @@
 
 import UIKit
 import YangWidgets
+import YangNavigationHelper
 
 class YangTabBarController: UITabBarController {
 
@@ -19,14 +20,9 @@ class YangTabBarController: UITabBarController {
     func initUI() {
         
         let listVC = DemoListViewController()
-        let listNV = RTContainerNavigationController(rootViewController: listVC)
-        let skillVC = SkillViewController()
-        let skillNV = RTContainerNavigationController(rootViewController: skillVC)
-        let homeVC = HomeViewController()
-        let homeNV = RTContainerNavigationController(rootViewController: homeVC)
-        
-        let array = [listNV, skillNV, homeNV]
-        let names = ["demolist","skill", "home"]
+        let listNV = YangContainerNavigationController(rootViewController: listVC)
+        let array = [listNV]
+        let names = ["demolist"]
         for (index, vc) in array.enumerated() {
             vc.tabBarItem = UITabBarItem(title: names[index], image: nil, selectedImage: nil)
         }
@@ -40,7 +36,7 @@ class YangTabBarController: UITabBarController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         
-        guard let nav = self.childViewControllers[self.selectedIndex] as? RTContainerNavigationController, let topVc = nav.topViewController else {
+        guard let nav = self.childViewControllers[self.selectedIndex] as? YangContainerNavigationController, let topVc = nav.topViewController else {
             return self.childViewControllers[self.selectedIndex].preferredStatusBarStyle
         }
         return topVc.preferredStatusBarStyle

@@ -29,6 +29,10 @@ TODO: widgets in development
     s.subspec 'YangSlideMenuView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
     end
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
+    s.subspec 'YangDefaultPage' do |defaultpage|
+        defaultpage.source_files = 'YangWidgets/Classes/YangDefaultPage/**/*'
+        defaultpage.resource = 'YangWidgets/Assets/YangDefaultPage/**/*'
+        defaultpage.dependency 'FLAnimatedImage'
+    end
 end

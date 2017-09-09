@@ -8,12 +8,13 @@
 
 import UIKit
 import YangWidgets
+import YangNavigationHelper
 
 class PRLayer: NSObject {
     
     var mainWindow: UIWindow?
     var rootViewController: UIViewController?
-    var navigationController: RTRootNavigationController?
+    var navigationController: YangRootNavigationController?
     var tabBarViewController: YangTabBarController?
     
     static let layer: PRLayer = PRLayer()
@@ -27,7 +28,7 @@ class PRLayer: NSObject {
     func createObjects() {
         mainWindow = UIWindow(frame: UIScreen.main.bounds)
         tabBarViewController = YangTabBarController()
-        navigationController = RTRootNavigationController(rootViewControllerNoWrapping: YangTabBarController())
+        navigationController = YangRootNavigationController(rootViewControllerNoWrapping: YangTabBarController())
         navigationController?.navigationBar.isTranslucent = false
         rootViewController = navigationController
     }

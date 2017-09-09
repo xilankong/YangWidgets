@@ -1,0 +1,23 @@
+{
+  "name": "YangNavigationHelper",
+  "version": "1.0.0",
+  "summary": "YangNavigationHelper.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/xilankong/YangNavigationHelper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xilankong": "xilankong@126.com"
+  },
+  "source": {
+    "git": "https://github.com/xilankong/YangNavigationHelper.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "YangNavigationHelper/Classes/**/*",
+  "resources": "YangNavigationHelper/Assets/*"
+}

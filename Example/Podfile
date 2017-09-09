@@ -3,6 +3,7 @@ inhibit_all_warnings!
 target 'YangWidgets_Example' do
   pod 'YangWidgets', :path => '../'
   pod 'SnapKit'
+  pod "YangNavigationHelper", :path => "../../YangNavigationHelper"
   target 'YangWidgets_Tests' do
     inherit! :search_paths
 
