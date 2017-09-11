@@ -10,6 +10,7 @@ PODS:
     - YangWidgets/YangSlideMenuView (= 1.0.4)
   - YangWidgets/YangDefaultPage (1.0.4):
     - FLAnimatedImage
+    - SnapKit
   - YangWidgets/YangDragButton (1.0.4)
   - YangWidgets/YangDropMenuView (1.0.4)
   - YangWidgets/YangPageControl (1.0.4)
@@ -30,7 +31,7 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
-  YangWidgets: 0ffbfd3c24ab04542ecbb5d280ea4ff76ffc63af
+  YangWidgets: a4a8af2f6874084bcf64735e3fa7f4b129dca995
 
 PODFILE CHECKSUM: 5f69b77dbe40e240803618f91208262cf6cd73b2
 

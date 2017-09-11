@@ -34,5 +34,6 @@ TODO: widgets in development
         defaultpage.source_files = 'YangWidgets/Classes/YangDefaultPage/**/*'
         defaultpage.resource = 'YangWidgets/Assets/YangDefaultPage/**/*'
         defaultpage.dependency 'FLAnimatedImage'
+        defaultpage.dependency 'SnapKit'
     end
 end

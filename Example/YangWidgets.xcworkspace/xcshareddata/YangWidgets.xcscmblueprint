@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B13C50004AC566AE30B9C995AD057AF4091DCBBD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B13C50004AC566AE30B9C995AD057AF4091DCBBD" : 9223372036854775807,
+    "265ECA0794E6BE32460B31CE27E5F5E059038747" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C26B67BB-3C69-40FF-87BC-7075DA0D24D7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B13C50004AC566AE30B9C995AD057AF4091DCBBD" : "YangWidgets\/",
+    "265ECA0794E6BE32460B31CE27E5F5E059038747" : "YangNavigationHelper\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YangWidgets",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/YangWidgets.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xilankong\/YangNavigationHelper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "265ECA0794E6BE32460B31CE27E5F5E059038747"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xilankong\/YangWidgets.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B13C50004AC566AE30B9C995AD057AF4091DCBBD"
+    }
+  ]
+}
