@@ -31,7 +31,6 @@ class YangLoadingViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.delegate = self
         self.view.addSubview(tableView)
-        
     }
     
     

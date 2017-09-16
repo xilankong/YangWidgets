@@ -29,11 +29,4 @@ TODO: widgets in development
     s.subspec 'YangSlideMenuView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
     end
-
-    s.subspec 'YangDefaultPage' do |defaultpage|
-        defaultpage.source_files = 'YangWidgets/Classes/YangDefaultPage/**/*'
-        defaultpage.resource = 'YangWidgets/Assets/YangDefaultPage/**/*'
-        defaultpage.dependency 'FLAnimatedImage'
-        defaultpage.dependency 'SnapKit'
-    end
 end
