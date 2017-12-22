@@ -1,6 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
-  - SnapKit (3.2.0)
+  - SnapKit (4.0.0)
   - YangNavigationHelper (1.0.0)
   - YangWidgets (1.0.4):
     - YangWidgets/YangDefaultPage (= 1.0.4)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
   YangWidgets: a4a8af2f6874084bcf64735e3fa7f4b129dca995
 
