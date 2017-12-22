@@ -1,76 +1,58 @@
 //
-//  YangDropMenuView.h
-//  YangDropMenuView
-//  参考自 JSDropDownMenu
-//  Created by yanghuang on 2017/7/25.
-//  Copyright © 2017年 CocoaPods. All rights reserved.
+//  DropMenuView.h
+//  
+//  下拉菜单
+//  Created by yanghuang on 16/4/11.
+//  Copyright © yanghuang All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "YangDropMenuHelper.h"
-
 @class YangDropMenuView;
-@class YangIndexPath;
 
-#pragma mark dataSource
-@protocol YangDropMenuViewDataSource <NSObject>
+#pragma mark - 协议
+@protocol YangDropMenuDelegate <NSObject>
+
+@optional
+//点击事件
+- (void)menu:(YangDropMenuView *)menu didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)menu:(YangDropMenuView *)menu didDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
+#pragma mark - 数据源
+@protocol YangDropMenuDataSource <NSObject>
 
 @required
-- (NSInteger)menu:(YangDropMenuView *)menu numberOfRowsInColumn:(NSInteger)column leftOrRight:(NSInteger)leftOrRight leftRow:(NSInteger)leftRow;
 
-- (NSString *)menu:(YangDropMenuView *)menu titleForRowAtIndexPath:(YangIndexPath *)indexPath;
-
-- (NSString *)menu:(YangDropMenuView *)menu titleForColumn:(NSInteger)column;
-
-/**
- * 表视图显示时，左边表显示比例
- */
-- (CGFloat)widthRatioOfLeftColumn:(NSInteger)column;
-/**
- * 表视图显示时，是否需要两个表显示
- */
-- (BOOL)haveRightTableViewInColumn:(NSInteger)column;
-
-/**
- * 返回当前菜单左边表选中行
- */
-- (NSInteger)currentLeftSelectedRow:(NSInteger)column;
+//设置行数
+- (NSInteger)menu:(YangDropMenuView *)menu numberOfRowsInSection:(NSInteger)section;
+//设置title
+- (NSString *)menu:(YangDropMenuView *)menu titleForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
-//default value is 1
-- (NSInteger)numberOfColumnsInMenu:(YangDropMenuView *)menu;
 
-/**
- * 是否需要显示为UICollectionView 默认为否
- */
-- (BOOL)displayByCollectionViewInColumn:(NSInteger)column;
+- (NSInteger)numberOfSectionsInMenu:(YangDropMenuView *)menu;
 
 @end
 
-#pragma mark - delegate
-@protocol YangDropMenuViewDelegate <NSObject>
-@optional
-- (void)menu:(YangDropMenuView *)menu didSelectRowAtIndexPath:(YangIndexPath *)indexPath;
-@end
+#pragma mark - 下拉菜单
 
-#pragma mark - interface
-@interface YangDropMenuView : UIView <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface YangDropMenuView : UIView
 
-@property (nonatomic, weak) id <YangDropMenuViewDataSource> dataSource;
-@property (nonatomic, weak) id <YangDropMenuViewDelegate> delegate;
+@property (nonatomic, assign) CGFloat menuCellHeight;
+@property (nonatomic, assign) CGFloat menuMaxHeight;
+@property (nonatomic, strong) UIColor *titleHightLightColor;
+@property (nonatomic, strong) UIColor *titleColor;
 
-@property (nonatomic, strong) UIColor *indicatorColor;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, strong) UIColor *separatorColor;
-/**
- *  the width of menu will be set to screen width defaultly
- *
- *  @param origin the origin of this view's frame
- *  @param height menu's height
- *
- *  @return menu
- */
-- (instancetype)initWithOrigin:(CGPoint)origin andHeight:(CGFloat)height;
-- (NSString *)titleForRowAtIndexPath:(YangIndexPath *)indexPath;
+@property (nonatomic, weak) UILabel *titleLabel;
+@property (nonatomic, weak) UIImageView *transformImageView;
+@property (nonatomic, weak) id<YangDropMenuDataSource> dataSource;
+@property (nonatomic, weak) id<YangDropMenuDelegate> delegate;
+
+
+- (void)showInView:(UIView *)view andOrigin:(CGPoint) origin;
+- (void)hidden;
+- (void)reloadData;
 
 @end
+
+

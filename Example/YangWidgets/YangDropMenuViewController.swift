@@ -9,47 +9,36 @@
 import UIKit
 import YangWidgets
 
-class YangDropMenuViewController: UIViewController, YangDropMenuViewDataSource, YangDropMenuViewDelegate  {
+class YangDropMenuViewController: UIViewController, YangDropMenuDelegate, YangDropMenuDataSource {
 
-    
+    let menuBar: UIControl = UIControl(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 45))
+    let menu = YangDropMenuView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 0))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        let menu = YangDropMenuView(origin: CGPoint(x: 0, y: 100), andHeight: 45)
-        menu?.delegate = self
-        menu?.dataSource = self
         
-        view.addSubview(menu!)
-
+        view.addSubview(menuBar)
+        menuBar.backgroundColor = UIColor.red
+        menuBar.addTarget(self, action: #selector(showIn), for: .touchUpInside)
+        menu.delegate = self
+        menu.dataSource = self
     }
     
-    func numberOfColumns(inMenu menu: YangDropMenuView!) -> Int {
+   
+    @objc func showIn() {
+        menu.show(in: view, andOrigin: CGPoint(x: 0, y: 145))
+    }
+    
+    func numberOfSections(inMenu menu: YangDropMenuView!) -> Int {
         return 2
     }
     
-    func menu(_ menu: YangDropMenuView!, numberOfRowsInColumn column: Int, leftOrRight: Int, leftRow: Int) -> Int {
-        return 3
+    func menu(_ menu: YangDropMenuView!, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
     
-    func menu(_ menu: YangDropMenuView!, titleForRowAt indexPath: YangIndexPath!) -> String! {
+    func menu(_ menu: YangDropMenuView!, titleForRowAt indexPath: IndexPath!) -> String! {
         return "测试"
     }
-    
-    func menu(_ menu: YangDropMenuView!, titleForColumn column: Int) -> String! {
-        return "测试"
-    }
-    
-    func widthRatio(ofLeftColumn column: Int) -> CGFloat {
-        return 0.2
-    }
-    
-    func haveRightTableView(inColumn column: Int) -> Bool {
-        return false
-    }
-    
-    func currentLeftSelectedRow(_ column: Int) -> Int {
-        return 1
-    }
-
 }
