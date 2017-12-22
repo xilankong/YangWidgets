@@ -13,9 +13,9 @@ import SnapKit
 class DemoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView: UITableView!
-    var dataList: [String] = ["YangSliderMenuViewController",
+    var dataList: [String] = ["YangDropMenuViewController",
          "YangLoadingViewController",
-         "YangSliderMenuViewController"]
+         "YangDefaultViewDemoViewController"]
     
 
     override func viewDidLoad() {

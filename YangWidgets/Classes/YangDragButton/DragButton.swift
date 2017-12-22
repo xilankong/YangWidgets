@@ -73,7 +73,7 @@ public class DragButton: UIButton {
     }
 
     //MARK: - 要区分开单双击
-    func buttonClick(_ btn : DragButton) {
+    @objc func buttonClick(_ btn : DragButton) {
         
         let time : Double = doubleClickClosure == nil ? 0 : DOUBLE_CLICK_TIME
         self.perform(#selector(singleClickAction(_:)), with: nil, afterDelay: time)
@@ -81,7 +81,7 @@ public class DragButton: UIButton {
     
     //MARK:单击响应
     
-    func singleClickAction(_ btn : DragButton) {
+    @objc func singleClickAction(_ btn : DragButton) {
         //单击被取消 或者 拖拽、 无闭包都不执行
         guard let clickClosure = self.clickClosure,
             singleClickBeenCancled == false,

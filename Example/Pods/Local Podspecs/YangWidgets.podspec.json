@@ -34,19 +34,6 @@
     {
       "name": "YangSlideMenuView",
       "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*"
-    },
-    {
-      "name": "YangDefaultPage",
-      "source_files": "YangWidgets/Classes/YangDefaultPage/**/*",
-      "resources": "YangWidgets/Assets/YangDefaultPage/**/*",
-      "dependencies": {
-        "FLAnimatedImage": [
-
-        ],
-        "SnapKit": [
-
-        ]
-      }
     }
   ]
 }

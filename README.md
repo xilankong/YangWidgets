@@ -1,22 +1,6 @@
 # YangWidgets
 
-[![CI Status](http://img.shields.io/travis/xilankong/YangWidgets.svg?style=flat)](https://travis-ci.org/xilankong/YangWidgets)
-[![Version](https://img.shields.io/cocoapods/v/YangWidgets.svg?style=flat)](http://cocoapods.org/pods/YangWidgets)
-[![License](https://img.shields.io/cocoapods/l/YangWidgets.svg?style=flat)](http://cocoapods.org/pods/YangWidgets)
-[![Platform](https://img.shields.io/cocoapods/p/YangWidgets.svg?style=flat)](http://cocoapods.org/pods/YangWidgets)
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-ios above 8.0
-
-## Installation
-
-YangWidgets is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+自用工具集、部分内容来自github，有进行适用的修改，有注明原出处
 
 ```ruby
 pod "YangWidgets"
@@ -28,13 +12,7 @@ or
 pod "YangWidgets/YangPageControl"
 ```
 
-## Author
-
-yang
-
-xilankong@126.com
-
-# YangWidgets
+# 包括内容
 
 小工具集合：
 

@@ -38,7 +38,7 @@ class YangSliderMenuViewController: UIViewController, YangSlideMenuViewDelegate 
         print(array[index])
     }
     
-    func buttonClickAction() {
+    @objc func buttonClickAction() {
         array = array2
         menuView.update(withDataArray: array)
     }

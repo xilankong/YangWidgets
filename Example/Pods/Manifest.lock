@@ -1,16 +1,11 @@
 PODS:
-  - FLAnimatedImage (1.0.12)
   - SnapKit (4.0.0)
   - YangNavigationHelper (1.0.0)
   - YangWidgets (1.0.4):
-    - YangWidgets/YangDefaultPage (= 1.0.4)
     - YangWidgets/YangDragButton (= 1.0.4)
     - YangWidgets/YangDropMenuView (= 1.0.4)
     - YangWidgets/YangPageControl (= 1.0.4)
     - YangWidgets/YangSlideMenuView (= 1.0.4)
-  - YangWidgets/YangDefaultPage (1.0.4):
-    - FLAnimatedImage
-    - SnapKit
   - YangWidgets/YangDragButton (1.0.4)
   - YangWidgets/YangDropMenuView (1.0.4)
   - YangWidgets/YangPageControl (1.0.4)
@@ -28,10 +23,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
-  YangWidgets: a4a8af2f6874084bcf64735e3fa7f4b129dca995
+  YangWidgets: 60363d07b4e688dad36205d9a5cb44c6bd2fd334
 
 PODFILE CHECKSUM: 5f69b77dbe40e240803618f91208262cf6cd73b2
 
