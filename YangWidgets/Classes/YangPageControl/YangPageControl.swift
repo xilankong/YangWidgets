@@ -20,15 +20,12 @@ public protocol YangPageControlDelegate: class {
 
 // MARK: - 指示器点对象，只针对图片处理
 public class YangPageDot: NSObject {
-   public  var dotIndicatorImage: UIImage?
-    public var hightLightDotIndicatorImage: UIImage?
+    public var dotImage: UIImage!
+    public var dotSelectedImage: UIImage!
 }
 
 // MARK: - Page指示器
 public class YangPageControl: UIView {
-    
-    static let defaultPageIndicatorTintColor: UIColor = UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 0.8)
-    static let defaultCurrentPageIndicatorTintColor: UIColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
     
     // MARK: - 圆角
     fileprivate var _dotRadius: CGFloat = 0
@@ -41,57 +38,69 @@ public class YangPageControl: UIView {
         }
     }
     
-    // MARK: - 未选中时色值
-    fileprivate var _pageIndicatorTintColor: UIColor = defaultPageIndicatorTintColor
+    // MARK: - 圆角
+    fileprivate var _dotMargin: CGFloat = 15
     
-    public var pageIndicatorTintColor: UIColor {
-        get { return _pageIndicatorTintColor }
+    public var dotMargin: CGFloat {
+        get { return _dotMargin }
         set {
-            _pageIndicatorTintColor = newValue
+            _dotMargin = newValue
+            updateDotButtonSize()
+        }
+    }
+    
+    // MARK: - dotSize
+    fileprivate var _dotSize: CGSize = CGSize(width: 10, height: 10)
+    
+    public var dotSize: CGSize {
+        get { return _dotSize }
+        set {
+            _dotSize = newValue
+            updateDotButtonSize()
+        }
+    }
+    
+    // MARK: - 未选中时色值
+    fileprivate var _dotTintColor: UIColor = UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 0.8)
+    
+    public var dotTintColor: UIColor {
+        get { return _dotTintColor }
+        set {
+            _dotTintColor = newValue
             updateDotButton()
         }
     }
     
     // MARK: - 选中时色值
-    fileprivate var _currentPageIndicatorTintColor: UIColor = defaultCurrentPageIndicatorTintColor
+    fileprivate var _dotSelectedTintColor: UIColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
     
-    public var currentPageIndicatorTintColor: UIColor {
-        get { return _currentPageIndicatorTintColor }
+    public var dotSelectedTintColor: UIColor {
+        get { return _dotSelectedTintColor }
         set {
-            _currentPageIndicatorTintColor = newValue
+            _dotSelectedTintColor = newValue
             updateDotButton()
         }
     }
     
     // MARK: - 未选中时图片 优先级 > 颜色
-    fileprivate var _pageIndicatorImage: UIImage?
+    fileprivate var _dotImage: UIImage?
     
-    public var pageIndicatorImage: UIImage? {
-        get { return _pageIndicatorImage }
+    public var dotImage: UIImage? {
+        get { return _dotImage }
         set {
-            _pageIndicatorImage = newValue
+            _dotImage = newValue
             updateDotButton()
         }
     }
     
     // MARK: - 选中时图片
-    fileprivate var _currentPageIndicatorImage: UIImage?
+    fileprivate var _dotSelectedImage: UIImage?
     
-    public var currentPageIndicatorImage: UIImage? {
-        get { return _currentPageIndicatorImage }
+    public var dotSelectedImage: UIImage? {
+        get { return _dotSelectedImage }
         set {
-            _currentPageIndicatorImage = newValue
+            _dotSelectedImage = newValue
             updateDotButton()
-        }
-    }
-    
-    // MARK: - 位置
-    fileprivate var _position: CGPoint = CGPoint(x: 0, y: 0)
-    public var position: CGPoint {
-        get { return _position }
-        set {
-            _position = newValue
-            self.frame = CGRect(origin: _position, size: self.frame.size)
         }
     }
     
@@ -119,28 +128,29 @@ public class YangPageControl: UIView {
             updateDotButton()
         }
     }
+    
     // MARK: - 代理对象
     weak var delegate: YangPageControlDelegate?
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - 初始化
-   public init(withDotSize size: CGSize, andNumberOfPages number: Int, andDotMargin margin: CGFloat) {
-        super.init(frame: CGRect(x: 0, y: 0, width: size.width * CGFloat(number) + margin * CGFloat(number - 1), height: size.height))
+   public init(withNumberOfPages number: Int) {
+        super.init(frame: CGRect(x: 0, y: 0, width: dotSize.width * CGFloat(number) + dotMargin * CGFloat(number - 1), height: dotSize.height))
         
         numberOfPages = number
         
         for i in 0..<numberOfPages {
             let btn = UIButton(type: UIButtonType.custom)
-            btn.frame = CGRect(x: size.width * CGFloat(i) + margin * CGFloat(i), y: 0, width: size.width, height: size.height)
+            btn.frame = CGRect(x: dotSize.width * CGFloat(i) + dotMargin * CGFloat(i), y: 0, width: dotSize.width, height: dotSize.height)
             btn.tag = i
             btn.addTarget(self, action: #selector(dotClickAction(btn:)), for: .touchUpInside)
             self.addSubview(btn)
         }
         
         updateDotButton()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -160,32 +170,32 @@ extension YangPageControl {
                 if let currentButton = view as? UIButton {
                     if !dotArray.isEmpty && index < dotArray.count {
                         let dot = dotArray[index]
-                        currentButton.setBackgroundImage(dot.hightLightDotIndicatorImage, for: UIControlState.normal)
-                        currentButton.setBackgroundImage(dot.hightLightDotIndicatorImage, for: UIControlState.highlighted)
-                    } else if let currentImage = currentPageIndicatorImage {
+                        currentButton.setBackgroundImage(dot.dotSelectedImage, for: UIControlState.normal)
+                        currentButton.setBackgroundImage(dot.dotSelectedImage, for: UIControlState.highlighted)
+                    } else if let currentImage = dotSelectedImage {
                         currentButton.setBackgroundImage(currentImage, for: UIControlState.normal)
                         currentButton.setBackgroundImage(currentImage, for: UIControlState.highlighted)
                         currentButton.backgroundColor = nil
                     } else {
                         currentButton.setBackgroundImage(nil, for: UIControlState.normal)
                         currentButton.setBackgroundImage(nil, for: UIControlState.highlighted)
-                        currentButton.backgroundColor = currentPageIndicatorTintColor
+                        currentButton.backgroundColor = dotSelectedTintColor
                     }
                 }
             } else {
                 if let dotButton = view as? UIButton {
                     if !dotArray.isEmpty && index < dotArray.count  {
                         let dot = dotArray[index]
-                        dotButton.setBackgroundImage(dot.dotIndicatorImage, for: UIControlState.normal)
-                        dotButton.setBackgroundImage(dot.dotIndicatorImage, for: UIControlState.highlighted)
-                    } else if let dotImage = pageIndicatorImage {
+                        dotButton.setBackgroundImage(dot.dotImage, for: UIControlState.normal)
+                        dotButton.setBackgroundImage(dot.dotImage, for: UIControlState.highlighted)
+                    } else if let dotImage = dotImage {
                         dotButton.setBackgroundImage(dotImage, for: UIControlState.normal)
                         dotButton.setBackgroundImage(dotImage, for: UIControlState.highlighted)
                         dotButton.backgroundColor = nil
                     } else {
                         dotButton.setBackgroundImage(nil, for: UIControlState.normal)
                         dotButton.setBackgroundImage(nil, for: UIControlState.highlighted)
-                        dotButton.backgroundColor = pageIndicatorTintColor
+                        dotButton.backgroundColor = dotTintColor
                     }
                 }
             }
@@ -198,5 +208,16 @@ extension YangPageControl {
             view.layer.cornerRadius = dotRadius
             view.layer.masksToBounds = true
         }
+    }
+    
+    //MARK: - 更新dotSize
+    fileprivate func updateDotButtonSize() {
+        let centerPoint = self.center
+        for (index,btn) in self.subviews.enumerated() {
+            btn.frame = CGRect(x: dotSize.width * CGFloat(index) + dotMargin * CGFloat(index), y: 0, width: dotSize.width, height: dotSize.height)
+        }
+        
+        self.frame = CGRect(x: 0, y: 0, width: dotSize.width * CGFloat(numberOfPages) + dotMargin * CGFloat(numberOfPages - 1), height: dotSize.height)
+        self.center = centerPoint
     }
 }

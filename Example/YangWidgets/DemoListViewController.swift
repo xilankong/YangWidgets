@@ -14,8 +14,8 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
 
     var tableView: UITableView!
     var dataList: [String] = ["YangDropMenuViewController",
-         "YangLoadingViewController",
-         "YangDefaultViewDemoViewController"]
+         "YangGuidPageDemoViewController",
+         "YangGuidPageViewController"]
     
 
     override func viewDidLoad() {
@@ -51,7 +51,11 @@ extension DemoListViewController {
         guard let vc = NSClassFromString(classStringName) as? UIViewController.Type else {
             return
         }
-        self.navigationController?.pushViewController(vc.init(), animated: true)
+        if dataList[indexPath.row] == "YangGuidPageDemoViewController" {
+            self.navigationController?.modalViewController(vc.init(), needNavigation: false, sender: nil)
+        } else {
+            self.navigationController?.pushViewController(vc.init(), animated: true)
+        }
     }
     
 }

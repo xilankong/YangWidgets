@@ -18,6 +18,7 @@
 		6F591B8A1F63D9DB0070B1BD /* YangLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F591B891F63D9DB0070B1BD /* YangLoadingViewController.swift */; };
 		6F802CD61FECE66900569258 /* YangDragButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CD51FECE66900569258 /* YangDragButtonViewController.swift */; };
 		6F802CD81FECE7D600569258 /* YangDropMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CD71FECE7D600569258 /* YangDropMenuViewController.swift */; };
+		6F802CDE1FF093D900569258 /* YangGuidPageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */; };
 		6F960B711F2740B100DD551E /* YangSliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F960B701F2740B100DD551E /* YangSliderMenuViewController.swift */; };
 		98DA2F350F07E0AF9CD1A7A1 /* Pods_YangWidgets_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B052E6A856064BF58EAD0B /* Pods_YangWidgets_Tests.framework */; };
 		B4E9F5E58105A983D9E50C9C /* Pods_YangWidgets_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEFC6479804964B210A5D0E /* Pods_YangWidgets_Example.framework */; };
@@ -54,6 +55,7 @@
 		6F591B891F63D9DB0070B1BD /* YangLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangLoadingViewController.swift; sourceTree = "<group>"; };
 		6F802CD51FECE66900569258 /* YangDragButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangDragButtonViewController.swift; sourceTree = "<group>"; };
 		6F802CD71FECE7D600569258 /* YangDropMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangDropMenuViewController.swift; sourceTree = "<group>"; };
+		6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangGuidPageDemoViewController.swift; sourceTree = "<group>"; };
 		6F960B701F2740B100DD551E /* YangSliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangSliderMenuViewController.swift; sourceTree = "<group>"; };
 		7EC38FDD715E12A9F6B97FE4 /* YangWidgets.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YangWidgets.podspec; path = ../YangWidgets.podspec; sourceTree = "<group>"; };
 		90DD08D7BE5C46C0D7536780 /* Pods-YangWidgets_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YangWidgets_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YangWidgets_Example/Pods-YangWidgets_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				3DCB9E8B1F6BED8F008D5569 /* YangDefaultViewDemoViewController.swift */,
 				6F802CD51FECE66900569258 /* YangDragButtonViewController.swift */,
 				6F802CD71FECE7D600569258 /* YangDropMenuViewController.swift */,
+				6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */,
 			);
 			name = ChildView;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F802CDE1FF093D900569258 /* YangGuidPageDemoViewController.swift in Sources */,
 				3DCB9E8C1F6BED8F008D5569 /* YangDefaultViewDemoViewController.swift in Sources */,
 				6F591B8A1F63D9DB0070B1BD /* YangLoadingViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* DemoListViewController.swift in Sources */,
