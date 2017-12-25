@@ -106,8 +106,8 @@
         for (NSUInteger i = self.labelList.count; i < [data count]; i++) {
             YangSlideLabel *label = [[YangSlideLabel alloc] init];
             label.tag = i;
-            label.selectedColor = self.labelSelectColor;
-            label.unSelectedColor = self.labelUnSelectColor;
+            label.selectedColor = self.labelColor;
+            label.unSelectedColor = self.labelSelectedColor;
             [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lblClick:)]];
             [self addSubview:label];
             [self.labelList addObject:label];
@@ -167,5 +167,24 @@
     }
 }
 
+-(void)setLabelColor:(UIColor *)labelColor {
+    _labelColor = labelColor;
+    [self.labelList enumerateObjectsUsingBlock:^(YangSlideLabel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.unSelectedColor = labelColor;
+        if (!obj.hightLight) {
+            obj.textColor = labelColor;
+        }
+    }];
+}
+
+-(void)setLabelSelectedColor:(UIColor *)labelSelectedColor {
+    _labelSelectedColor = labelSelectedColor;
+    [self.labelList enumerateObjectsUsingBlock:^(YangSlideLabel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.selectedColor = labelSelectedColor;
+        if (obj.hightLight) {
+            obj.textColor = labelSelectedColor;
+        }
+    }];
+}
 
 @end

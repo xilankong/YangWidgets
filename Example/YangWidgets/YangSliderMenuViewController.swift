@@ -12,7 +12,7 @@ import YangWidgets
 class YangSliderMenuViewController: UIViewController, YangSlideMenuViewDelegate {
 
     var array = ["全部", "星期一", "星期二", "星期三", "星期四", "星期五"]
-    var array2 = ["全部", "星期六", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五"]
+    var array2 = ["全部", "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
     var menuView: YangSlideMenuView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,8 @@ class YangSliderMenuViewController: UIViewController, YangSlideMenuViewDelegate 
         view.addSubview(menuView)
         
         menuView.update(withDataArray: array)
+        menuView.labelColor = UIColor.red
+        menuView.labelSelectedColor = UIColor.black
         menuView.layer.borderColor = UIColor.lightGray.cgColor
         menuView.layer.borderWidth = 1
         menuView.slideDelegate = self

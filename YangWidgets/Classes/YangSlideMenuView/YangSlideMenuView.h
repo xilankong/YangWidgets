@@ -14,8 +14,8 @@
 
 @interface YangSlideMenuView : UIScrollView
 
-@property (nonatomic, strong) UIColor *labelSelectColor;
-@property (nonatomic, strong) UIColor *labelUnSelectColor;
+@property (nonatomic, strong) UIColor *labelColor;
+@property (nonatomic, strong) UIColor *labelSelectedColor;
 @property (nonatomic, weak) id<YangSlideMenuViewDelegate> slideDelegate;
 
 - (void)updateViewWithDataArray:(NSArray *) data;

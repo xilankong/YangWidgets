@@ -15,7 +15,7 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
     var tableView: UITableView!
     var dataList: [String] = ["YangDropMenuViewController",
          "YangGuidPageDemoViewController",
-         "YangGuidPageViewController"]
+         "YangSliderMenuViewController"]
     
 
     override func viewDidLoad() {
