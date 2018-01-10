@@ -12,7 +12,7 @@ import YangWidgets
 class YangSliderViewController: UIViewController, YangSliderViewDelegate, YangSliderViewDataSource {
 
 
-    let sliderView = YangSliderView(frame: CGRect(x: 0, y: 90, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+    let sliderView = YangSliderView(frame: CGRect(x: 0, y: 90, width: UIScreen.main.bounds.size.width - 100, height: UIScreen.main.bounds.size.height))
     var vcs = [UIViewController]()
     var titles = [String]()
     

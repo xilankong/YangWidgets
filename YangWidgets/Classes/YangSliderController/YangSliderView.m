@@ -101,7 +101,7 @@
     }
     
     //setAttribute SliderView
-    self.sliderBarView.dataArray = self.segmentTitles;
+    [self.sliderBarView reloadViewWithData:self.segmentTitles];
     if ([self.datasouce respondsToSelector:@selector(titleFontInYangSliderView:)]) {
         self.sliderBarView.titleFont = [self.datasouce titleFontInYangSliderView:self];
     }
@@ -202,6 +202,8 @@
 
 @property (nonatomic, strong) NSMutableArray *buttonsArray;
 @property (nonatomic, strong) UIImageView *lineImageView;
+//数据源
+@property (nonatomic, strong)NSArray *dataArray;
 
 @end
 
@@ -233,6 +235,11 @@
     _textSelectedColor = DefaultTextSelectedColor;
     _lineColor = DefaultLineColor;
     _titleFont = DefaultTitleFont;
+}
+
+- (void)reloadViewWithData:(NSArray *)dataArray {
+    _dataArray = dataArray;
+    [self addSubSegmentView];
 }
 
 -(void)addSubSegmentView
@@ -283,11 +290,9 @@
     [self.lineImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self);
         make.height.mas_equalTo(LineHeigh);
-        make.width.equalTo(self.mas_width).dividedBy(_dataArray.count);
-        CGFloat scale = 2 * ((UIButton *)self.buttonsArray[0]).tag - 1;
-        make.centerX.equalTo(self.mas_centerX).multipliedBy(scale / _dataArray.count);
+        make.width.mas_equalTo(self.mas_width).dividedBy(_dataArray.count);
+        make.centerX.mas_equalTo(self.mas_right).multipliedBy(1.0 / (_dataArray.count * 2));
     }];
-    
 }
 
 -(void)tapAction:(id)sender{
@@ -295,7 +300,7 @@
     __weak typeof(self) weakSelf = self;
     CGFloat scale = 2 * button.tag - 1;
     [self.lineImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(button.frame.origin.x + button.frame.size.width / 2.0);
+        make.centerX.mas_equalTo(button.frame.origin.x + button.frame.size.width / 2.0 - self.frame.size.width / 2.0);
     }];
     [UIView animateWithDuration:0.2 animations:^{
         [weakSelf layoutIfNeeded];
@@ -322,7 +327,7 @@
             __weak typeof(self) weakSelf = self;
             CGFloat scale = 2 * subButton.tag - 1;
             [self.lineImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.centerX.mas_equalTo(subButton.frame.origin.x + subButton.frame.size.width / 2.0);
+                make.centerX.mas_equalTo(subButton.frame.origin.x + subButton.frame.size.width / 2.0 - self.frame.size.width / 2.0);
             }];
             [UIView animateWithDuration:0.2 animations:^{
                 [weakSelf layoutIfNeeded];
@@ -332,19 +337,16 @@
         }
     }
 }
+
 #pragma mark -- set
--(void)setDataArray:(NSArray *)dataArray{
-    if (_dataArray != dataArray) {
-        _dataArray = dataArray;
-        [self addSubSegmentView];
-    }
-}
+
 -(void)setLineColor:(UIColor *)lineColor{
     if (_lineColor != lineColor) {
         self.lineImageView.backgroundColor = lineColor;
         _lineColor = lineColor;
     }
 }
+
 -(void)setTextNomalColor:(UIColor *)textNomalColor{
     if (_textNomalColor != textNomalColor) {
         for (UIButton *subButton in self.buttonsArray){
@@ -353,6 +355,7 @@
         _textNomalColor = textNomalColor;
     }
 }
+
 -(void)setTextSelectedColor:(UIColor *)textSelectedColor{
     if (_textSelectedColor != textSelectedColor) {
         for (UIButton *subButton in self.buttonsArray){
@@ -361,6 +364,7 @@
         _textSelectedColor = textSelectedColor;
     }
 }
+
 -(void)setTitleFont:(CGFloat)titleFont{
     if (_titleFont != titleFont) {
         for (UIButton *subButton in self.buttonsArray){
@@ -369,5 +373,6 @@
         _titleFont = titleFont;
     }
 }
+
 @end
 

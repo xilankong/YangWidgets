@@ -67,8 +67,6 @@
 
 //代理
 @property (nonatomic, assign)id<SliderBarViewDelegate> delegate;
-//数据源
-@property (nonatomic, strong)NSArray *dataArray;
 //字体非选中时颜色
 @property (nonatomic, strong)UIColor *textNomalColor;
 //字体选中时颜色
@@ -85,6 +83,8 @@
  手动选择
  @param index inde（从1开始）
  */
--(void)selectIndex:(NSInteger)index;
+
+- (void)reloadViewWithData:(NSArray *)dataArray;
+- (void)selectIndex:(NSInteger)index;
 
 @end
