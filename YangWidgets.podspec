@@ -29,4 +29,9 @@ TODO: widgets in development
     s.subspec 'YangSlideMenuView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
     end
+
+    s.subspec 'YangSliderController' do |slidevc|
+        slidevc.source_files = 'YangWidgets/Classes/YangSliderController/**/*'
+        slidevc.dependency 'Masonry'
+    end
 end
