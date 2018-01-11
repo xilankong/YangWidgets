@@ -9,18 +9,17 @@
 import UIKit
 import YangWidgets
 
-class YangSliderViewController: UIViewController, YangSliderViewDelegate, YangSliderViewDataSource {
+class YangSliderViewController: UIViewController {
 
 
-    let sliderView = YangSliderView(frame: CGRect(x: 0, y: 90, width: UIScreen.main.bounds.size.width - 100, height: UIScreen.main.bounds.size.height))
+
     var vcs = [UIViewController]()
     var titles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        view.addSubview(sliderView)
-//        sliderView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+
         let vc1 = UIViewController()
         vc1.view.backgroundColor = UIColor.red
         let vc2 = UIViewController()
@@ -30,29 +29,12 @@ class YangSliderViewController: UIViewController, YangSliderViewDelegate, YangSl
         vcs = [vc1, vc2, vc3]
         
         titles = ["最新", "精选", "关注"]
-        sliderView.delegate = self
-        sliderView.datasouce = self
-
-        sliderView .reloadData()
+        
+        let slideMenu = YangSliderView(frame: CGRect(x: 0, y: 100, width:view.frame.width-100, height: view.frame.height), titles: titles, childControllers: vcs)
+        
+        view.addSubview(slideMenu)
+        automaticallyAdjustsScrollViewInsets = false
     }
 
-    func numberOfPage(in yangSliderView: YangSliderView!) -> Int {
-        return 3
-    }
-    
-    func yangSliderView(_ yangSliderView: YangSliderView!, controllerAt index: Int) -> UIViewController! {
-        return vcs[index]
-    }
-    
-    func yangSliderView(_ yangSliderView: YangSliderView!, titleAt index: Int) -> String! {
-        return titles[index]
-    }
-    
-    func lineHeight(in yangSliderView: YangSliderView!) -> CGFloat {
-        return 3
-    }
-    func lineWidth(in yangSliderView: YangSliderView!) -> CGFloat {
-        return 30
-    }
     
 }
