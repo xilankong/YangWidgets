@@ -101,7 +101,6 @@
     }
     
     //setAttribute SliderView
-    [self.sliderBarView reloadViewWithData:self.segmentTitles];
     if ([self.datasouce respondsToSelector:@selector(titleFontInYangSliderView:)]) {
         self.sliderBarView.titleFont = [self.datasouce titleFontInYangSliderView:self];
     }
@@ -114,7 +113,13 @@
     if ([self.datasouce respondsToSelector:@selector(lineColorInYangSliderView:)]) {
         self.sliderBarView.lineColor = [self.datasouce lineColorInYangSliderView:self];
     }
-    
+    if ([self.datasouce respondsToSelector:@selector(lineHeightInYangSliderView:)]) {
+        self.sliderBarView.lineHeight = [self.datasouce lineHeightInYangSliderView:self];
+    }
+    if ([self.datasouce respondsToSelector:@selector(lineWidthInYangSliderView:)]) {
+        self.sliderBarView.lineWidth = [self.datasouce lineWidthInYangSliderView:self];
+    }
+    [self.sliderBarView reloadViewWithData:self.segmentTitles];
     //setAttribute pageController
     [self.pageController setViewControllers:@[self.viewControllers[0]] direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:nil];
 }
@@ -193,15 +198,17 @@
 @end
 
 #define DefaultTextNomalColor [UIColor blackColor]
-#define DefaultTextSelectedColor [UIColor redColor]
-#define DefaultLineColor [UIColor blackColor]
-#define DefaultTitleFont 15
-#define LineHeigh 1
+#define DefaultTextSelectedColor [UIColor blueColor]
+#define DefaultLineColor [UIColor blueColor]
+#define DefaultTitleFont 17
+#define LineHeigh 2
+#define BorderLineColor [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0]
 
 @interface SliderBarView ()
 
 @property (nonatomic, strong) NSMutableArray *buttonsArray;
-@property (nonatomic, strong) UIImageView *lineImageView;
+@property (nonatomic, strong) UIView *sliderLine;
+@property (nonatomic, strong) UIView *borderLine;
 //数据源
 @property (nonatomic, strong)NSArray *dataArray;
 
@@ -235,46 +242,52 @@
     _textSelectedColor = DefaultTextSelectedColor;
     _lineColor = DefaultLineColor;
     _titleFont = DefaultTitleFont;
+    _lineHeight = LineHeigh;
+    
+    self.borderLine = [[UIView alloc] init];
+    [self addSubview:self.borderLine];
+    self.borderLine.backgroundColor = BorderLineColor;
+    [self.borderLine mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self);
+        make.height.mas_equalTo(1.0/[[UIScreen mainScreen] scale]);
+    }];
+    
+    self.sliderLine = [[UIView alloc] init];
+    self.sliderLine.backgroundColor = _lineColor;
+    [self addSubview:self.sliderLine];
 }
 
+#pragma mark reset
 - (void)reloadViewWithData:(NSArray *)dataArray {
     _dataArray = dataArray;
     [self addSubSegmentView];
 }
 
--(void)addSubSegmentView
-{
+#pragma mark 构建按钮
+-(void)addSubSegmentView {
+    
+    [self.buttonsArray makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     [self.buttonsArray removeAllObjects];
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    float width = self.frame.size.width / _dataArray.count;
+    
     UIButton *lastButton = nil;
     for (int i = 0 ; i < _dataArray.count ; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * width, 0, width, self.frame.size.height)];
+        UIButton *button = [[UIButton alloc] init];
         button.tag = i+1;
-        button.backgroundColor = [UIColor clearColor];
         [button setTitle:[_dataArray objectAtIndex:i] forState:UIControlStateNormal];
-        [button setTitleColor:self.textNomalColor    forState:UIControlStateNormal];
+        [button setTitleColor:self.textNomalColor forState:UIControlStateNormal];
         [button setTitleColor:self.textSelectedColor forState:UIControlStateSelected];
         button.titleLabel.font = [UIFont systemFontOfSize:_titleFont];
         
         [button addTarget:self action:@selector(tapAction:) forControlEvents:UIControlEventTouchUpInside];
         //默认第一个选中
-        if (i == 0) {
-            button.selected = YES;
-        }
-        else{
-            button.selected = NO;
-        }
+        button.selected = (i == 0);
         
         [self.buttonsArray addObject:button];
         [self addSubview:button];
         
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (i == 0) {
-                make.left.equalTo(self);
-            } else {
-                make.left.equalTo(lastButton.mas_right);
-            }
+            make.left.equalTo(i == 0 ? self : lastButton.mas_right);
             make.top.bottom.equalTo(self);
             make.width.equalTo(self.mas_width).dividedBy(_dataArray.count);
             if (i == _dataArray.count - 1) {
@@ -284,50 +297,50 @@
         
         lastButton = button;
     }
-    self.lineImageView = [[UIImageView alloc] init];
-    self.lineImageView.backgroundColor = _lineColor;
-    [self addSubview:self.lineImageView];
-    [self.lineImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+    [self.sliderLine mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self);
-        make.height.mas_equalTo(LineHeigh);
-        make.width.mas_equalTo(self.mas_width).dividedBy(_dataArray.count);
-        make.centerX.mas_equalTo(self.mas_right).multipliedBy(1.0 / (_dataArray.count * 2));
+        make.height.mas_equalTo(self.lineHeight);
+        make.centerX.equalTo(self.mas_centerX).multipliedBy(1.0 / _dataArray.count);
+        if (self.lineWidth > 0) {
+            make.width.mas_equalTo(self.lineWidth);
+        } else {
+            make.width.mas_equalTo(self.mas_width).dividedBy(_dataArray.count);
+        }
     }];
 }
 
--(void)tapAction:(id)sender{
-    UIButton *button = (UIButton *)sender;
+#pragma mark 点击事件
+-(void)tapAction:(UIButton *)button {
+
     __weak typeof(self) weakSelf = self;
-    CGFloat scale = 2 * button.tag - 1;
-    [self.lineImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(button.frame.origin.x + button.frame.size.width / 2.0 - self.frame.size.width / 2.0);
+    CGFloat centerX = button.frame.origin.x + button.frame.size.width / 2.0 - self.frame.size.width / 2.0;
+    [self.sliderLine mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(centerX);
     }];
+    
     [UIView animateWithDuration:0.2 animations:^{
         [weakSelf layoutIfNeeded];
     }];
     for (UIButton *subButton in self.buttonsArray) {
-        if (button == subButton) {
-            subButton.selected = YES;
-        }
-        else{
-            subButton.selected = NO;
-        }
+        subButton.selected = (button == subButton);
     }
     if ([self.delegate respondsToSelector:@selector(selectedIndex:)]) {
         [self.delegate selectedIndex:button.tag -1];
     }
 }
--(void)selectIndex:(NSInteger)index
-{
+
+#pragma mark 滑动事件
+-(void)selectIndex:(NSInteger)index {
     for (UIButton *subButton in self.buttonsArray) {
         if (index != subButton.tag) {
             subButton.selected = NO;
         }
         else{
             __weak typeof(self) weakSelf = self;
-            CGFloat scale = 2 * subButton.tag - 1;
-            [self.lineImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.centerX.mas_equalTo(subButton.frame.origin.x + subButton.frame.size.width / 2.0 - self.frame.size.width / 2.0);
+            CGFloat centerX = subButton.frame.origin.x + subButton.frame.size.width / 2.0 - self.frame.size.width / 2.0;
+            [self.sliderLine mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.centerX.mas_equalTo(centerX);
             }];
             [UIView animateWithDuration:0.2 animations:^{
                 [weakSelf layoutIfNeeded];
@@ -340,14 +353,14 @@
 
 #pragma mark -- set
 
--(void)setLineColor:(UIColor *)lineColor{
+-(void)setLineColor:(UIColor *)lineColor {
     if (_lineColor != lineColor) {
-        self.lineImageView.backgroundColor = lineColor;
+        self.sliderLine.backgroundColor = lineColor;
         _lineColor = lineColor;
     }
 }
 
--(void)setTextNomalColor:(UIColor *)textNomalColor{
+-(void)setTextNomalColor:(UIColor *)textNomalColor {
     if (_textNomalColor != textNomalColor) {
         for (UIButton *subButton in self.buttonsArray){
             [subButton setTitleColor:textNomalColor forState:UIControlStateNormal];
@@ -356,7 +369,7 @@
     }
 }
 
--(void)setTextSelectedColor:(UIColor *)textSelectedColor{
+-(void)setTextSelectedColor:(UIColor *)textSelectedColor {
     if (_textSelectedColor != textSelectedColor) {
         for (UIButton *subButton in self.buttonsArray){
             [subButton setTitleColor:textSelectedColor forState:UIControlStateSelected];
@@ -365,7 +378,7 @@
     }
 }
 
--(void)setTitleFont:(CGFloat)titleFont{
+-(void)setTitleFont:(CGFloat)titleFont {
     if (_titleFont != titleFont) {
         for (UIButton *subButton in self.buttonsArray){
             subButton.titleLabel.font = [UIFont systemFontOfSize:titleFont] ;
@@ -373,6 +386,7 @@
         _titleFont = titleFont;
     }
 }
+
 
 @end
 

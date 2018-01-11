@@ -29,9 +29,10 @@ class YangSliderViewController: UIViewController, YangSliderViewDelegate, YangSl
         vc3.view.backgroundColor = UIColor.black
         vcs = [vc1, vc2, vc3]
         
-        titles = ["one", "two", "three"]
+        titles = ["最新", "精选", "关注"]
         sliderView.delegate = self
         sliderView.datasouce = self
+
         sliderView .reloadData()
     }
 
@@ -47,5 +48,11 @@ class YangSliderViewController: UIViewController, YangSliderViewDelegate, YangSl
         return titles[index]
     }
     
-
+    func lineHeight(in yangSliderView: YangSliderView!) -> CGFloat {
+        return 3
+    }
+    func lineWidth(in yangSliderView: YangSliderView!) -> CGFloat {
+        return 30
+    }
+    
 }

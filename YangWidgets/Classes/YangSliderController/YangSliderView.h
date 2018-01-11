@@ -27,6 +27,10 @@
 - (UIColor *)titleSelectedColorInYangSliderView:(YangSliderView *)yangSliderView;
 // lineColor
 - (UIColor *)lineColorInYangSliderView:(YangSliderView *)yangSliderView;
+// lineHeight
+- (CGFloat)lineHeightInYangSliderView:(YangSliderView *)yangSliderView;
+// lineWidth
+- (CGFloat)lineWidthInYangSliderView:(YangSliderView *)yangSliderView;
 // titleFont
 - (CGFloat)titleFontInYangSliderView:(YangSliderView *)yangSliderView;
 @end
