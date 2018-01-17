@@ -15,7 +15,7 @@ class YangSliderViewController: UIViewController {
 
     var vcs = [UIViewController]()
     var titles = [String]()
-    
+    let slideMenu = YangSliderView(frame: CGRect(x: 0, y: 100, width:320, height: 586))
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -29,12 +29,15 @@ class YangSliderViewController: UIViewController {
         vcs = [vc1, vc2, vc3]
         
         titles = ["最新", "精选", "关注"]
-        
-        let slideMenu = YangSliderView(frame: CGRect(x: 0, y: 100, width:view.frame.width-100, height: view.frame.height), titles: titles, childControllers: vcs)
-        
+
+        slideMenu.reloadView(titles: titles, controllers: vcs)
         view.addSubview(slideMenu)
         automaticallyAdjustsScrollViewInsets = false
+        
+        self.navigationItem.addLeftTextButtonItem(withTarget: self, action: #selector(change), andText: "切换")
     }
 
-    
+    @objc func change() {
+        slideMenu.currentIndex = Int(arc4random_uniform(3))
+    }
 }

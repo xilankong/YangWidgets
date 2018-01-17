@@ -12,7 +12,6 @@
 
 #import "YangDropMenuView.h"
 #import "YangSlideMenuView.h"
-#import "YangSliderView.h"
 
 FOUNDATION_EXPORT double YangWidgetsVersionNumber;
 FOUNDATION_EXPORT const unsigned char YangWidgetsVersionString[];
