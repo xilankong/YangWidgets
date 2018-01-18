@@ -1,5 +1,4 @@
 PODS:
-  - Masonry (1.1.0)
   - SnapKit (4.0.0)
   - YangNavigationHelper (1.0.0)
   - YangWidgets (1.0.4):
@@ -7,13 +6,12 @@ PODS:
     - YangWidgets/YangDropMenuView (= 1.0.4)
     - YangWidgets/YangPageControl (= 1.0.4)
     - YangWidgets/YangSlideMenuView (= 1.0.4)
-    - YangWidgets/YangSliderController (= 1.0.4)
+    - YangWidgets/YangSliderView (= 1.0.4)
   - YangWidgets/YangDragButton (1.0.4)
   - YangWidgets/YangDropMenuView (1.0.4)
   - YangWidgets/YangPageControl (1.0.4)
   - YangWidgets/YangSlideMenuView (1.0.4)
-  - YangWidgets/YangSliderController (1.0.4):
-    - Masonry
+  - YangWidgets/YangSliderView (1.0.4)
 
 DEPENDENCIES:
   - SnapKit
@@ -27,10 +25,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
-  YangWidgets: 042d56f6a4bdd1a44da9650e00ca2cbc90cd85be
+  YangWidgets: cd74b6eb3fab9b04434bb67838e1138053adc333
 
 PODFILE CHECKSUM: 5f69b77dbe40e240803618f91208262cf6cd73b2
 

@@ -36,13 +36,8 @@
       "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*"
     },
     {
-      "name": "YangSliderController",
-      "source_files": "YangWidgets/Classes/YangSliderController/**/*",
-      "dependencies": {
-        "Masonry": [
-
-        ]
-      }
+      "name": "YangSliderView",
+      "source_files": "YangWidgets/Classes/YangSliderView/**/*"
     }
   ]
 }
