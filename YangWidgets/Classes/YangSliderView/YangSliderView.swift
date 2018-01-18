@@ -6,12 +6,18 @@
 //
 
 import Foundation
+
+
 import UIKit
 
-public enum YangSliderViewIndicatorType {
+enum YangSliderViewIndicatorType {
     case normal
     case stretch
     case stretchAndMove
+}
+
+@objc public protocol YangSliderViewContainerDelegate: NSObjectProtocol {
+    @objc optional func reloadView()
 }
 
 public class YangSliderView: UIView {
@@ -20,7 +26,7 @@ public class YangSliderView: UIView {
     
     private var titles: [String] = []
     
-    private var controllers: [UIViewController] = []
+    private var controllers: [UIViewController & YangSliderViewContainerDelegate] = []
     
     private var tabScrollView: UIScrollView = UIScrollView()
     
@@ -38,16 +44,17 @@ public class YangSliderView: UIView {
     
     private let indicatorView: UIView = UIView()
     
+    var tabBarHeight: CGFloat = 45.0
+    
+    var indicatorWidth: CGFloat = 60.0
+    
+    var indicatorType: YangSliderViewIndicatorType = .normal
+    
     //伸缩动画的偏移量
-    private let indicatorAnimatePadding: CGFloat = 8.0
+    fileprivate let indicatorAnimatePadding: CGFloat = 8.0
     
-    public var tabBarHeight: CGFloat = 45.0
-    
-    public var indicatorWidth: CGFloat = 60.0
-    
-    public var indicatorType: YangSliderViewIndicatorType = .stretchAndMove
     //标题字体
-    public var itemFont: UIFont = UIFont.systemFont(ofSize: 15)
+    var itemFont: UIFont = UIFont.systemFont(ofSize: 15)
     
     //选中颜色
     public var itemSelectedColor: UIColor = UIColor.red
@@ -56,23 +63,27 @@ public class YangSliderView: UIView {
     public var itemUnselectedColor: UIColor = UIColor.gray
     
     //下标距离底部距离
-    public var bottomPadding: CGFloat = 0.0
+    var bottomPadding: CGFloat = 0.0
     
     //下标高度
-    public var indicatorHeight: CGFloat = 2.0
+    var indicatorHeight: CGFloat = 2.0
     
     private var _currentIndex: Int = 0
-    
     public var currentIndex: Int {
         get {
             return _currentIndex
         }
         set {
-            goToTab(fromIndex: _currentIndex, toIndex: newValue)
-            _currentIndex = newValue
+            if newValue != _currentIndex {
+                goToTab(fromIndex: _currentIndex, toIndex: newValue)
+                _currentIndex = newValue
+            }
         }
     }
     
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     //MARK: - 初始化
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,13 +91,14 @@ public class YangSliderView: UIView {
     }
     
     //MARK: - 代参数初始化
-    public init(frame: CGRect,titles: [String],childControllers: [UIViewController]) {
+    public init(frame: CGRect,titles: [String],childControllers: [UIViewController & YangSliderViewContainerDelegate]) {
         
         super.init(frame: frame)
         initUI()
         reloadView(titles: titles, controllers: childControllers)
     }
     
+    //MARK: - 基础UI初始化
     private func initUI() {
         let line = UIView()
         line.backgroundColor = UIColor.lightGray
@@ -109,15 +121,18 @@ public class YangSliderView: UIView {
         addSubview(mainScrollView)
     }
     
-    public func reloadView(titles: [String],controllers: [UIViewController] ) {
+    //MARK: - 内容UI更新
+    public func reloadView(titles: [String],controllers: [UIViewController & YangSliderViewContainerDelegate] ) {
         self.titles = titles
         self.controllers = controllers
         tabScrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: tabBarHeight)
         mainScrollView.frame = CGRect(x: 0, y: tabBarHeight, width: self.bounds.size.width, height: self.bounds.size.height - tabBarHeight)
         setupTabScrollView()
         setupChildControllers()
+        self.controllers[_currentIndex].reloadView?()
     }
     
+    //MARK: - tab切换
     private func goToTab(fromIndex: Int, toIndex: Int) {
         if toIndex >= items.count {
             return
@@ -125,12 +140,12 @@ public class YangSliderView: UIView {
         let item = items[toIndex]
         
         changeItemTitle(fromIndex, to: toIndex)
-        //        changeIndicatorViewPosition(fromIndex, to: toIndex)
         resetTabScrollViewContentOffset(item)
         resetMainScrollViewContentOffset(toIndex)
+        self.controllers[toIndex].reloadView?()
     }
     
-    //MARK: --- 配置导航栏
+    //MARK: - 配置滑块栏
     private func setupTabScrollView() {
         
         //clean
@@ -150,7 +165,7 @@ public class YangSliderView: UIView {
             item.text = title
             item.textAlignment = .center
             item.font = itemFont
-            item.textColor = index == currentIndex ? itemSelectedColor : itemUnselectedColor
+            item.textColor = index == _currentIndex ? itemSelectedColor : itemUnselectedColor
             //添加tap手势
             let tap = UITapGestureRecognizer(target: self, action: #selector(itemDidClicked(_:)))
             item.addGestureRecognizer(tap)
@@ -170,18 +185,7 @@ public class YangSliderView: UIView {
         setupIndicatorView()
     }
     
-    //MARK: --- item点击事件
-    @objc private func itemDidClicked(_ gesture: UITapGestureRecognizer) {
-        
-        let item = gesture.view as! UILabel
-        if item == items[currentIndex] { return }
-        let fromIndex = currentIndex
-        currentIndex = items.index(of: item)!
-        
-        goToTab(fromIndex: fromIndex, toIndex: currentIndex)
-    }
-    
-    //MARK: --- 配置子控制器
+    //MARK: - 配置子控制器
     private func setupChildControllers() {
         _ = mainScrollView.subviews.map {
             $0.removeFromSuperview()
@@ -191,26 +195,27 @@ public class YangSliderView: UIView {
             vc.view.frame = CGRect(x: CGFloat(index) * mainScrollView.bounds.width, y: 0, width: mainScrollView.bounds.width, height: mainScrollView.bounds.height)
         }
         mainScrollView.contentSize = CGSize(width: CGFloat(controllers.count) * mainScrollView.bounds.width, height: 0)
-        mainScrollView.setContentOffset(CGPoint(x: CGFloat(currentIndex) * mainScrollView.bounds.width, y: 0), animated: true)
+        mainScrollView.contentOffset = CGPoint(x: CGFloat(_currentIndex) * mainScrollView.bounds.width, y: 0)
     }
     
-    
-    //MARK: --- 改变itemTitle
-    private func changeItemTitle(_ from: Int, to: Int) {
-        items[from].textColor = itemUnselectedColor
-        items[to].textColor = itemSelectedColor
-    }
-    
-    //MARK: --- 改变indicatorView位置
-    private func changeIndicatorViewPosition(_ from: Int,to: Int) {
-        let frame = items[to].frame
-        let indicatorFrame = CGRect(x: frame.origin.x, y: indicatorView.frame.origin.y, width: frame.size.width, height: indicatorHeight)
+    //MARK: - 配置滑块下标
+    private func setupIndicatorView() {
+        indicatorView.removeFromSuperview()
+        tabScrollView.addSubview(indicatorView)
+        var frame = items[_currentIndex].frame
+        frame.origin.y = tabScrollView.bounds.height - bottomPadding - indicatorHeight
+        frame.origin.x = frame.origin.x + (frame.size.width - indicatorWidth) / 2.0
+        frame.size.height = indicatorHeight
+        frame.size.width = indicatorWidth > frame.size.width ? frame.size.width : indicatorWidth
         
-        UIView.animate(withDuration: 0.25) {
-            self.indicatorView.frame = indicatorFrame
-        }
+        indicatorView.frame = frame
+        indicatorView.backgroundColor = itemSelectedColor
+        
+        indicatorView.layer.cornerRadius = frame.height * 0.5
+        indicatorView.layer.masksToBounds = true
     }
-    //MARK: --- 当item过少时，更新item位置
+    
+    //MARK: - 当item过少时，更新item位置，多滚动，少重新布局
     private func updateLabelsFrame() {
         let newMargin = itemMargin + (self.bounds.width - tabScrollView.contentSize.width) / CGFloat(items.count * 2)
         var originX = newMargin
@@ -223,23 +228,24 @@ public class YangSliderView: UIView {
         tabScrollView.contentSize = CGSize(width: originX - newMargin, height: tabBarHeight)
     }
     
-    //配置下标
-    private func setupIndicatorView() {
-        indicatorView.removeFromSuperview()
+    //MARK: - item点击事件
+    @objc private func itemDidClicked(_ gesture: UITapGestureRecognizer) {
         
-        tabScrollView.addSubview(indicatorView)
-        var frame = items[currentIndex].frame
-        frame.origin.y = tabScrollView.bounds.height - bottomPadding - indicatorHeight
-        frame.size.height = indicatorHeight
-        //        frame.size.width = indicatorWidth
-        indicatorView.frame = frame
-        indicatorView.backgroundColor = itemSelectedColor
+        let item = gesture.view as! UILabel
+        if item == items[_currentIndex] { return }
+        let fromIndex = _currentIndex
+        _currentIndex = items.index(of: item)!
         
-        indicatorView.layer.cornerRadius = frame.height * 0.5
-        indicatorView.layer.masksToBounds = true
+        goToTab(fromIndex: fromIndex, toIndex: _currentIndex)
     }
     
-    //点击item 修改tabScrollView的偏移量
+    //MARK: - 改变itemTitle颜色
+    private func changeItemTitle(_ from: Int, to: Int) {
+        items[from].textColor = itemUnselectedColor
+        items[to].textColor = itemSelectedColor
+    }
+    
+    //MARK: - 点击item 修改滑块栏的偏移量
     private func resetTabScrollViewContentOffset(_ item: UILabel) {
         var destinationX: CGFloat = 0
         let itemCenterX = item.center.x
@@ -256,25 +262,46 @@ public class YangSliderView: UIView {
             tabScrollView.setContentOffset(CGPoint(x: destinationX, y: 0), animated: true)
             return
         }
-        
         tabScrollView.setContentOffset(CGPoint(x: 0, y:0), animated: true)
     }
     
-    //点击item 修改mainScrollView的偏移量
+    //MARK: - 修改mainScrollView的偏移量
     private func resetMainScrollViewContentOffset(_ index: Int) {
         mainScrollView.setContentOffset(CGPoint(x: CGFloat(index) * mainScrollView.bounds.width, y: 0), animated: true)
     }
     
+}
+
+//MARK: - UIScrollViewDelegate
+extension YangSliderView: UIScrollViewDelegate {
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetX = scrollView.contentOffset.x
+        switch indicatorType {
+        case .normal:
+            dealNormalIndicatorType(offsetX)
+        case .stretch:
+            dealFollowTextIndicatorType(offsetX)
+        case .stretchAndMove:
+            dealFollowTextIndicatorType(offsetX)
+        }
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        changeItemStatusBecauseDealNormalIndicatorType()
+    }
+    
+    //MARK: - 手动滑动scrollView跳转处理
     fileprivate func changeItemStatusBecauseDealNormalIndicatorType() {
         let to = Int(mainScrollView.contentOffset.x / mainScrollView.bounds.width)
         let toItem = items[to]
         
-        let fromIndex = currentIndex
-        currentIndex = items.index(of: toItem)!
-        goToTab(fromIndex: fromIndex, toIndex: currentIndex)
+        let fromIndex = _currentIndex
+        _currentIndex = items.index(of: toItem)!
+        goToTab(fromIndex: fromIndex, toIndex: _currentIndex)
     }
     
-    //MARK: --- 处理normal状态的 indicatorView
+    //MARK: - 处理normal状态的 indicatorView
     fileprivate func dealNormalIndicatorType(_ offsetX: CGFloat) {
         if offsetX <= 0 {
             //左边界
@@ -301,7 +328,7 @@ public class YangSliderView: UIView {
         indicatorView.center = CGPoint(x:leftItem.center.x + totalSpace * ratio, y: indicatorView.center.y)
     }
     
-    //MARK: --- 处理followText状态的 indicatorView
+    //MARK: - 处理followText状态的 indicatorView
     fileprivate func dealFollowTextIndicatorType(_ offsetX: CGFloat) {
         if offsetX <= 0 {
             //左边界
@@ -324,7 +351,6 @@ public class YangSliderView: UIView {
         let leftItem = items[leftIndex]
         let rightItem = items[rightIndex]
         
-        //-
         let distance: CGFloat = indicatorType == .stretch ? 0 : indicatorAnimatePadding
         var frame = self.indicatorView.frame
         let maxWidth = rightItem.frame.maxX - leftItem.frame.minX - distance * 2
@@ -339,30 +365,4 @@ public class YangSliderView: UIView {
         
         self.indicatorView.frame = frame
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
-
-//MARK: - UIScrollViewDelegate
-extension YangSliderView: UIScrollViewDelegate {
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetX = scrollView.contentOffset.x
-        switch indicatorType {
-        case .normal:
-            dealNormalIndicatorType(offsetX)
-        case .stretch:
-            dealFollowTextIndicatorType(offsetX)
-        case .stretchAndMove:
-            dealFollowTextIndicatorType(offsetX)
-        }
-    }
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        changeItemStatusBecauseDealNormalIndicatorType()
-    }
-    
-}
-

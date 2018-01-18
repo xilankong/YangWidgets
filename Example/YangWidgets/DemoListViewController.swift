@@ -15,10 +15,8 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
     var tableView: UITableView!
     var dataList: [String] = ["YangDropMenuViewController",
          "YangGuidPageDemoViewController",
-         "YangSliderMenuViewController",
-         "YangSliderViewController"]
+         "YangSliderViewDemoController"]
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
@@ -29,7 +27,6 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
             make.edges.equalTo(self.view)
         }
     }
-
     
 }
 
