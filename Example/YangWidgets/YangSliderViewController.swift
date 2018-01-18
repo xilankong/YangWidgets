@@ -38,6 +38,7 @@ class YangSliderViewController: UIViewController {
     }
 
     @objc func change() {
-        slideMenu.currentIndex = Int(arc4random_uniform(3))
+        let index = (slideMenu.currentIndex + 1) > 2 ? 0 : (slideMenu.currentIndex + 1)
+        slideMenu.currentIndex = index
     }
 }
