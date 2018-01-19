@@ -3,16 +3,11 @@
 自用工具集、部分内容来自github，有进行适用的修改，有注明原出处
 
 ```ruby
-pod "YangWidgets"
-or
-pod "YangWidgets/YangDropMenuView"
-or
-pod "YangWidgets/YangDragButton"
-or
-pod "YangWidgets/YangPageControl"
+
 
 tabbar
 pod "ESTabBarController-swift"
+pod 'PopupDialog', '~> 0.7'
 ```
 
 # 包括内容
