@@ -78,7 +78,7 @@ open class PKHUD: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 
-    open var dimsBackground = true
+    open var dimsBackground = false
     open var userInteractionOnUnderlyingViewsEnabled: Bool {
         get {
             return !container.isUserInteractionEnabled
