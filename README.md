@@ -10,6 +10,9 @@ or
 pod "YangWidgets/YangDragButton"
 or
 pod "YangWidgets/YangPageControl"
+
+tabbar
+pod "ESTabBarController-swift"
 ```
 
 # 包括内容
