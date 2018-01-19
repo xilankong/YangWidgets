@@ -26,11 +26,12 @@ TODO: widgets in development
         drag.source_files = 'YangWidgets/Classes/YangDragButton/**/*'
     end
 
-    s.subspec 'YangSlideMenuView' do |slide|
-        slide.source_files = 'YangWidgets/Classes/YangSlideMenuView/**/*'
+    s.subspec 'YangHub' do |hub|
+        hub.source_files = 'YangWidgets/Classes/YangHub/**/*'
+        hub.resource = 'YangWidgets/Assets/YangHub/**/*'
     end
 
-    s.subspec 'YangSliderView' do |slidevc|
-        slidevc.source_files = 'YangWidgets/Classes/YangSliderView/**/*'
+    s.subspec 'YangSliderView' do |slide|
+        slide.source_files = 'YangWidgets/Classes/YangSliderView/**/*'
     end
 end

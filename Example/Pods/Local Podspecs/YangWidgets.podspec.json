@@ -32,8 +32,9 @@
       "source_files": "YangWidgets/Classes/YangDragButton/**/*"
     },
     {
-      "name": "YangSlideMenuView",
-      "source_files": "YangWidgets/Classes/YangSlideMenuView/**/*"
+      "name": "YangHub",
+      "source_files": "YangWidgets/Classes/YangHub/**/*",
+      "resources": "YangWidgets/Assets/YangHub/**/*"
     },
     {
       "name": "YangSliderView",
