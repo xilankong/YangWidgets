@@ -8,99 +8,96 @@
 
 import UIKit
 
-public class DragButton: UIControl {
+public class DragButton: UIView {
     
-   let DOUBLE_CLICK_TIME = 0.1
+   let DOUBLE_CLICK_TIME = 0.3
    let ANIMATION_DURATION_TIME = 0.2
     
-   public typealias btnClosure = (_ btn : DragButton) ->()
+   public typealias BtnClosure = (_ btn : DragButton) ->()
     
-    //是否拖拽中
+   //是否拖拽中
    public var isDragging : Bool = false
-    //是否可拖拽
+   //是否可拖拽
    public var draggable : Bool = true
-    //是否自动吸附
+   //是否自动吸附
    public var autoDocking : Bool = false
-    //是否单击被取消(比如双击或者拖拽取消掉单击事件)
-   public var singleClickBeenCancled : Bool = false
-    //拖拽开始center
+   //拖拽开始center
    public var beginLocation : CGPoint?
-    //长按手势
+   //长按手势
    public var longPressGestureRecognizer : UILongPressGestureRecognizer?
-
-    //单击回调
-   fileprivate var _clickClosure : btnClosure?
-   public var clickClosure : btnClosure? {
+   //单击回调
+   fileprivate var _clickClosure : BtnClosure?
+   public var clickClosure : BtnClosure? {
         get {
             return _clickClosure
         }
         set(newValue) {
             _clickClosure = newValue
-            self.addTarget(self, action: #selector(buttonClick(_:)), for: UIControlEvents.touchUpInside)
         }
     }
     
     //双击回调
-    public var doubleClickClosure : btnClosure?
+    public var doubleClickClosure : BtnClosure?
     //拖拽回调
-    public var draggingClosure : btnClosure?
+    public var draggingClosure : BtnClosure?
     //拖拽结束回调
-    public var dragDoneClosure : btnClosure?
+    public var dragDoneClosure : BtnClosure?
     //自动吸附结束回调
-    public var autoDockEndClosure : btnClosure?
+    public var autoDockEndClosure : BtnClosure?
+    //图片
+    public var image: UIImage? {
+        didSet {
+            self.imageView.image = image
+        }
+    }
+    
+    private let imageView: UIImageView = UIImageView()
     
     //MARK: - 初始化
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(frame: CGRect(x: 0, y: 100, width: 50, height: 50))
+        initUI()
+    }
+
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        initUI()
     }
     
     //MARK: - 初始化
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
+    private func initUI() {
+        
+        self.addSubview(imageView)
+        imageView.isUserInteractionEnabled = false
+        imageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         
         draggable = true
         autoDocking = true
-        singleClickBeenCancled = false
-//        longPressGestureRecognizer =
-//            UILongPressGestureRecognizer(target: self, action: #selector(gestureRecognizerHandle(_:)))
-//        
-//        guard let longPressGestureRecognizer = self.longPressGestureRecognizer else {
-//            return
-//        }
-//        longPressGestureRecognizer.allowableMovement = 0
-//        //添加长按事件
-//        self.addGestureRecognizer(longPressGestureRecognizer)
     }
 
-    //MARK: - 要区分开单双击
-    @objc func buttonClick(_ btn : DragButton) {
+    //MARK: - 双击响应
+    @objc private func doubleClickAction() {
         
-        let time : Double = doubleClickClosure == nil ? 0 : DOUBLE_CLICK_TIME
-        self.perform(#selector(singleClickAction(_:)), with: nil, afterDelay: time)
+        guard let doubleClickClosure = self.doubleClickClosure,
+            isDragging == false else {
+                return
+        }
+        print("doubleClickClosure" + "click")
+        doubleClickClosure(self)
     }
     
     //MARK:单击响应
     
-    @objc func singleClickAction(_ btn : DragButton) {
+    @objc private func singleClickAction() {
         //单击被取消 或者 拖拽、 无闭包都不执行
         guard let clickClosure = self.clickClosure,
-            singleClickBeenCancled == false,
             isDragging == false else {
             return
         }
+        print("clickClosure" + "click")
         clickClosure(self)
     }
 
-    //MARK: - 长按，暂时不需要
-//    func gestureRecognizerHandle(_ gestureRecognizer : UILongPressGestureRecognizer) {
-//        switch gestureRecognizer.state {
-//        case .began:
-//            print("")//长按block
-//            break
-//        default:
-//            break
-//        }
-//    }
     
     //MARK: - 拖拽开始
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,13 +105,15 @@ public class DragButton: UIControl {
         super.touchesBegan(touches, with: event)
         
         let touch = touches.first
-        if touch?.tapCount == 2 {
-            //截断单击
-            singleClickBeenCancled = true
+        
+        print("touch")
+        
+        if touch?.tapCount == 1 {
+            self.perform(#selector(singleClickAction), with: nil, afterDelay: DOUBLE_CLICK_TIME )
+        } else if touch?.tapCount == 2 {
             //双击回调
-            doubleClickClosure?(self)
-        } else {
-            singleClickBeenCancled = false
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(singleClickAction), object: nil)
+            self.doubleClickAction()
         }
         beginLocation = touch?.location(in: self)
     }
@@ -156,8 +155,6 @@ public class DragButton: UIControl {
         super.touchesEnded(touches, with: event);
         //是否之前处于拖拽状态,单击之前不处于拖拽
         if isDragging {
-            
-            singleClickBeenCancled = true
             //拖拽结束回调
             dragDoneClosure?(self)
         }
@@ -211,4 +208,24 @@ public class DragButton: UIControl {
         }
     }
     
+    //        longPressGestureRecognizer =
+    //            UILongPressGestureRecognizer(target: self, action: #selector(gestureRecognizerHandle(_:)))
+    //
+    //        guard let longPressGestureRecognizer = self.longPressGestureRecognizer else {
+    //            return
+    //        }
+    //        longPressGestureRecognizer.allowableMovement = 0
+    //        //添加长按事件
+    //        self.addGestureRecognizer(longPressGestureRecognizer)
+    
+    //MARK: - 长按，暂时不需要
+    //    func gestureRecognizerHandle(_ gestureRecognizer : UILongPressGestureRecognizer) {
+    //        switch gestureRecognizer.state {
+    //        case .began:
+    //            print("")//长按block
+    //            break
+    //        default:
+    //            break
+    //        }
+    //    }
 }

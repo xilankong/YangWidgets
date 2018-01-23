@@ -25,7 +25,8 @@ class YangToastViewController: UIViewController {
     
     
     @objc func buttonClickAction() {
-        view.showLoading()
+        view.showToast(withMessage: "测试toast")
+        
     }
     
 }

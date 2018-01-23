@@ -17,6 +17,14 @@ class YangDragButtonViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         btn.backgroundColor = UIColor.red
+        btn.image = #imageLiteral(resourceName: "portrait")
+        btn.clickClosure = { (btn : DragButton) in
+            print("adsfasdf")
+        }
+        btn.doubleClickClosure = { (btn : DragButton) in
+            print("123456")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
