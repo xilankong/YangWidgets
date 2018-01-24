@@ -34,4 +34,8 @@ TODO: widgets in development
     s.subspec 'YangSliderView' do |slide|
         slide.source_files = 'YangWidgets/Classes/YangSliderView/**/*'
     end
+
+    s.subspec 'YangTabBarController' do |tabbar|
+        tabbar.source_files = 'YangWidgets/Classes/YangTabBarController/**/*'
+    end
 end

@@ -39,6 +39,10 @@
     {
       "name": "YangSliderView",
       "source_files": "YangWidgets/Classes/YangSliderView/**/*"
+    },
+    {
+      "name": "YangTabBarController",
+      "source_files": "YangWidgets/Classes/YangTabBarController/**/*"
     }
   ]
 }

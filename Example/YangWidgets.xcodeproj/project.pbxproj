@@ -18,6 +18,7 @@
 		6F132E44200600F50086646B /* YangSliderViewDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F132E43200600F50086646B /* YangSliderViewDemoController.swift */; };
 		6F5703B02010842200D843AF /* YangSliderViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5703AF2010842200D843AF /* YangSliderViewContainerViewController.swift */; };
 		6F591B8A1F63D9DB0070B1BD /* YangLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F591B891F63D9DB0070B1BD /* YangLoadingViewController.swift */; };
+		6F7E417C2018802600E34001 /* YangTabBarContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7E417B2018802600E34001 /* YangTabBarContainerController.swift */; };
 		6F802CD61FECE66900569258 /* YangDragButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CD51FECE66900569258 /* YangDragButtonViewController.swift */; };
 		6F802CD81FECE7D600569258 /* YangDropMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CD71FECE7D600569258 /* YangDropMenuViewController.swift */; };
 		6F802CDE1FF093D900569258 /* YangGuidPageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */; };
@@ -57,6 +58,7 @@
 		6F132E43200600F50086646B /* YangSliderViewDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangSliderViewDemoController.swift; sourceTree = "<group>"; };
 		6F5703AF2010842200D843AF /* YangSliderViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangSliderViewContainerViewController.swift; sourceTree = "<group>"; };
 		6F591B891F63D9DB0070B1BD /* YangLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangLoadingViewController.swift; sourceTree = "<group>"; };
+		6F7E417B2018802600E34001 /* YangTabBarContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangTabBarContainerController.swift; sourceTree = "<group>"; };
 		6F802CD51FECE66900569258 /* YangDragButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangDragButtonViewController.swift; sourceTree = "<group>"; };
 		6F802CD71FECE7D600569258 /* YangDropMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangDropMenuViewController.swift; sourceTree = "<group>"; };
 		6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YangGuidPageDemoViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				6F802CDD1FF093D900569258 /* YangGuidPageDemoViewController.swift */,
 				6F132E43200600F50086646B /* YangSliderViewDemoController.swift */,
 				6F5703AF2010842200D843AF /* YangSliderViewContainerViewController.swift */,
+				6F7E417B2018802600E34001 /* YangTabBarContainerController.swift */,
 			);
 			name = ChildView;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				6F960B711F2740B100DD551E /* YangToastViewController.swift in Sources */,
 				6F802CD81FECE7D600569258 /* YangDropMenuViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				6F7E417C2018802600E34001 /* YangTabBarContainerController.swift in Sources */,
 				6F802CD61FECE66900569258 /* YangDragButtonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
