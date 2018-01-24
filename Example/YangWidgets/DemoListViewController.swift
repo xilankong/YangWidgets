@@ -74,7 +74,7 @@ extension DemoListViewController {
             
             vc1.tabBarItem = YangBackgroundTabBarItem.init(title: "one", image: #imageLiteral(resourceName: "guidance_v34_dot_1_normal"), selectedImage: #imageLiteral(resourceName: "guidance_v34_dot_1_selected"))
             vc2.tabBarItem = YangTabBarItem.init(title: "two", image: #imageLiteral(resourceName: "guidance_v34_dot_2_normal"), selectedImage: #imageLiteral(resourceName: "guidance_v34_dot_2_selected"))
-            vc3.tabBarItem = YangIrregularityBasicTabBarItem.init(title: nil, image: #imageLiteral(resourceName: "photo_big"), selectedImage: #imageLiteral(resourceName: "photo_big"))
+            vc3.tabBarItem = YangIrregularityBasicTabBarItem.init(title: nil, image: #imageLiteral(resourceName: "photo_verybig"), selectedImage: #imageLiteral(resourceName: "photo_verybig"))
             vc4.tabBarItem = YangBouncesTabBarItem.init(title: "three", image: #imageLiteral(resourceName: "guidance_v34_dot_3_normal"), selectedImage: #imageLiteral(resourceName: "guidance_v34_dot_3_selected"))
             vc5.tabBarItem = YangTabBarItem.init(title: "four", image: #imageLiteral(resourceName: "guidance_v34_dot_4_normal"), selectedImage: #imageLiteral(resourceName: "guidance_v34_dot_4_selected"))
             vc1.tabBarItem.badgeValue = "1"

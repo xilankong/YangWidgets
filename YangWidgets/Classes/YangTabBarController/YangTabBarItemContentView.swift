@@ -102,7 +102,7 @@ class YangBackgroundContentView: YangBasicContentView {
 }
 
 
-class YangIrregularityBasicContentView: YangBouncesContentView {
+class YangIrregularityBasicContentView: ESTabBarItemContentView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,7 +112,9 @@ class YangIrregularityBasicContentView: YangBouncesContentView {
         self.imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView.layer.cornerRadius = 35
         self.imageView.layer.masksToBounds = true
-
+        let transform = CGAffineTransform.identity
+        self.imageView.transform = transform
+        self.superview?.bringSubview(toFront: self)
         self.insets = UIEdgeInsetsMake(-32, 0, 0, 0)
         textColor = UIColor.init(white: 175.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(red: 254/255.0, green: 73/255.0, blue: 42/255.0, alpha: 1.0)
@@ -123,6 +125,32 @@ class YangIrregularityBasicContentView: YangBouncesContentView {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func updateLayout() {
+        super.updateLayout()
+        self.imageView.sizeToFit()
+        self.imageView.center = CGPoint.init(x: self.bounds.size.width / 2.0, y: self.bounds.size.height / 2.0)
+    }
+    
+    
+    public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
+        UIView.beginAnimations("small", context: nil)
+        UIView.setAnimationDuration(0.2)
+        let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
+        self.imageView.transform = transform
+        UIView.commitAnimations()
+        completion?()
+    }
+    
+    public override func dehighlightAnimation(animated: Bool, completion: (() -> ())?) {
+        UIView.beginAnimations("big", context: nil)
+        UIView.setAnimationDuration(0.2)
+        let transform = CGAffineTransform.identity
+        self.imageView.transform = transform
+        UIView.commitAnimations()
+        completion?()
+    }
+    
 }
 
 
