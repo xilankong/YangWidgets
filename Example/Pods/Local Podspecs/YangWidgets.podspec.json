@@ -32,9 +32,8 @@
       "source_files": "YangWidgets/Classes/YangDragButton/**/*"
     },
     {
-      "name": "YangHub",
-      "source_files": "YangWidgets/Classes/YangHub/**/*",
-      "resources": "YangWidgets/Assets/YangHub/**/*"
+      "name": "YangToast",
+      "source_files": "YangWidgets/Classes/YangToast/**/*"
     },
     {
       "name": "YangSliderView",
@@ -47,6 +46,13 @@
     {
       "name": "YangProgressBar",
       "source_files": "YangWidgets/Classes/YangProgressBar/**/*"
+    },
+    {
+      "name": "YangPopView",
+      "source_files": [
+        "YangWidgets/Classes/YangPopView/**/*",
+        "YangWidgets/Classes/YangBlurView/**/*"
+      ]
     }
   ]
 }

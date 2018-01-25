@@ -26,9 +26,8 @@ TODO: widgets in development
         drag.source_files = 'YangWidgets/Classes/YangDragButton/**/*'
     end
 
-    s.subspec 'YangHub' do |hub|
-        hub.source_files = 'YangWidgets/Classes/YangHub/**/*'
-        hub.resource = 'YangWidgets/Assets/YangHub/**/*'
+    s.subspec 'YangToast' do |toast|
+        toast.source_files = 'YangWidgets/Classes/YangToast/**/*'
     end
 
     s.subspec 'YangSliderView' do |slide|
@@ -41,5 +40,9 @@ TODO: widgets in development
 
     s.subspec 'YangProgressBar' do |progressbar|
         progressbar.source_files = 'YangWidgets/Classes/YangProgressBar/**/*'
+    end
+
+    s.subspec 'YangPopView' do |popview|
+        popview.source_files = ['YangWidgets/Classes/YangPopView/**/*','YangWidgets/Classes/YangBlurView/**/*']
     end
 end

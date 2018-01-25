@@ -12,10 +12,6 @@ import UIKit
 /// PKHUDTextView provides a wide, three line text view, which you can use to display information.
 open class PKHUDTextView: PKHUDWideBaseView {
 
-    let padding: CGFloat = 10
-    let height: CGFloat = 40.0
-    let maxWidth: CGFloat = UIScreen.main.bounds.width - 60.0
-    
     public init(text: String?) {
         super.init()
         commonInit(text)
@@ -28,19 +24,23 @@ open class PKHUDTextView: PKHUDWideBaseView {
 
     func commonInit(_ text: String?) {
         titleLabel.text = text
-        titleLabel.sizeToFit()
-        var width = titleLabel.frame.size.width + padding * 2
-        width = width > maxWidth ? maxWidth : width
-        self.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: width, height: height))
         addSubview(titleLabel)
-        titleLabel.frame = CGRect(origin: CGPoint(x: padding, y: 0), size: CGSize(width: width - padding * 2, height: height))
+    }
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let padding: CGFloat = 10.0
+        titleLabel.frame = bounds.insetBy(dx: padding, dy: padding)
     }
 
     open let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 17.0)
+        label.textColor = UIColor.black.withAlphaComponent(0.85)
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 3
         return label
     }()
 }

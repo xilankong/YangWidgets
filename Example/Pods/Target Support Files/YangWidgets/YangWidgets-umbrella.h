@@ -11,6 +11,7 @@
 #endif
 
 #import "YangDropMenuView.h"
+#import "DynamicBlurView.h"
 
 FOUNDATION_EXPORT double YangWidgetsVersionNumber;
 FOUNDATION_EXPORT const unsigned char YangWidgetsVersionString[];

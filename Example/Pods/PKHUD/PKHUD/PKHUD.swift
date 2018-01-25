@@ -78,7 +78,7 @@ open class PKHUD: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 
-    open var dimsBackground = false
+    open var dimsBackground = true
     open var userInteractionOnUnderlyingViewsEnabled: Bool {
         get {
             return !container.isUserInteractionEnabled
@@ -108,15 +108,6 @@ open class PKHUD: NSObject {
         }
         set {
             container.frameView.effect = newValue
-        }
-    }
-    
-    open var backgroundColor: UIColor? {
-        get {
-            return container.frameView.backgroundColor
-        }
-        set {
-            container.frameView.backgroundColor = newValue
         }
     }
 

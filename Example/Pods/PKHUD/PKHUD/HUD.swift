@@ -10,14 +10,20 @@
 import UIKit
 
 public enum HUDContentType {
-    case loading
+    case success
+    case error
+    case progress
     case image(UIImage?)
     case rotatingImage(UIImage?)
 
+    case labeledSuccess(title: String?, subtitle: String?)
+    case labeledError(title: String?, subtitle: String?)
+    case labeledProgress(title: String?, subtitle: String?)
     case labeledImage(image: UIImage?, title: String?, subtitle: String?)
     case labeledRotatingImage(image: UIImage?, title: String?, subtitle: String?)
 
     case label(String?)
+    case systemActivity
 }
 
 public final class HUD {
@@ -67,10 +73,23 @@ public final class HUD {
     // MARK: Private methods
     fileprivate static func contentView(_ content: HUDContentType) -> UIView {
         switch content {
+        case .success:
+            return PKHUDSuccessView()
+        case .error:
+            return PKHUDErrorView()
+        case .progress:
+            return PKHUDProgressView()
         case let .image(image):
             return PKHUDSquareBaseView(image: image)
         case let .rotatingImage(image):
             return PKHUDRotatingImageView(image: image)
+
+        case let .labeledSuccess(title, subtitle):
+            return PKHUDSuccessView(title: title, subtitle: subtitle)
+        case let .labeledError(title, subtitle):
+            return PKHUDErrorView(title: title, subtitle: subtitle)
+        case let .labeledProgress(title, subtitle):
+            return PKHUDProgressView(title: title, subtitle: subtitle)
         case let .labeledImage(image, title, subtitle):
             return PKHUDSquareBaseView(image: image, title: title, subtitle: subtitle)
         case let .labeledRotatingImage(image, title, subtitle):
@@ -78,7 +97,7 @@ public final class HUD {
 
         case let .label(text):
             return PKHUDTextView(text: text)
-        case .loading:
+        case .systemActivity:
             return PKHUDSystemActivityIndicatorView()
         }
     }
