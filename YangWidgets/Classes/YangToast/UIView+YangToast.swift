@@ -7,26 +7,40 @@
 
 import UIKit
 
-public extension UIView {
+@objc public extension UIView {
     
-    public func showToast(withMessage message: String) {
-        HUD.show(.label("测试弹窗"))
-        HUD.hide(afterDelay: 1.5)
+    @objc public func showToast(withMessage message: String) {
+        ToastOverlays.showToast(inView: self, withText: message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            ToastOverlays.removeAllToast(inView: self)
+        }
     }
     
-    public func showToast(withMessage message: String, dismissAfter time: TimeInterval) {
-
+    @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval) {
+        ToastOverlays.showToast(inView: self, withText: message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+            ToastOverlays.removeAllToast(inView: self)
+        }
     }
     
-    public func showToast(withMessage message: String, dismissAfter time: TimeInterval, dismissComplete complete: @escaping (() -> Void)) {
-
+    @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval, dismissComplete complete: @escaping (() -> Void)) {
+        ToastOverlays.showToast(inView: self, withText: message)
+        DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+            ToastOverlays.removeAllToast(inView: self)
+            complete()
+        }
     }
     
-    public func showLoading() {
-        
+    @objc public func showLoading() {
+        ToastOverlays.showLoading(inView: self, withText: "wait a moment")
     }
     
-    public func hideLoading() {
-        
+    @objc public func hideLoading() {
+        ToastOverlays.removeAllToast(inView: self)
     }
+    
+    @objc public func showProgressLoading() {
+        ToastOverlays.showProgressLoading(inView: self, withText: "progress")
+    }
+    
 }

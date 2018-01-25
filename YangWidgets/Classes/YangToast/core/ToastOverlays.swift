@@ -1,147 +1,98 @@
 //
-//  SwiftOverlays.swift
-//  SwiftTest
+//  ToastOverlays.swift
+//  Pods-YangWidgets_Example
 //
-//  Created by Peter Prokop on 15/10/14.
-//  Copyright (c) 2014 Peter Prokop. All rights reserved.
+//  Created by yanghuang on 2018/1/19.
 //
 
 import Foundation
 import UIKit
 
-open class SwiftOverlays: NSObject {
-    // You can customize these values
+open class ToastOverlays: NSObject {
 
-    // Some random number
-    static let containerViewTag = 456987123
-    
+    static let containerViewTag = 100000999
     static let cornerRadius = CGFloat(10)
     static let padding = CGFloat(10)
     
-    static let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    static let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     static let textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     static let font = UIFont.systemFont(ofSize: 14)
     
     // Annoying notifications on top of status bar
     static let bannerDissapearAnimationDuration = 0.5
-
     static var bannerWindow : UIWindow?
     
-    open class Utils {
-        
-        /**
-            Adds autolayout constraints to innerView to center it in its superview and fix its size.
-            `innerView` should have a superview.
-        
-            - parameter innerView: View to set constraints on
-        */
-        open static func centerViewInSuperview(_ view: UIView) {
-            assert(view.superview != nil, "`view` should have a superview")
-            
-            view.translatesAutoresizingMaskIntoConstraints = false
-            
-            let constraintH = NSLayoutConstraint(item: view,
-                attribute: NSLayoutAttribute.centerX,
-                relatedBy: NSLayoutRelation.equal,
-                toItem: view.superview,
-                attribute: NSLayoutAttribute.centerX,
-                multiplier: 1,
-                constant: 0)
-            let constraintV = NSLayoutConstraint(item: view,
-                attribute: NSLayoutAttribute.centerY,
-                relatedBy: NSLayoutRelation.equal,
-                toItem: view.superview,
-                attribute: NSLayoutAttribute.centerY,
-                multiplier: 1,
-                constant: 0)
-            let constraintWidth = NSLayoutConstraint(item: view,
-                attribute: NSLayoutAttribute.width,
-                relatedBy: NSLayoutRelation.equal,
-                toItem: nil,
-                attribute: NSLayoutAttribute.notAnAttribute,
-                multiplier: 1,
-                constant: view.frame.size.width)
-            let constraintHeight = NSLayoutConstraint(item: view,
-                attribute: NSLayoutAttribute.height,
-                relatedBy: NSLayoutRelation.equal,
-                toItem: nil,
-                attribute: NSLayoutAttribute.notAnAttribute,
-                multiplier: 1,
-                constant: view.frame.size.height)
-            view.superview!.addConstraints([constraintV, constraintH, constraintWidth, constraintHeight])
-        }
-    }
+    // MARK: show in window
     
-    // MARK: - Public class methods -
-    
-    // MARK: Blocking
-    
-    /**
-        Shows *blocking* wait overlay with activity indicator, centered in the app's main window
-    
-        - returns: Created overlay
-    */
     @discardableResult
-    open class func showBlockingWaitOverlay() -> UIView {
+    open class func showLoadingInWindow() -> UIView {
         let blocker = addMainWindowBlocker()
         showCenteredWaitOverlay(blocker)
         
         return blocker
     }
-    
-    /**
-        Shows wait overlay with activity indicator *and text*, centered in the app's main window
-    
-        - parameter text: Text to be shown on overlay
-    
-        - returns: Created overlay
-    */
+
     @discardableResult
-    open class func showBlockingWaitOverlayWithText(_ text: String) -> UIView {
+    open class func showLoadingInWindow(withText text: String) -> UIView {
         let blocker = addMainWindowBlocker()
-        showCenteredWaitOverlayWithText(blocker, text: text)
+        showLoading(inView: blocker, withText: text)
+        return blocker
+    }
+    
+    @discardableResult
+    open class func showLoadingInWindow(withImage image: UIImage, andText text: String) -> UIView  {
+        let blocker = addMainWindowBlocker()
+        showLoading(inView: blocker, withImage: image, andText: text)
         
         return blocker
     }
     
-    /**
-        Shows *blocking* overlay *with image and text*,, centered in the app's main window
-    
-        - parameter image: Image to be added to overlay
-        - parameter text: Text to be shown on overlay
-    
-        - returns: Created overlay
-    */
-    open class func showBlockingImageAndTextOverlay(_ image: UIImage, text: String) -> UIView  {
-        let blocker = addMainWindowBlocker()
-        showImageAndTextOverlay(blocker, image: image, text: text)
-        
-        return blocker
-    }
-    
-    /**
-        Shows *text-only* overlay, centered in the app's main window
-    
-        - parameter text: Text to be shown on overlay
-    
-        - returns: Created overlay
-    */
-    open class func showBlockingTextOverlay(_ text: String) -> UIView  {
+    @discardableResult
+    open class func showToastInWindow(_ text: String) -> UIView  {
         let blocker = addMainWindowBlocker()
         showTextOverlay(blocker, text: text)
         
         return blocker
     }
     
-    /**
-        Removes all *blocking* overlays from application's main window
-    */
-    open class func removeAllBlockingOverlays() {
+    open class func removeAllToastInWindow() {
         let window = UIApplication.shared.delegate!.window!!
         removeAllOverlaysFromView(window)
     }
     
-    // MARK: Non-blocking
+    // MARK: show in view
+    
+    @discardableResult
+    open class func showLoading(inView view: UIView, withText text: String) -> UIView  {
+        let ai = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        ai.startAnimating()
+        
+        return showGenericOverlay(view, text: text, accessoryView: ai)
+    }
+    
+    @discardableResult
+    open class func showLoading(inView view: UIView, withImage image: UIImage, andText text: String) -> UIView  {
+        let imageView = UIImageView(image: image)
+        
+        return showGenericOverlay(view, text: text, accessoryView: imageView)
+    }
+    
+    @discardableResult
+    open class func showProgressLoading(inView view: UIView, withText text: String) -> UIView  {
+        let pv = UIProgressView(progressViewStyle: .default)
+        
+        return showGenericOverlay(view, text: text, accessoryView: pv, horizontalLayout: false)
+    }
+    
+    open class func showToast(inView view: UIView, withText text: String) -> UIView  {
+        return showTextOverlay(view, text: text)
+    }
+    
+    open class func removeAllToast(inView view: UIView) {
+        removeAllOverlaysFromView(view)
+    }
+    
+    //MARK: showCenteredWaitOverlay
     @discardableResult
     open class func showCenteredWaitOverlay(_ parentView: UIView) -> UIView {
         let ai = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -178,21 +129,8 @@ open class SwiftOverlays: NSObject {
         return containerView
     }
     
+    //MARK: showGenericOverlay
     @discardableResult
-    open class func showCenteredWaitOverlayWithText(_ parentView: UIView, text: String) -> UIView  {
-        let ai = UIActivityIndicatorView(activityIndicatorStyle: .white)
-        ai.startAnimating()
-        
-        return showGenericOverlay(parentView, text: text, accessoryView: ai)
-    }
-    
-    @discardableResult
-    open class func showImageAndTextOverlay(_ parentView: UIView, image: UIImage, text: String) -> UIView  {
-        let imageView = UIImageView(image: image)
-        
-        return showGenericOverlay(parentView, text: text, accessoryView: imageView)
-    }
-
     open class func showGenericOverlay(_ parentView: UIView, text: String, accessoryView: UIView, horizontalLayout: Bool = true) -> UIView {
         let label = labelForText(text)
         var actualSize = CGSize.zero
@@ -264,12 +202,6 @@ open class SwiftOverlays: NSObject {
         return containerView
     }
     
-    open class func showProgressOverlay(_ parentView: UIView, text: String) -> UIView  {
-        let pv = UIProgressView(progressViewStyle: .default)
-        
-        return showGenericOverlay(parentView, text: text, accessoryView: pv, horizontalLayout: false)
-    }
-    
     open class func removeAllOverlaysFromView(_ parentView: UIView) {
         parentView.subviews
             .filter { $0.tag == containerViewTag }
@@ -288,8 +220,7 @@ open class SwiftOverlays: NSObject {
         }
     }
     
-    // MARK: Status bar notification
-    
+    // MARK: show in top
     open class func showOnTopOfStatusBar(_ notificationView: UIView, duration: TimeInterval, animated: Bool = true) {
         if bannerWindow == nil {
             bannerWindow = UIWindow()
@@ -334,6 +265,7 @@ open class SwiftOverlays: NSObject {
         }
     }
     
+    // MARK: - close top
     @objc open class func closeNotificationOnTopOfStatusBar(_ sender: AnyObject) {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
     
@@ -359,8 +291,7 @@ open class SwiftOverlays: NSObject {
         )
     }
     
-    // MARK: - Private class methods -
-    
+    // MARK: - create label for text
     fileprivate class func labelForText(_ text: String) -> UILabel {
         let textSize = text.size(withAttributes: [NSAttributedStringKey.font: font])
         
@@ -375,6 +306,7 @@ open class SwiftOverlays: NSObject {
         return label
     }
     
+    //MARK: - create constraints in window
     fileprivate class func addMainWindowBlocker() -> UIView {
         let window = UIApplication.shared.delegate!.window!!
         
@@ -403,4 +335,45 @@ open class SwiftOverlays: NSObject {
         
         return blocker
     }
+    
+    //MARK: - create constraints
+    open class Utils {
+
+        open static func centerViewInSuperview(_ view: UIView) {
+            assert(view.superview != nil, "`view` should have a superview")
+            
+            view.translatesAutoresizingMaskIntoConstraints = false
+            
+            let constraintH = NSLayoutConstraint(item: view,
+                                                 attribute: NSLayoutAttribute.centerX,
+                                                 relatedBy: NSLayoutRelation.equal,
+                                                 toItem: view.superview,
+                                                 attribute: NSLayoutAttribute.centerX,
+                                                 multiplier: 1,
+                                                 constant: 0)
+            let constraintV = NSLayoutConstraint(item: view,
+                                                 attribute: NSLayoutAttribute.centerY,
+                                                 relatedBy: NSLayoutRelation.equal,
+                                                 toItem: view.superview,
+                                                 attribute: NSLayoutAttribute.centerY,
+                                                 multiplier: 1,
+                                                 constant: 0)
+            let constraintWidth = NSLayoutConstraint(item: view,
+                                                     attribute: NSLayoutAttribute.width,
+                                                     relatedBy: NSLayoutRelation.equal,
+                                                     toItem: nil,
+                                                     attribute: NSLayoutAttribute.notAnAttribute,
+                                                     multiplier: 1,
+                                                     constant: view.frame.size.width)
+            let constraintHeight = NSLayoutConstraint(item: view,
+                                                      attribute: NSLayoutAttribute.height,
+                                                      relatedBy: NSLayoutRelation.equal,
+                                                      toItem: nil,
+                                                      attribute: NSLayoutAttribute.notAnAttribute,
+                                                      multiplier: 1,
+                                                      constant: view.frame.size.height)
+            view.superview!.addConstraints([constraintV, constraintH, constraintWidth, constraintHeight])
+        }
+    }
+    
 }

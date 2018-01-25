@@ -24,11 +24,24 @@ class YangToastViewController: UIViewController {
         let btn = UIButton(type: UIButtonType.custom)
         btn.frame = CGRect(x: 100, y: 100, width: 100, height: 45)
         btn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        btn.setTitle("change", for: UIControlState.normal)
+        btn.setTitle("showLoading", for: UIControlState.normal)
         btn.addTarget(self, action: #selector(loadingButtonClickAction), for: UIControlEvents.touchUpInside)
         view.addSubview(btn)
+        
+        let imagebtn = UIButton(type: UIButtonType.custom)
+        imagebtn.frame = CGRect(x: 0, y: 200, width: 100, height: 45)
+        imagebtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        imagebtn.setTitle("showImage", for: UIControlState.normal)
+        imagebtn.addTarget(self, action: #selector(imageButtonClickAction), for: UIControlEvents.touchUpInside)
+        view.addSubview(imagebtn)
+        
+        let progressbtn = UIButton(type: UIButtonType.custom)
+        progressbtn.frame = CGRect(x: 100, y: 200, width: 100, height: 45)
+        progressbtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        progressbtn.setTitle("showProgressLoading", for: UIControlState.normal)
+        progressbtn.addTarget(self, action: #selector(progressButtonClickAction), for: UIControlEvents.touchUpInside)
+        view.addSubview(progressbtn)
     }
-    
     
     @objc func textButtonClickAction() {
         view.showToast(withMessage: "测试toast")
@@ -40,5 +53,13 @@ class YangToastViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.view.hideLoading()
         }
+    }
+    
+    @objc func imageButtonClickAction() {
+        
+    }
+    
+    @objc func progressButtonClickAction() {
+        view.showProgressLoading()
     }
 }
