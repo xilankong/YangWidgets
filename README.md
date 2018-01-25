@@ -14,7 +14,7 @@ pod 'PopupDialog', '~> 0.7'
 
 小工具集合：
 
-1、下拉菜单 ()
+1、下拉菜单 (done)
 
 2、拖拽悬浮块 (done)
 
@@ -36,7 +36,7 @@ pod 'PopupDialog', '~> 0.7'
 
 11、标签Label
 
-12、进度条
+12、进度条 (done)
 
 13、pop view
 

@@ -43,6 +43,10 @@
     {
       "name": "YangTabBarController",
       "source_files": "YangWidgets/Classes/YangTabBarController/**/*"
+    },
+    {
+      "name": "YangProgressBar",
+      "source_files": "YangWidgets/Classes/YangProgressBar/**/*"
     }
   ]
 }

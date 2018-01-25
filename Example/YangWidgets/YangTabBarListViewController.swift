@@ -21,12 +21,10 @@ class YangTabBarListViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return array.count
     }
     
@@ -138,8 +136,6 @@ class YangTabBarListViewController: UITableViewController {
             tabBarVC.viewControllers = [vc1, vc2, vc4, vc5]
             tabBarVC.selectedIndex = 1
             self.navigationController?.pushViewController(tabBarVC, animated: true)
-            
         }
     }
-
 }

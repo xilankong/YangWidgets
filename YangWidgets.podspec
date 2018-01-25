@@ -38,4 +38,8 @@ TODO: widgets in development
     s.subspec 'YangTabBarController' do |tabbar|
         tabbar.source_files = 'YangWidgets/Classes/YangTabBarController/**/*'
     end
+
+    s.subspec 'YangProgressBar' do |progressbar|
+        progressbar.source_files = 'YangWidgets/Classes/YangProgressBar/**/*'
+    end
 end
