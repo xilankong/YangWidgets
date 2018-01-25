@@ -132,7 +132,7 @@ class YangTabBarListViewController: UITableViewController {
             vc4.tabBarItem = ESTabBarItem.init(YangBackgroundContentView(), title: "favor", image:#imageLiteral(resourceName: "favor"), selectedImage: #imageLiteral(resourceName: "favor_1"), tag: 3)
             vc5.tabBarItem = ESTabBarItem.init(YangBackgroundContentView(), title: "me", image: #imageLiteral(resourceName: "cardboard"), selectedImage: #imageLiteral(resourceName: "cardboard_1"), tag: 4)
             if let tabBarItem = vc5.tabBarItem as? ESTabBarItem {
-                tabBarItem.badgeColor = UIColor.lightGray
+                tabBarItem.badgeColor = UIColor.orange
             }
             vc5.tabBarItem.badgeValue = "5"
             tabBarVC.viewControllers = [vc1, vc2, vc4, vc5]

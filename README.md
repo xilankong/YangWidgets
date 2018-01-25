@@ -14,17 +14,17 @@ pod 'PopupDialog', '~> 0.7'
 
 小工具集合：
 
-1、下拉菜单
+1、下拉菜单 ()
 
-2、拖拽悬浮块
+2、拖拽悬浮块 (done)
 
-3、分页指示器
+3、分页指示器 (done)
 
-4、导航条
+4、导航条 (done)
 
-5、ActionSheet
+5、tabBar  (done)
 
-6、sliderPage
+6、sliderPage (done)
 
 7、混排Label
 
