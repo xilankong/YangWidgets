@@ -20,7 +20,8 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
          "YangToastViewController",
          "YangTabBarListViewController",
          "YangProgressBarViewController",
-         "YangPopupViewController"]
+         "YangPopupViewController",
+         "YangTableViewAdapterViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

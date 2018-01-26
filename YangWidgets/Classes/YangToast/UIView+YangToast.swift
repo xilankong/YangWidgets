@@ -10,23 +10,23 @@ import UIKit
 @objc public extension UIView {
     
     @objc public func showToast(withMessage message: String) {
-        ToastOverlays.showToast(inView: self, withText: message)
+        let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            ToastOverlays.removeAllToast(inView: self)
+            toast.removeFromSuperview()
         }
     }
     
     @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval) {
-        ToastOverlays.showToast(inView: self, withText: message)
+        let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + time) {
-            ToastOverlays.removeAllToast(inView: self)
+            toast.removeFromSuperview()
         }
     }
     
     @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval, dismissComplete complete: @escaping (() -> Void)) {
-        ToastOverlays.showToast(inView: self, withText: message)
+        let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + time) {
-            ToastOverlays.removeAllToast(inView: self)
+            toast.removeFromSuperview()
             complete()
         }
     }

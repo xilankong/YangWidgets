@@ -45,4 +45,8 @@ TODO: widgets in development
     s.subspec 'YangPopView' do |popview|
         popview.source_files = ['YangWidgets/Classes/YangPopView/**/*','YangWidgets/Classes/YangBlurView/**/*']
     end
+
+    s.subspec 'YangTableViewAdapter' do |tableview|
+        tableview.source_files = 'YangWidgets/Classes/YangTableViewAdapter/**/*'
+    end
 end

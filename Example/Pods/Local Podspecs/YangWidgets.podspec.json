@@ -53,6 +53,10 @@
         "YangWidgets/Classes/YangPopView/**/*",
         "YangWidgets/Classes/YangBlurView/**/*"
       ]
+    },
+    {
+      "name": "YangTableViewAdapter",
+      "source_files": "YangWidgets/Classes/YangTableViewAdapter/**/*"
     }
   ]
 }
