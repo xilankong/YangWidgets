@@ -2,13 +2,7 @@
 
 自用工具集、部分内容来自github，有进行适用的修改，有注明原出处
 
-```ruby
 
-
-tabbar
-pod "ESTabBarController-swift"
-pod 'PopupDialog', '~> 0.7'
-```
 
 # 包括内容
 
@@ -26,7 +20,7 @@ pod 'PopupDialog', '~> 0.7'
 
 6、sliderPage (done)
 
-7、混排Label
+7、
 
 8、图片轮播器
 
@@ -41,3 +35,7 @@ pod 'PopupDialog', '~> 0.7'
 13、pop view
 
 14、日志
+
+15、表格adapter (一套便捷实用adapter、yykit、异步绘制)
+
+16、collectionView adapter   (IGListKit)  

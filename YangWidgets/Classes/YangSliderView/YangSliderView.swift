@@ -68,9 +68,7 @@ public class YangSliderView: UIView {
     
     private var _currentIndex: Int = 0
     public var currentIndex: Int {
-        get {
-            return _currentIndex
-        }
+        get { return _currentIndex }
         set {
             if newValue != _currentIndex {
                 goToTab(fromIndex: _currentIndex, toIndex: newValue)
@@ -79,16 +77,19 @@ public class YangSliderView: UIView {
         }
     }
     
+    //MARK: - xib初始化
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        initUI()
     }
-    //MARK: - 初始化
+    
+    //MARK: - frame初始化
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
     }
     
-    //MARK: - 代参数初始化
+    //MARK: - 参数初始化
     public init(frame: CGRect,titles: [String],childControllers: [UIViewController & YangSliderViewContainerDelegate]) {
         
         super.init(frame: frame)
