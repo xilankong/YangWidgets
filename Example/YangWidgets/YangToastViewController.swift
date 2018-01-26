@@ -28,23 +28,17 @@ class YangToastViewController: UIViewController {
         btn.addTarget(self, action: #selector(loadingButtonClickAction), for: UIControlEvents.touchUpInside)
         view.addSubview(btn)
         
-        let imagebtn = UIButton(type: UIButtonType.custom)
-        imagebtn.frame = CGRect(x: 0, y: 200, width: 100, height: 45)
-        imagebtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        imagebtn.setTitle("showImage", for: UIControlState.normal)
-        imagebtn.addTarget(self, action: #selector(imageButtonClickAction), for: UIControlEvents.touchUpInside)
-        view.addSubview(imagebtn)
         
         let progressbtn = UIButton(type: UIButtonType.custom)
         progressbtn.frame = CGRect(x: 100, y: 200, width: 100, height: 45)
         progressbtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        progressbtn.setTitle("showProgressLoading", for: UIControlState.normal)
+        progressbtn.setTitle("progress", for: UIControlState.normal)
         progressbtn.addTarget(self, action: #selector(progressButtonClickAction), for: UIControlEvents.touchUpInside)
         view.addSubview(progressbtn)
     }
     
     @objc func textButtonClickAction() {
-        view.showToast(withMessage: "测试toast")
+        view.showToast(withMessage: "测试toast测")
     }
     
     @objc func loadingButtonClickAction() {
@@ -54,10 +48,7 @@ class YangToastViewController: UIViewController {
             self.view.hideLoading()
         }
     }
-    
-    @objc func imageButtonClickAction() {
-        
-    }
+
     
     @objc func progressButtonClickAction() {
         view.showProgressLoading()

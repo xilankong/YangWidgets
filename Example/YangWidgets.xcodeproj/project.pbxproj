@@ -274,7 +274,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 985LB7AXTT;
+						DevelopmentTeam = A7AZHSY868;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -570,7 +570,7 @@
 			baseConfigurationReference = 4C52B90E85BD0EE861DF1245 /* Pods-YangWidgets_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 985LB7AXTT;
+				DEVELOPMENT_TEAM = A7AZHSY868;
 				INFOPLIST_FILE = YangWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -586,7 +586,7 @@
 			baseConfigurationReference = 90DD08D7BE5C46C0D7536780 /* Pods-YangWidgets_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 985LB7AXTT;
+				DEVELOPMENT_TEAM = A7AZHSY868;
 				INFOPLIST_FILE = YangWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

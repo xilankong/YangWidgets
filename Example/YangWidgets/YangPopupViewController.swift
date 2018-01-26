@@ -11,30 +11,52 @@ import YangWidgets
 
 class YangPopupViewController: UIViewController {
 
+    let array = ["simple","ok/cancle"]
+    let tableView = UITableView(frame: .zero, style: .grouped)
+    var tableViewAdapter: YangTableViewAdapter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-        let textbtn = UIButton(type: UIButtonType.custom)
-        textbtn.frame = CGRect(x: 0, y: 100, width: 100, height: 45)
-        textbtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        textbtn.setTitle("图片popup", for: UIControlState.normal)
-        textbtn.addTarget(self, action: #selector(imageButtonClickAction), for: UIControlEvents.touchUpInside)
-        view.addSubview(textbtn)
-        
-        let btn = UIButton(type: UIButtonType.custom)
-        btn.frame = CGRect(x: 100, y: 100, width: 100, height: 45)
-        btn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        btn.setTitle("change", for: UIControlState.normal)
-        btn.addTarget(self, action: #selector(normalButtonClickAction), for: UIControlEvents.touchUpInside)
-        view.addSubview(btn)
-    }
-
-    @objc func imageButtonClickAction() {
-//        self.showDialog
-//        self.show
+        initUI()
+        initTableView()
     }
     
-    @objc func normalButtonClickAction() {
-        self.showDialog()
+    func initUI() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.edges.equalTo(self.view)
+        }
+    }
+    
+    func initTableView() {
+        tableViewAdapter = YangTableViewAdapter(tableView) { (indexPath, tableView) -> UITableViewCell in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
+            cell.textLabel?.text = self.array[indexPath.row]
+            return cell
+        }
+        
+        tableViewAdapter.numberOfRowsInSection = { section in
+            return self.array.count
+        }
+        
+        tableViewAdapter.cellDidSelectedAtIndexPath = { (indexPath, tableView) in
+            switch indexPath.row {
+            case 0:
+                self.showDialog(title: "测试", message: "测试内容", buttonText: "知道了") {
+                    self.view.showToast(withMessage: "关闭")
+                }
+            case 1:
+                self.showDialog(title: "测试两个按钮", message: "测试内容", okButtonText: "确定", cancleButtonText: "取消", okCompletion: {
+                    self.view.showToast(withMessage: "ok")
+                }, cancleCompletion: {
+                    self.view.showToast(withMessage: "cancle")
+                })
+            case 2:
+                self.showImageDialog()
+            default:
+                self.showImageDialog()
+            }
+        }
+        
     }
 }
