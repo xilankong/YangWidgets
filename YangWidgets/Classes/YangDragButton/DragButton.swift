@@ -10,40 +10,27 @@ import UIKit
 
 public class DragButton: UIView {
     
-   let DOUBLE_CLICK_TIME = 0.3
-   let ANIMATION_DURATION_TIME = 0.2
+    let DOUBLE_CLICK_TIME = 0.3
+    let ANIMATION_DURATION_TIME = 0.2
     
-   public typealias BtnClosure = (_ btn : DragButton) ->()
+    public typealias BtnClosure = (_ btn : DragButton) ->()
     
-   //是否拖拽中
-   public var isDragging : Bool = false
-   //是否可拖拽
-   public var draggable : Bool = true
-   //是否自动吸附
-   public var autoDocking : Bool = false
-   //拖拽开始center
-   public var beginLocation : CGPoint?
-   //长按手势
-   public var longPressGestureRecognizer : UILongPressGestureRecognizer?
-   //单击回调
-   fileprivate var _clickClosure : BtnClosure?
-   public var clickClosure : BtnClosure? {
-        get {
-            return _clickClosure
-        }
-        set(newValue) {
-            _clickClosure = newValue
-        }
-    }
-    
+    //是否拖拽中
+    public var isDragging: Bool = false
+    //是否可拖拽
+    public var draggable: Bool = true
+    //是否自动吸附
+    public var autoDocking: Bool = false
+    //单击回调
+    public var clickClosure: BtnClosure?
     //双击回调
-    public var doubleClickClosure : BtnClosure?
+    public var doubleClickClosure: BtnClosure?
     //拖拽回调
-    public var draggingClosure : BtnClosure?
+    public var draggingClosure: BtnClosure?
     //拖拽结束回调
-    public var dragDoneClosure : BtnClosure?
+    public var dragDoneClosure: BtnClosure?
     //自动吸附结束回调
-    public var autoDockEndClosure : BtnClosure?
+    public var autoDockEndClosure: BtnClosure?
     //图片
     public var image: UIImage? {
         didSet {
@@ -51,11 +38,13 @@ public class DragButton: UIView {
         }
     }
     
-    private let imageView: UIImageView = UIImageView()
+    //拖拽开始center
+    fileprivate var beginLocation: CGPoint?
+    fileprivate let imageView: UIImageView = UIImageView()
     
     //MARK: - 初始化
     required public init?(coder aDecoder: NSCoder) {
-        super.init(frame: CGRect(x: 0, y: 100, width: 50, height: 50))
+        super.init(coder: aDecoder)
         initUI()
     }
 
@@ -75,46 +64,22 @@ public class DragButton: UIView {
         autoDocking = true
     }
 
-    //MARK: - 双击响应
+    //MARK: 双击响应
     @objc private func doubleClickAction() {
-        
-        guard let doubleClickClosure = self.doubleClickClosure,
-            isDragging == false else {
-                return
-        }
-        print("doubleClickClosure" + "click")
-        doubleClickClosure(self)
+        doubleClickClosure?(self)
     }
     
-    //MARK:单击响应
+    //MARK: 单击响应
     
     @objc private func singleClickAction() {
-        //单击被取消 或者 拖拽、 无闭包都不执行
-        guard let clickClosure = self.clickClosure,
-            isDragging == false else {
-            return
-        }
-        print("clickClosure" + "click")
-        clickClosure(self)
+        clickClosure?(self)
     }
 
-    
-    //MARK: - 拖拽开始
+    //MARK: touch开始
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isDragging = false //开始将dragging置为否
+        isDragging = false
         super.touchesBegan(touches, with: event)
-        
         let touch = touches.first
-        
-        print("touch")
-        
-        if touch?.tapCount == 1 {
-            self.perform(#selector(singleClickAction), with: nil, afterDelay: DOUBLE_CLICK_TIME )
-        } else if touch?.tapCount == 2 {
-            //双击回调
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(singleClickAction), object: nil)
-            self.doubleClickAction()
-        }
         beginLocation = touch?.location(in: self)
     }
     
@@ -150,6 +115,7 @@ public class DragButton: UIView {
             draggingClosure?(self)
         }
     }
+    
     //MARK: - 拖拽结束
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
@@ -157,33 +123,30 @@ public class DragButton: UIView {
         if isDragging {
             //拖拽结束回调
             dragDoneClosure?(self)
-        }
-
-        if isDragging && autoDocking {
             
-            let superviewFrame : CGRect = (self.superview?.frame)!
-            let frame = self.frame
-            let middleX = superviewFrame.size.width / 2.0
-            
-            if self.center.x >= middleX {
-                UIView.animate(withDuration: ANIMATION_DURATION_TIME, animations: { 
-                     self.center = CGPoint(x: superviewFrame.size.width - frame.size.width / 2, y: self.center.y)
-                    //自动吸附中
-                }, completion: { _ in
-                    //自动吸附结束回调
-                    self.autoDockEndClosure?(self)
-                })
-            } else {
-                
+            if autoDocking {
+                let superviewFrame : CGRect = (self.superview?.frame)!
+                let frame = self.frame
+                let middleX = superviewFrame.size.width / 2.0
+                let changeX = self.center.x >= middleX ? (superviewFrame.size.width - frame.size.width / 2) : (frame.size.width / 2)
                 UIView.animate(withDuration: ANIMATION_DURATION_TIME, animations: {
-                    self.center = CGPoint(x:frame.size.width / 2, y: self.center.y)
-                    //自动吸附中
+                    self.center = CGPoint(x: changeX, y: self.center.y)
                 }, completion: { _ in
-                    //自动吸附结束回调
                     self.autoDockEndClosure?(self)
                 })
             }
+        } else {
+            let touch = touches.first
+            if touch?.tapCount == 1 {
+                //单击回调
+                self.perform(#selector(singleClickAction), with: nil, afterDelay: DOUBLE_CLICK_TIME )
+            } else if touch?.tapCount == 2 {
+                //双击回调，如果在时间范围内会撤销单击事件
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(singleClickAction), object: nil)
+                self.doubleClickAction()
+            }
         }
+       
         isDragging = false
     }
     
@@ -192,7 +155,6 @@ public class DragButton: UIView {
         isDragging = false
         super.touchesCancelled(touches, with: event)
     }
-    
     
     //MARK: - 添加到keyWindow
     public func addButtonToKeyWindow() {
@@ -208,24 +170,4 @@ public class DragButton: UIView {
         }
     }
     
-    //        longPressGestureRecognizer =
-    //            UILongPressGestureRecognizer(target: self, action: #selector(gestureRecognizerHandle(_:)))
-    //
-    //        guard let longPressGestureRecognizer = self.longPressGestureRecognizer else {
-    //            return
-    //        }
-    //        longPressGestureRecognizer.allowableMovement = 0
-    //        //添加长按事件
-    //        self.addGestureRecognizer(longPressGestureRecognizer)
-    
-    //MARK: - 长按，暂时不需要
-    //    func gestureRecognizerHandle(_ gestureRecognizer : UILongPressGestureRecognizer) {
-    //        switch gestureRecognizer.state {
-    //        case .began:
-    //            print("")//长按block
-    //            break
-    //        default:
-    //            break
-    //        }
-    //    }
 }

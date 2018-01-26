@@ -19,10 +19,10 @@ class YangDragButtonViewController: UIViewController {
         btn.backgroundColor = UIColor.red
         btn.image = #imageLiteral(resourceName: "portrait")
         btn.clickClosure = { (btn : DragButton) in
-            print("adsfasdf")
+            self.view.showToast(withMessage: "单击")
         }
         btn.doubleClickClosure = { (btn : DragButton) in
-            print("123456")
+            self.view.showToast(withMessage: "双击")
         }
         
     }
