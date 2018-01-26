@@ -41,6 +41,7 @@ import UIKit
     
     @objc public func showProgressLoading() {
         ToastOverlays.showProgressLoading(inView: self, withText: "progress")
+        ToastOverlays.updateLoadingProgress(self, progress: 0.6)
     }
     
 }

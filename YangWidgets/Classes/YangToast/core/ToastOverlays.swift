@@ -214,7 +214,7 @@ open class ToastOverlays: NSObject {
         }
     }
     
-    open class func updateOverlayProgress(_ parentView: UIView, progress: Float) {
+    open class func updateLoadingProgress(_ parentView: UIView, progress: Float) {
         if let overlay = parentView.viewWithTag(containerViewTag) {
             overlay.subviews.flatMap { $0 as? UIProgressView }.first?.progress = progress
         }

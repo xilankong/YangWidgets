@@ -17,14 +17,14 @@ class YangToastViewController: UIViewController {
         let textbtn = UIButton(type: UIButtonType.custom)
         textbtn.frame = CGRect(x: 0, y: 100, width: 100, height: 45)
         textbtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        textbtn.setTitle("showText", for: UIControlState.normal)
+        textbtn.setTitle("toast", for: UIControlState.normal)
         textbtn.addTarget(self, action: #selector(textButtonClickAction), for: UIControlEvents.touchUpInside)
         view.addSubview(textbtn)
         
         let btn = UIButton(type: UIButtonType.custom)
         btn.frame = CGRect(x: 100, y: 100, width: 100, height: 45)
         btn.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        btn.setTitle("showLoading", for: UIControlState.normal)
+        btn.setTitle("loading", for: UIControlState.normal)
         btn.addTarget(self, action: #selector(loadingButtonClickAction), for: UIControlEvents.touchUpInside)
         view.addSubview(btn)
         
@@ -61,5 +61,6 @@ class YangToastViewController: UIViewController {
     
     @objc func progressButtonClickAction() {
         view.showProgressLoading()
+        
     }
 }
