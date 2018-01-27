@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Daiki Okumura. All rights reserved.
 //
 //  This software is released under the MIT License.
-//  http://opensource.org/licenses/mit-license.php
 //
 
 import Foundation
@@ -17,7 +16,8 @@ let DOAlertActionEnabledDidChangeNotification = "DOAlertActionEnabledDidChangeNo
 public enum DOAlertActionStyle : Int {
     case `default`
     case cancel
-    case destructive
+    case custom
+    case warning
 }
 
 public enum DOAlertControllerStyle : Int {
@@ -218,22 +218,22 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     open var buttonFont: [DOAlertActionStyle : UIFont] = [
         .default : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16),
         .cancel  : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16),
-        .destructive  : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16)
+        .custom  : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16)
     ]
     open var buttonTextColor: [DOAlertActionStyle : UIColor] = [
         .default : UIColor.white,
         .cancel  : UIColor.white,
-        .destructive  : UIColor.white
+        .custom  : UIColor.white
     ]
     open var buttonBgColor: [DOAlertActionStyle : UIColor] = [
         .default : UIColor(red:52/255, green:152/255, blue:219/255, alpha:1),
         .cancel  : UIColor(red:127/255, green:140/255, blue:141/255, alpha:1),
-        .destructive  : UIColor(red:231/255, green:76/255, blue:60/255, alpha:1)
+        .custom  : UIColor(red:231/255, green:76/255, blue:60/255, alpha:1)
     ]
     open var buttonBgColorHighlighted: [DOAlertActionStyle : UIColor] = [
         .default : UIColor(red:74/255, green:163/255, blue:223/255, alpha:1),
         .cancel  : UIColor(red:140/255, green:152/255, blue:153/255, alpha:1),
-        .destructive  : UIColor(red:234/255, green:97/255, blue:83/255, alpha:1)
+        .custom  : UIColor(red:234/255, green:97/255, blue:83/255, alpha:1)
     ]
     fileprivate var buttonCornerRadius: CGFloat = 4.0
     
