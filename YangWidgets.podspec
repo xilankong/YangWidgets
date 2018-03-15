@@ -49,4 +49,8 @@ TODO: widgets in development
     s.subspec 'YangTableViewAdapter' do |tableview|
         tableview.source_files = 'YangWidgets/Classes/YangTableViewAdapter/**/*'
     end
+
+    s.subspec 'YangCarousel' do |carousel|
+        carousel.source_files = 'YangWidgets/Classes/YangCarousel/**/*'
+    end
 end

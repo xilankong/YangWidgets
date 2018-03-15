@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "XRCarouselView.h"
 #import "YangDropMenuView.h"
 #import "DynamicBlurView.h"
 

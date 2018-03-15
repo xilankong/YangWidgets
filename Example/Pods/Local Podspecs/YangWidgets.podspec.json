@@ -57,6 +57,10 @@
     {
       "name": "YangTableViewAdapter",
       "source_files": "YangWidgets/Classes/YangTableViewAdapter/**/*"
+    },
+    {
+      "name": "YangCarousel",
+      "source_files": "YangWidgets/Classes/YangCarousel/**/*"
     }
   ]
 }
