@@ -136,7 +136,7 @@
 		137BB58388CD6C917BFF84BB5746A02D /* YangDropMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YangDropMenuView.m; sourceTree = "<group>"; };
 		155B0F68F55650AB9DA3EB802B75CFE0 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		1883A6C4F6EBC6DD3415C56A72986BE1 /* Pods-YangWidgets_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Tests-resources.sh"; sourceTree = "<group>"; };
-		18FE126D917CBD2387A4C0AB9E661F3A /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Tests.framework; path = "Pods-YangWidgets_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18FE126D917CBD2387A4C0AB9E661F3A /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YangWidgets_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A90D86033A9A3024F0BAAC4FF6421C /* UIViewController+YangRootNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YangRootNavigationController.h"; sourceTree = "<group>"; };
 		19E6AC71B5351D3657506CFA6D1143E9 /* Pods-YangWidgets_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YangWidgets_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B035C73E733BC7E843D13723725554B /* Pods-YangWidgets_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YangWidgets_Example.modulemap"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		3ABC9D64458AB89596AC989C36546AE0 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
 		3B16637C9CB28F86BEA1D266B2C53CD1 /* DynamicBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DynamicBlurView.h; sourceTree = "<group>"; };
 		3B3E87B278D9A2D15DEA1B18602FE809 /* YangWidgets.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YangWidgets.xcconfig; sourceTree = "<group>"; };
-		3B5581EFB62E8309E05CE93B5C404824 /* Pods_YangWidgets_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Example.framework; path = "Pods-YangWidgets_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B5581EFB62E8309E05CE93B5C404824 /* Pods_YangWidgets_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YangWidgets_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C177BE839DE83F36B5D4E2F8258B758 /* ToastOverlays.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToastOverlays.swift; sourceTree = "<group>"; };
 		43E27F4F156612002935B76F0DDFBBBB /* UINavigationBar+Custom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Custom.m"; sourceTree = "<group>"; };
 		45908992EEDBCFF12244DAE9912F7228 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		4979CCF4DB59465A3DBEFFF7C4C0CE5D /* Pods-YangWidgets_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4EBD34640B366CC2C5532823F145481F /* DynamicBlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DynamicBlurView.swift; sourceTree = "<group>"; };
 		4F134C955F7BE323AC1BB6DA757D32C9 /* Pods-YangWidgets_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Example-frameworks.sh"; sourceTree = "<group>"; };
-		527385B4AEB5499E986FEB689A9874F7 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		527385B4AEB5499E986FEB689A9874F7 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5495F3260249C5CD5E62E6D02610A41D /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		55F1F08ED6F3C072E7AC9154FBDC8C4E /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		560EE68EA0090047CD3C57CC36B7D7D1 /* Pods-YangWidgets_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		78D84AEAB5EDA0F59C98BEDCDCF29833 /* DragButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DragButton.swift; sourceTree = "<group>"; };
 		7CAE5F428AF9A20D05B41D295C79FC33 /* YangNavigationHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YangNavigationHelper-dummy.m"; sourceTree = "<group>"; };
 		8029F4F3128A58B078EDFCF962E4270C /* CGImage+Accelerate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGImage+Accelerate.swift"; sourceTree = "<group>"; };
-		81E3D19CD146CD971FEECFB71CEF6616 /* YangWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YangWidgets.framework; path = YangWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E3D19CD146CD971FEECFB71CEF6616 /* YangWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YangWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842126A48B14335F374714DA43F06BE5 /* TrackingMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TrackingMode.swift; sourceTree = "<group>"; };
 		88CB87312805829D95410B05EFC3BBE3 /* YangNavigationHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangNavigationHelper-umbrella.h"; sourceTree = "<group>"; };
 		8A0A4D5D85B4FAEB4C7AF868A3E48121 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		9004CE3EA98E959D6155D82F5F8A79C4 /* YangWidgets-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-prefix.pch"; sourceTree = "<group>"; };
 		9297EFDA2A228BE0D126B13FEC2B2AC1 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		92EC67A9344FB011AC6B0CB0B1706C1C /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		980CA6C706F5F902BFA49569BD9F0C44 /* Pods-YangWidgets_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YangWidgets_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9B899E435561D58F78DBD45A497B573C /* Pods-YangWidgets_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9D83487317D9F99C72C84C38D721668C /* YangDropMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YangDropMenuView.h; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		DBE14A5BE5AA8350526F042EBC920BAA /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		DD97CEFB74800C4A5F04ED11A13D33D5 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		DE9E7877FBEFB516934DCF4DA70078CB /* YangNavigationHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangNavigationHelper-prefix.pch"; sourceTree = "<group>"; };
-		DF87C5BED09937AA624DCE90A094FECE /* YangNavigationHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YangNavigationHelper.framework; path = YangNavigationHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF87C5BED09937AA624DCE90A094FECE /* YangNavigationHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YangNavigationHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3971C8EBD8853DBBED22A00B611DDE9 /* YangRootNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YangRootNavigationController.m; sourceTree = "<group>"; };
 		E77FE92755E81DA6FE8F573D4B711EDF /* XRPlaceholder.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = XRPlaceholder.png; sourceTree = "<group>"; };
 		E786203FC4B2B208BA402E7F60424B4A /* BlurLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlurLayer.swift; sourceTree = "<group>"; };
@@ -295,7 +295,6 @@
 			children = (
 				34A863B578D52BC048CC3FE9D2E8CC1C /* YangSliderView.swift */,
 			);
-			name = YangSliderView;
 			path = YangSliderView;
 			sourceTree = "<group>";
 		};
@@ -304,7 +303,6 @@
 			children = (
 				15681A2D76840741C05BE6137B0213B6 /* YangDropMenuView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -321,7 +319,6 @@
 			children = (
 				3C177BE839DE83F36B5D4E2F8258B758 /* ToastOverlays.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -330,7 +327,6 @@
 			children = (
 				6B160B080CB2E0BFFDDA7A5CC9562E03 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -340,7 +336,6 @@
 				9D83487317D9F99C72C84C38D721668C /* YangDropMenuView.h */,
 				137BB58388CD6C917BFF84BB5746A02D /* YangDropMenuView.m */,
 			);
-			name = YangDropMenuView;
 			path = YangDropMenuView;
 			sourceTree = "<group>";
 		};
@@ -358,7 +353,6 @@
 				611ADD57A577650E39C9AE16D397A8BA /* UIViewController+YangPopView.swift */,
 				AE6055DE28D51F2C11611E64CC011037 /* core */,
 			);
-			name = YangPopView;
 			path = YangPopView;
 			sourceTree = "<group>";
 		};
@@ -386,7 +380,6 @@
 			children = (
 				3E996E0832FF223BF331EA683A4B3B76 /* YangTableViewAdapter */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -395,7 +388,6 @@
 			children = (
 				5EB4A19A5879573E0D33C54D45B36383 /* YangToast */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -416,7 +408,6 @@
 			children = (
 				08C8B04E1DE08B8BE4AAC039151F6E2F /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -451,7 +442,6 @@
 			children = (
 				262630FDB7BB602844B1790B8CA0FC2F /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -467,7 +457,6 @@
 				842126A48B14335F374714DA43F06BE5 /* TrackingMode.swift */,
 				34EE7DB80FC47F9AA2B72E6E02E9B1F9 /* UIImage+Blur.swift */,
 			);
-			name = YangBlurView;
 			path = YangBlurView;
 			sourceTree = "<group>";
 		};
@@ -476,7 +465,6 @@
 			children = (
 				2E5B764B6CDC8F8090C973C99731089F /* YangTableViewAdapter.swift */,
 			);
-			name = YangTableViewAdapter;
 			path = YangTableViewAdapter;
 			sourceTree = "<group>";
 		};
@@ -499,7 +487,6 @@
 			children = (
 				9CA458EEFEF36A7E8E18116E19F295AC /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -508,7 +495,6 @@
 			children = (
 				F617103BD346424A64E1F30780980837 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -535,7 +521,6 @@
 				476FBAC9EC84785528843A1FABF2E73D /* XRCarouselView.m */,
 				E77FE92755E81DA6FE8F573D4B711EDF /* XRPlaceholder.png */,
 			);
-			name = YangCarousel;
 			path = YangCarousel;
 			sourceTree = "<group>";
 		};
@@ -553,7 +538,6 @@
 				C0EB9DCBCF7F2B0FD6EC542DECFE5854 /* UIView+YangToast.swift */,
 				146A70688C0633648F24BFCB89718732 /* core */,
 			);
-			name = YangToast;
 			path = YangToast;
 			sourceTree = "<group>";
 		};
@@ -562,7 +546,6 @@
 			children = (
 				832971CD36BDFF11D716171549EE4A92 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -571,7 +554,6 @@
 			children = (
 				63B3E614215217075B82F17B2FDE70A7 /* YangProgressBar.swift */,
 			);
-			name = YangProgressBar;
 			path = YangProgressBar;
 			sourceTree = "<group>";
 		};
@@ -580,7 +562,6 @@
 			children = (
 				5B43F3D7BE72A830EC5A51428F202183 /* YangCarousel */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -590,7 +571,6 @@
 				A01B270EA3FE880A1F1563BD0E65CFF1 /* YangRootNavigationController.h */,
 				E3971C8EBD8853DBBED22A00B611DDE9 /* YangRootNavigationController.m */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -621,7 +601,6 @@
 				3D9E265DC04C8A39788A846C99E03001 /* YangBlurView */,
 				1DB5902BB8BED371A28CBE6D460C2E37 /* YangPopView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -631,7 +610,6 @@
 				EB84423C04EB7252968DE7FC21F9E08D /* YangGuidPageViewController.swift */,
 				8A878D93A21EA0204942257204852AD0 /* YangPageControl.swift */,
 			);
-			name = YangPageControl;
 			path = YangPageControl;
 			sourceTree = "<group>";
 		};
@@ -640,7 +618,6 @@
 			children = (
 				9FFB07265E002E6F628256A8DF43742A /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -679,7 +656,6 @@
 			children = (
 				88BFC3321ECC27AB67494F4148886F1F /* YangPageControl */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -688,7 +664,6 @@
 			children = (
 				AF0A79DB1B0400794C02B63CC313ACCC /* YangTabBarController */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -731,7 +706,6 @@
 				45908992EEDBCFF12244DAE9912F7228 /* UILayoutSupport+Extensions.swift */,
 				432313F4618A6E0D54282078B6A48A1B /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -740,7 +714,6 @@
 			children = (
 				FC081B54EE9A47F84CAFF76CF00C1B2C /* DOAlertController.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -750,7 +723,6 @@
 				CD8C01FA3BBD6F418493070E7C139C68 /* YangTabBarItemContentView.swift */,
 				F761BBF182C25BC44A4418B0F006DC4A /* core */,
 			);
-			name = YangTabBarController;
 			path = YangTabBarController;
 			sourceTree = "<group>";
 		};
@@ -759,7 +731,6 @@
 			children = (
 				66C0939DD26CD3B6B3E924971DBB2646 /* YangProgressBar */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -768,7 +739,6 @@
 			children = (
 				B374703C82A5B44936A4B3A902EB2F4D /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -785,7 +755,6 @@
 			children = (
 				D9F280714AE470D7973AE58442518CA0 /* Assets */,
 			);
-			name = YangNavigationHelper;
 			path = YangNavigationHelper;
 			sourceTree = "<group>";
 		};
@@ -808,7 +777,6 @@
 			children = (
 				F2104167CFB30BF56348580D2F74F2BD /* Classes */,
 			);
-			name = YangNavigationHelper;
 			path = YangNavigationHelper;
 			sourceTree = "<group>";
 		};
@@ -825,7 +793,6 @@
 			children = (
 				A7193A4A797A2B26ABFD8B6C321D705A /* YangNavigationHelper.xcassets */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -852,7 +819,6 @@
 			children = (
 				2CAE5BB0B0AC35DF5A6E87E06A475B32 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -861,7 +827,6 @@
 			children = (
 				F16E2AAB36944997506E00FF97E214BD /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -903,7 +868,6 @@
 			children = (
 				018F26AD197B873B202B80A8D1F6724A /* YangSliderView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -919,7 +883,6 @@
 				353D25965C7C86857EB51B77BDA900CE /* YangNavigationHelper.h */,
 				6E38E22DE2658F949F7E4A33863E5C73 /* Core */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -939,7 +902,6 @@
 			children = (
 				78D84AEAB5EDA0F59C98BEDCDCF29833 /* DragButton.swift */,
 			);
-			name = YangDragButton;
 			path = YangDragButton;
 			sourceTree = "<group>";
 		};
@@ -948,7 +910,6 @@
 			children = (
 				F4906C4655AE1BD1A3008240152A783B /* YangDragButton */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -971,7 +932,6 @@
 				D07109C9C5F32EB691141370976C89E2 /* ESTabBarItemContentView.swift */,
 				5BA5200047815DF3CC4383B53BEDC30A /* ESTabBarItemMoreContentView.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -1126,6 +1086,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					3E7264F412D9D4C9EDB9F4A7E2B45EC2 = {
+						LastSwiftMigration = 0920;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1601,6 +1566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B899E435561D58F78DBD45A497B573C /* Pods-YangWidgets_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1625,6 +1591,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1696,6 +1663,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4979CCF4DB59465A3DBEFFF7C4C0CE5D /* Pods-YangWidgets_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1719,6 +1687,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
