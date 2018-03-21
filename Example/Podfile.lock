@@ -1,26 +1,31 @@
 PODS:
+  - CocoaLumberjack (3.4.1):
+    - CocoaLumberjack/Default (= 3.4.1)
+    - CocoaLumberjack/Extensions (= 3.4.1)
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Extensions (3.4.1):
+    - CocoaLumberjack/Default
   - SnapKit (4.0.0)
   - YangNavigationHelper (1.0.0)
   - YangWidgets (1.0.4):
     - YangWidgets/YangCarousel (= 1.0.4)
     - YangWidgets/YangDragButton (= 1.0.4)
     - YangWidgets/YangDropMenuView (= 1.0.4)
+    - YangWidgets/YangLogger (= 1.0.4)
     - YangWidgets/YangPageControl (= 1.0.4)
     - YangWidgets/YangPopView (= 1.0.4)
     - YangWidgets/YangProgressBar (= 1.0.4)
     - YangWidgets/YangSliderView (= 1.0.4)
-    - YangWidgets/YangTabBarController (= 1.0.4)
-    - YangWidgets/YangTableViewAdapter (= 1.0.4)
     - YangWidgets/YangToast (= 1.0.4)
   - YangWidgets/YangCarousel (1.0.4)
   - YangWidgets/YangDragButton (1.0.4)
   - YangWidgets/YangDropMenuView (1.0.4)
+  - YangWidgets/YangLogger (1.0.4):
+    - CocoaLumberjack
   - YangWidgets/YangPageControl (1.0.4)
   - YangWidgets/YangPopView (1.0.4)
   - YangWidgets/YangProgressBar (1.0.4)
   - YangWidgets/YangSliderView (1.0.4)
-  - YangWidgets/YangTabBarController (1.0.4)
-  - YangWidgets/YangTableViewAdapter (1.0.4)
   - YangWidgets/YangToast (1.0.4)
 
 DEPENDENCIES:
@@ -35,9 +40,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
-  YangWidgets: 68ee35c3f164e6f66433d9240a104b0688a5b240
+  YangWidgets: 44b11f03e4501efff89c43f78404da374a0650b7
 
 PODFILE CHECKSUM: 5f69b77dbe40e240803618f91208262cf6cd73b2
 

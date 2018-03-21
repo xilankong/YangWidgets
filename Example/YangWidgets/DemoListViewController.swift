@@ -18,7 +18,6 @@ class DemoListViewController: UIViewController, UITableViewDelegate, UITableView
          "YangSliderViewDemoController",
          "YangDragButtonViewController",
          "YangToastViewController",
-         "YangTabBarListViewController",
          "YangProgressBarViewController",
          "YangPopupViewController",
          "YangTableViewAdapterViewController"]

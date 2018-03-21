@@ -34,10 +34,6 @@ TODO: widgets in development
         slide.source_files = 'YangWidgets/Classes/YangSliderView/**/*'
     end
 
-    s.subspec 'YangTabBarController' do |tabbar|
-        tabbar.source_files = 'YangWidgets/Classes/YangTabBarController/**/*'
-    end
-
     s.subspec 'YangProgressBar' do |progressbar|
         progressbar.source_files = 'YangWidgets/Classes/YangProgressBar/**/*'
     end
@@ -46,11 +42,12 @@ TODO: widgets in development
         popview.source_files = ['YangWidgets/Classes/YangPopView/**/*','YangWidgets/Classes/YangBlurView/**/*']
     end
 
-    s.subspec 'YangTableViewAdapter' do |tableview|
-        tableview.source_files = 'YangWidgets/Classes/YangTableViewAdapter/**/*'
-    end
-
     s.subspec 'YangCarousel' do |carousel|
         carousel.source_files = 'YangWidgets/Classes/YangCarousel/**/*'
+    end
+
+    s.subspec 'YangLogger' do |logger|
+        logger.source_files = 'YangWidgets/Classes/YangLogger/**/*'
+        logger.dependency 'CocoaLumberjack'
     end
 end

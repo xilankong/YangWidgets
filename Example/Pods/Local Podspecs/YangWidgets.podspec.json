@@ -40,10 +40,6 @@
       "source_files": "YangWidgets/Classes/YangSliderView/**/*"
     },
     {
-      "name": "YangTabBarController",
-      "source_files": "YangWidgets/Classes/YangTabBarController/**/*"
-    },
-    {
       "name": "YangProgressBar",
       "source_files": "YangWidgets/Classes/YangProgressBar/**/*"
     },
@@ -55,12 +51,17 @@
       ]
     },
     {
-      "name": "YangTableViewAdapter",
-      "source_files": "YangWidgets/Classes/YangTableViewAdapter/**/*"
-    },
-    {
       "name": "YangCarousel",
       "source_files": "YangWidgets/Classes/YangCarousel/**/*"
+    },
+    {
+      "name": "YangLogger",
+      "source_files": "YangWidgets/Classes/YangLogger/**/*",
+      "dependencies": {
+        "CocoaLumberjack": [
+
+        ]
+      }
     }
   ]
 }
