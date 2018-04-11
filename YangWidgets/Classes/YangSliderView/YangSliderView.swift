@@ -94,7 +94,8 @@ public class YangSliderView: UIView {
         
         super.init(frame: frame)
         initUI()
-        reloadView(titles: titles, controllers: childControllers)
+        self.titles = titles
+        self.controllers = childControllers
     }
     
     //MARK: - 基础UI初始化
@@ -119,6 +120,14 @@ public class YangSliderView: UIView {
         mainScrollView.showsVerticalScrollIndicator = false
         addSubview(mainScrollView)
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        if self.frame.size.width != 0 {
+            reloadView(titles: self.titles, controllers: self.controllers)
+        }
+    }
+    
     
     //MARK: - 内容UI更新
     public func reloadView(titles: [String],controllers: [UIViewController & YangSliderViewContainerDelegate] ) {

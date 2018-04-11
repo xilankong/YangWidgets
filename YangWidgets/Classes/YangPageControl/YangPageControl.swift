@@ -134,7 +134,7 @@ public class YangPageControl: UIView {
     
     // MARK: - 初始化
    public init(withNumberOfPages number: Int) {
-        super.init(frame: CGRect(x: 0, y: 0, width: dotSize.width * CGFloat(number) + dotMargin * CGFloat(number - 1), height: dotSize.height))
+        super.init(frame: CGRect(x: 0, y: 0, width: _dotSize.width * CGFloat(number) + _dotMargin * CGFloat(number - 1), height: _dotSize.height))
         
         numberOfPages = number
         

@@ -37,7 +37,12 @@
     },
     {
       "name": "YangSliderView",
-      "source_files": "YangWidgets/Classes/YangSliderView/**/*"
+      "source_files": "YangWidgets/Classes/YangSliderView/**/*",
+      "dependencies": {
+        "SnapKit": [
+
+        ]
+      }
     },
     {
       "name": "YangProgressBar",

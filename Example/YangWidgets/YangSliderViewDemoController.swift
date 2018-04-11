@@ -8,12 +8,13 @@
 
 import UIKit
 import YangWidgets
+import SnapKit
 
 class YangSliderViewDemoController: UIViewController {
 
     var vcs = [UIViewController & YangSliderViewContainerDelegate]()
     var titles = [String]()
-    let slideMenu = YangSliderView(frame: CGRect(x: 0, y: 64, width:320, height: 586))
+    let slideMenu = YangSliderView()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -35,7 +36,10 @@ class YangSliderViewDemoController: UIViewController {
         slideMenu.reloadView(titles: titles, controllers: vcs)
         view.addSubview(slideMenu)
         automaticallyAdjustsScrollViewInsets = false
-        
+        slideMenu.snp.makeConstraints {
+            $0.left.right.bottom.equalTo(self.view)
+            $0.top.equalTo(self.view).offset(64)
+        }
         self.navigationItem.addRightTextButtonItem(withTarget: self, action: #selector(change), andText: "切换")
     }
 

@@ -25,7 +25,8 @@ PODS:
   - YangWidgets/YangPageControl (1.0.4)
   - YangWidgets/YangPopView (1.0.4)
   - YangWidgets/YangProgressBar (1.0.4)
-  - YangWidgets/YangSliderView (1.0.4)
+  - YangWidgets/YangSliderView (1.0.4):
+    - SnapKit
   - YangWidgets/YangToast (1.0.4)
 
 DEPENDENCIES:
@@ -43,7 +44,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   YangNavigationHelper: 6e49432b91259d27fd9459b8e9334a5046294fbf
-  YangWidgets: 44b11f03e4501efff89c43f78404da374a0650b7
+  YangWidgets: 8b4caffd6bdd438451d3458e22c7655c1a32fd5b
 
 PODFILE CHECKSUM: 5f69b77dbe40e240803618f91208262cf6cd73b2
 
