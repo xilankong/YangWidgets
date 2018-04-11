@@ -30,6 +30,8 @@ public class YangSliderView: UIView {
     
     private var mainScrollView: UIScrollView = UIScrollView()
     
+    private var line: UIView = UIView()
+    
     private var leftIndex = 0
     
     private var rightIndex = 0
@@ -102,6 +104,10 @@ public class YangSliderView: UIView {
     private func initUI() {
         self.backgroundColor = UIColor.white
         
+        line.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        line.frame = CGRect(x: 0, y: self.tabBarHeight - 0.5, width: self.bounds.size.width, height: 0.5)
+        addSubview(line)
+        
         tabScrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: tabBarHeight)
         tabScrollView.showsVerticalScrollIndicator = false
         tabScrollView.showsHorizontalScrollIndicator = false
@@ -129,6 +135,7 @@ public class YangSliderView: UIView {
     public func reloadView(titles: [String],controllers: [UIViewController & YangSliderViewContainerDelegate] ) {
         self.titles = titles
         self.controllers = controllers
+        line.frame = CGRect(x: 0, y: self.tabBarHeight - 0.5, width: self.bounds.size.width, height: 0.5)
         tabScrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: tabBarHeight)
         mainScrollView.frame = CGRect(x: 0, y: tabBarHeight, width: self.bounds.size.width, height: self.bounds.size.height - tabBarHeight)
         setupTabScrollView()
