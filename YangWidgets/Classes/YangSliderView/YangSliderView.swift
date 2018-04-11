@@ -100,10 +100,6 @@ public class YangSliderView: UIView {
     
     //MARK: - 基础UI初始化
     private func initUI() {
-        let line = UIView()
-        line.backgroundColor = UIColor.lightGray
-        line.frame = CGRect(x: 0, y: self.tabBarHeight - 0.5, width: self.bounds.size.width, height: 0.5)
-        addSubview(line)
         self.backgroundColor = UIColor.white
         
         tabScrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: tabBarHeight)
