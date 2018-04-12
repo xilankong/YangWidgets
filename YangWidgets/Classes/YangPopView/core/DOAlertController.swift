@@ -95,26 +95,26 @@ open class DOAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(alertController.view)
         
         UIView.animate(withDuration: 0.25,
-                                   animations: {
-                                    alertController.overlayView.alpha = 1.0
-                                    if (alertController.isAlert()) {
-                                        alertController.alertView.alpha = 1.0
-                                        alertController.alertView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                                    } else {
-                                        let bounce = alertController.alertView.frame.height / 480 * 10.0 + 10.0
-                                        alertController.alertView.transform = CGAffineTransform(translationX: 0, y: -bounce)
-                                    }
+                       animations: {
+                        alertController.overlayView.alpha = 1.0
+                        if (alertController.isAlert()) {
+                            alertController.alertView.alpha = 1.0
+                            alertController.alertView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                        } else {
+                            let bounce = alertController.alertView.frame.height / 480 * 10.0 + 10.0
+                            alertController.alertView.transform = CGAffineTransform(translationX: 0, y: -bounce)
+                        }
         },
-                                   completion: { finished in
-                                    UIView.animate(withDuration: 0.2,
-                                                               animations: {
-                                                                alertController.alertView.transform = CGAffineTransform.identity
-                                    },
-                                                               completion: { finished in
-                                                                if (finished) {
-                                                                    transitionContext.completeTransition(true)
-                                                                }
-                                    })
+                       completion: { finished in
+                        UIView.animate(withDuration: 0.2,
+                                       animations: {
+                                        alertController.alertView.transform = CGAffineTransform.identity
+                        },
+                                       completion: { finished in
+                                        if (finished) {
+                                            transitionContext.completeTransition(true)
+                                        }
+                        })
         })
     }
     
@@ -123,17 +123,17 @@ open class DOAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
         let alertController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! DOAlertController
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext),
-                                   animations: {
-                                    alertController.overlayView.alpha = 0.0
-                                    if (alertController.isAlert()) {
-                                        alertController.alertView.alpha = 0.0
-                                        alertController.alertView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                                    } else {
-                                        alertController.containerView.transform = CGAffineTransform(translationX: 0, y: alertController.alertView.frame.height)
-                                    }
+                       animations: {
+                        alertController.overlayView.alpha = 0.0
+                        if (alertController.isAlert()) {
+                            alertController.alertView.alpha = 0.0
+                            alertController.alertView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                        } else {
+                            alertController.containerView.transform = CGAffineTransform(translationX: 0, y: alertController.alertView.frame.height)
+                        }
         },
-                                   completion: { finished in
-                                    transitionContext.completeTransition(true)
+                       completion: { finished in
+                        transitionContext.completeTransition(true)
         })
     }
 }
@@ -244,6 +244,22 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     // Initializer
     public convenience init(title: String?, message: String?, preferredStyle: DOAlertControllerStyle) {
         self.init(nibName: nil, bundle: nil)
+        initUI(title: title, message: message, preferredStyle: preferredStyle)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    open func initUI(title: String?, message: String?, preferredStyle: DOAlertControllerStyle) {
         
         self.title = title
         self.message = message
@@ -260,18 +276,6 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
         
         // Delegate
         self.transitioningDelegate = self
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func currentOrientation() -> UIInterfaceOrientation {
