@@ -62,11 +62,36 @@ class YangPopupViewController: UIViewController {
                         self.view.showToast(withMessage: "cancle")
                     })
                 case 2:
-                    self.showTextEntryDialog(title: "测试textField", message: "测试内容", okButtonText: "确定", cancleButtonText: "取消", okCompletion: { text in
+                    self.showTextEntryDialog(title: "测试textField", message: "测试内容", pattern: "[a-zA-Z0-9]*", minLength: 8, okButtonText: "确定", cancleButtonText: "取消", animated: true, okCompletion: { text in
                         self.view.showToast(withMessage: "ok" + "\(text)")
                     }, cancleCompletion: {
                         
                     })
+                case 3:
+                    self.showPasswordDialog(title: "测试密码框", message: "测试内容", pattern: "[a-zA-Z0-9]*", minLength: 8, okButtonText: "确定", cancleButtonText: "取消", animated: true, okCompletion: { text in
+                        self.view.showToast(withMessage: "ok" + "\(text)")
+                    }, cancleCompletion: {
+                        
+                    })
+                case 4:
+                    let alertVC = self.showCustomAlertDialog(title: "全空白定制", message: "666666")
+                    let cancleAction = YangAlertAction(title: "取消", style: .cancel, handler: { action in
+                        
+                    })
+                    let okAction = YangAlertAction(title: "确定", style: .default, handler: { action in
+                        
+                    })
+                    
+                    alertVC.addTextFieldWithConfigurationHandler({ (textField) in
+                        
+                        textField?.textFieldPattern = ""
+                        textField?.textFieldMinLength = 5
+                    })
+                    
+                    alertVC.addAction(cancleAction)
+                    alertVC.addAction(okAction)
+                    
+                    self.present(alertVC, animated: true, completion: nil)
                 default:
                     self.showImageDialog()
                 }

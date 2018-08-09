@@ -1,45 +1,49 @@
 //
-//  DOAlertController.swift
-//  DOAlertController
+//  YangProgressBar.swift
+//  Pods-YangWidgets_Example
 //
-//  Created by Daiki Okumura on 2015/06/14.
-//  Copyright (c) 2015 Daiki Okumura. All rights reserved.
-//
-//  This software is released under the MIT License.
+//  Created by yanghuang on 2018/1/25.
 //
 
 import Foundation
 import UIKit
 
-let DOAlertActionEnabledDidChangeNotification = "DOAlertActionEnabledDidChangeNotification"
+let YangAlertActionEnabledDidChangeNotification = "YangAlertActionEnabledDidChangeNotification"
 
-public enum DOAlertActionStyle : Int {
+public enum YangAlertActionStyle : Int {
     case `default`
     case cancel
     case custom
     case warning
 }
 
-public enum DOAlertControllerStyle : Int {
+public enum YangAlertControllerStyle : Int {
     case actionSheet
     case alert
 }
 
-// MARK: DOAlertAction Class ////////////////////////////////////////////////////////
+public let isIphoneX: Bool = { UIScreen.main.bounds.size.height == 812.0 }()
 
-open class DOAlertAction : NSObject, NSCopying {
+// MARK: 事件
+
+open class YangAlertAction : NSObject, NSCopying {
+    //标题
     open var title: String
-    open var style: DOAlertActionStyle
-    var handler: ((DOAlertAction?) -> Void)!
+    //类型
+    open var style: YangAlertActionStyle
+    //回调事件
+    var handler: ((YangAlertAction?) -> Void)!
+    //是否可点击
     open var enabled: Bool {
         didSet {
             if (oldValue != enabled) {
-                NotificationCenter.default.post(name: Notification.Name(rawValue: DOAlertActionEnabledDidChangeNotification), object: nil)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: YangAlertActionEnabledDidChangeNotification), object: nil)
             }
         }
     }
     
-    required public init(title: String, style: DOAlertActionStyle, handler: ((DOAlertAction?) -> Void)!) {
+    //初始化、默认可点击
+    required public init(title: String, style: YangAlertActionStyle, handler: ((YangAlertAction?) -> Void)!) {
         self.title = title
         self.style = style
         self.handler = handler
@@ -53,10 +57,11 @@ open class DOAlertAction : NSObject, NSCopying {
     }
 }
 
-// MARK: DOAlertAnimation Class ////////////////////////////////////////////////////////
+// MARK: Alert 动画
 
-open class DOAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
+open class YangAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
     
+    //是否弹出
     let isPresenting: Bool
     
     init(isPresenting: Bool) {
@@ -79,9 +84,10 @@ open class DOAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
+    //弹出动画
     func presentAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
-        let alertController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! DOAlertController
+        let alertController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! YangAlertController
         let containerView = transitionContext.containerView
         
         alertController.overlayView.alpha = 0.0
@@ -95,64 +101,64 @@ open class DOAlertAnimation : NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(alertController.view)
         
         UIView.animate(withDuration: 0.25,
-                       animations: {
-                        alertController.overlayView.alpha = 1.0
-                        if (alertController.isAlert()) {
-                            alertController.alertView.alpha = 1.0
-                            alertController.alertView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                        } else {
-                            let bounce = alertController.alertView.frame.height / 480 * 10.0 + 10.0
-                            alertController.alertView.transform = CGAffineTransform(translationX: 0, y: -bounce)
+           animations: {
+                alertController.overlayView.alpha = 1.0
+                if (alertController.isAlert()) {
+                    alertController.alertView.alpha = 1.0
+                    alertController.alertView.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                } else {
+                    let bounce = alertController.alertView.frame.height / 480 * 10.0 + 10.0
+                    alertController.alertView.transform = CGAffineTransform(translationX: 0, y: -bounce)
+                }
+        }, completion: { finished in
+                UIView.animate(withDuration: 0.2,
+                    animations: {
+                        alertController.alertView.transform = CGAffineTransform.identity
+                },
+                    completion: { finished in
+                        if (finished) {
+                            transitionContext.completeTransition(true)
                         }
-        },
-                       completion: { finished in
-                        UIView.animate(withDuration: 0.2,
-                                       animations: {
-                                        alertController.alertView.transform = CGAffineTransform.identity
-                        },
-                                       completion: { finished in
-                                        if (finished) {
-                                            transitionContext.completeTransition(true)
-                                        }
-                        })
+                })
         })
     }
     
+    //收起动画
     func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
-        let alertController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! DOAlertController
+        let alertController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! YangAlertController
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext),
-                       animations: {
-                        alertController.overlayView.alpha = 0.0
-                        if (alertController.isAlert()) {
-                            alertController.alertView.alpha = 0.0
-                            alertController.alertView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                        } else {
-                            alertController.containerView.transform = CGAffineTransform(translationX: 0, y: alertController.alertView.frame.height)
-                        }
-        },
-                       completion: { finished in
-                        transitionContext.completeTransition(true)
-        })
+           animations: {
+                alertController.overlayView.alpha = 0.0
+                if (alertController.isAlert()) {
+                    alertController.alertView.alpha = 0.0
+                    alertController.alertView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                } else {
+                    alertController.containerView.transform = CGAffineTransform(translationX: 0, y: alertController.alertView.frame.height)
+                }
+            },
+            completion: { finished in
+                transitionContext.completeTransition(true)
+            })
     }
 }
 
-// MARK: DOAlertController Class ////////////////////////////////////////////////////////
-@objc(DOAlertController)
-open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewControllerTransitioningDelegate {
+// MARK: YangAlertController Class ////////////////////////////////////////////////////////
+@objc(YangAlertController)
+open class YangAlertController : UIViewController, UITextFieldDelegate, UIViewControllerTransitioningDelegate {
     
     // Message
     open var message: String?
     
-    // AlertController Style
-    fileprivate(set) var preferredStyle: DOAlertControllerStyle?
+    // alert类型
+    fileprivate(set) var preferredStyle: YangAlertControllerStyle?
     
-    // OverlayView
+    // 遮罩
     fileprivate var overlayView = UIView()
     open var overlayColor = UIColor(red:0, green:0, blue:0, alpha:0.5)
     
-    // ContainerView
+    // 容器
     fileprivate var containerView = UIView()
     fileprivate var containerViewBottomSpaceConstraint: NSLayoutConstraint?
     
@@ -162,6 +168,7 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     fileprivate var alertViewWidth: CGFloat = 270.0
     fileprivate var alertViewHeightConstraint: NSLayoutConstraint?
     fileprivate var alertViewPadding: CGFloat = 15.0
+    fileprivate var alertViewBottomMargin: CGFloat = isIphoneX ? 48 : 15.0
     fileprivate var innerContentWidth: CGFloat = 240.0
     fileprivate let actionSheetBounceHeight: CGFloat = 20.0
     
@@ -191,7 +198,7 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     open var textFieldBorderColor = UIColor(red: 203.0/255, green: 203.0/255, blue: 203.0/255, alpha: 1.0)
     
     // TextFields
-    fileprivate(set) var textFields: [AnyObject]?
+    fileprivate(set) var textFields: [YangTextField]?
     fileprivate let textFieldHeight: CGFloat = 30.0
     open var textFieldBgColor = UIColor.white
     fileprivate let textFieldCornerRadius: CGFloat = 4.0
@@ -215,34 +222,34 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     
     // Buttons
     open var buttons = [UIButton]()
-    open var buttonFont: [DOAlertActionStyle : UIFont] = [
+    open var buttonFont: [YangAlertActionStyle : UIFont] = [
         .default : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16),
         .cancel  : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16),
         .custom  : UIFont(name: "HelveticaNeue-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16)
     ]
-    open var buttonTextColor: [DOAlertActionStyle : UIColor] = [
+    open var buttonTextColor: [YangAlertActionStyle : UIColor] = [
         .default : UIColor.white,
         .cancel  : UIColor.white,
         .custom  : UIColor.white
     ]
-    open var buttonBgColor: [DOAlertActionStyle : UIColor] = [
+    open var buttonBgColor: [YangAlertActionStyle : UIColor] = [
         .default : UIColor(red:52/255, green:152/255, blue:219/255, alpha:1),
         .cancel  : UIColor(red:127/255, green:140/255, blue:141/255, alpha:1),
         .custom  : UIColor(red:231/255, green:76/255, blue:60/255, alpha:1)
     ]
-    open var buttonBgColorHighlighted: [DOAlertActionStyle : UIColor] = [
+    open var buttonBgColorHighlighted: [YangAlertActionStyle : UIColor] = [
         .default : UIColor(red:74/255, green:163/255, blue:223/255, alpha:1),
         .cancel  : UIColor(red:140/255, green:152/255, blue:153/255, alpha:1),
         .custom  : UIColor(red:234/255, green:97/255, blue:83/255, alpha:1)
     ]
-    fileprivate var buttonCornerRadius: CGFloat = 4.0
+    open var buttonCornerRadius: CGFloat = 4.0
     
     fileprivate var layoutFlg = false
     fileprivate var keyboardHeight: CGFloat = 0.0
     fileprivate var cancelButtonTag = 0
     
-    // Initializer
-    public convenience init(title: String?, message: String?, preferredStyle: DOAlertControllerStyle) {
+    // 初始化alertVC
+    public convenience init(title: String?, message: String?, preferredStyle: YangAlertControllerStyle) {
         self.init(nibName: nil, bundle: nil)
         initUI(title: title, message: message, preferredStyle: preferredStyle)
     }
@@ -259,7 +266,8 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
         fatalError("init(coder:) has not been implemented")
     }
     
-    open func initUI(title: String?, message: String?, preferredStyle: DOAlertControllerStyle) {
+    // 初始化alertVC
+    open func initUI(title: String?, message: String?, preferredStyle: YangAlertControllerStyle) {
         
         self.title = title
         self.message = message
@@ -270,14 +278,15 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
         self.modalPresentationStyle = UIModalPresentationStyle.custom
         
         // NotificationCenter
-        NotificationCenter.default.addObserver(self, selector: #selector(DOAlertController.handleAlertActionEnabledDidChangeNotification(_:)), name: NSNotification.Name(rawValue: DOAlertActionEnabledDidChangeNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(DOAlertController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(DOAlertController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YangAlertController.handleAlertActionEnabledDidChangeNotification(_:)), name: NSNotification.Name(rawValue: YangAlertActionEnabledDidChangeNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YangAlertController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YangAlertController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // Delegate
         self.transitioningDelegate = self
     }
     
+    //横竖屏切换
     func currentOrientation() -> UIInterfaceOrientation {
         return UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height ? .portrait : .landscapeLeft
     }
@@ -290,11 +299,12 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
         super.viewDidAppear(animated)
         
         if (!isAlert() && cancelButtonTag != 0) {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DOAlertController.handleContainerViewTapGesture(_:)))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(YangAlertController.handleContainerViewTapGesture(_:)))
             containerView.addGestureRecognizer(tapGesture)
         }
     }
     
+    //视图更新
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         layoutView(self.presentingViewController)
@@ -302,11 +312,11 @@ open class DOAlertController : UIViewController, UITextFieldDelegate, UIViewCont
     
 }
 
-// MARK: DOAlertController layoutView ////////////////////////////////////////////////////////
-@objc(DOAlertController)
-extension DOAlertController {
+// MARK: YangAlertController 视图更新
+@objc(YangAlertController)
+extension YangAlertController {
     
-    
+    //视图更新
     open func layoutView(_ presenting: UIViewController?) {
         if (layoutFlg) { return }
         layoutFlg = true
@@ -542,7 +552,7 @@ extension DOAlertController {
             let buttonWidth = (innerContentWidth - buttonMargin) / 2
             var buttonPositionX: CGFloat = 0.0
             for button in buttons {
-                let action = actions[button.tag - 1] as! DOAlertAction
+                let action = actions[button.tag - 1] as! YangAlertAction
                 button.titleLabel?.font = buttonFont[action.style]
                 button.setTitleColor(buttonTextColor[action.style], for: UIControlState())
                 button.setBackgroundImage(createImageFromUIColor(buttonBgColor[action.style]!), for: UIControlState())
@@ -554,8 +564,8 @@ extension DOAlertController {
             buttonAreaPositionY += buttonHeight
         } else {
             for button in buttons {
-                let action = actions[button.tag - 1] as! DOAlertAction
-                if (action.style != DOAlertActionStyle.cancel) {
+                let action = actions[button.tag - 1] as! YangAlertAction
+                if (action.style != YangAlertActionStyle.cancel) {
                     button.titleLabel?.font = buttonFont[action.style]
                     button.setTitleColor(buttonTextColor[action.style], for: UIControlState())
                     button.setBackgroundImage(createImageFromUIColor(buttonBgColor[action.style]!), for: UIControlState())
@@ -574,7 +584,7 @@ extension DOAlertController {
                     buttonAreaPositionY += buttonMargin
                 }
                 let button = buttonAreaScrollView.viewWithTag(cancelButtonTag) as! UIButton
-                let action = actions[cancelButtonTag - 1] as! DOAlertAction
+                let action = actions[cancelButtonTag - 1] as! YangAlertAction
                 button.titleLabel?.font = buttonFont[action.style]
                 button.setTitleColor(buttonTextColor[action.style], for: UIControlState())
                 button.setBackgroundImage(createImageFromUIColor(buttonBgColor[action.style]!), for: UIControlState())
@@ -585,13 +595,14 @@ extension DOAlertController {
             }
             buttonAreaPositionY -= buttonMargin
         }
-        buttonAreaPositionY += alertViewPadding
+        //兼容iphoneX
+        buttonAreaPositionY += isAlert() ? alertViewPadding : alertViewBottomMargin
         
         if (buttons.count == 0) {
             buttonAreaPositionY = 0.0
         }
         
-        // ButtonAreaScrollView Height
+        // 按钮过多的时候调整scrollView的 contentSize
         buttonAreaHeight = buttonAreaPositionY
         buttonAreaScrollView.contentSize = CGSize(width: alertViewWidth, height: buttonAreaHeight)
         buttonContainerHeightConstraint?.constant = buttonAreaHeight
@@ -605,10 +616,11 @@ extension DOAlertController {
     }
 }
 
-// MARK: DOAlertController other ////////////////////////////////////////////////////////
-@objc(DOAlertController)
-extension DOAlertController {
-    // Reload AlertView Height
+// MARK: 公共方法
+@objc(YangAlertController)
+extension YangAlertController {
+    
+    // 重新调整 AlertView 的高度
     func reloadAlertViewHeight() {
         
         var screenSize = self.presentingViewController != nil ? self.presentingViewController!.view.bounds.size : UIScreen.main.bounds.size
@@ -640,20 +652,20 @@ extension DOAlertController {
         buttonAreaScrollViewHeightConstraint?.constant = buttonAreaScrollViewHeight
     }
     
-    // Button Tapped Action
+    // 按钮点击事件
     func buttonTapped(_ sender: UIButton) {
         sender.isSelected = true
-        let action = actions[sender.tag - 1] as! DOAlertAction
+        let action = actions[sender.tag - 1] as! YangAlertAction
         if (action.handler != nil) {
             action.handler(action)
         }
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Handle ContainerView tap gesture
+    // 点击遮罩事件
     func handleContainerViewTapGesture(_ sender: AnyObject) {
         // cancel action
-        let action = actions[cancelButtonTag - 1] as! DOAlertAction
+        let action = actions[cancelButtonTag - 1] as! YangAlertAction
         if (action.handler != nil) {
             action.handler(action)
         }
@@ -709,14 +721,14 @@ extension DOAlertController {
     
     // MARK: Public Methods
     
-    // Attaches an action object to the alert or action sheet.
-    open func addAction(_ action: DOAlertAction) {
+    // 添加事件、按钮
+    open func addAction(_ action: YangAlertAction) {
         // Error
-        if (action.style == DOAlertActionStyle.cancel) {
-            for ac in actions as! [DOAlertAction] {
-                if (ac.style == DOAlertActionStyle.cancel) {
+        if (action.style == YangAlertActionStyle.cancel) {
+            for ac in actions as! [YangAlertAction] {
+                if (ac.style == YangAlertActionStyle.cancel) {
                     let error: NSError? = nil
-                    NSException.raise(NSExceptionName(rawValue: "NSInternalInconsistencyException"), format:"DOAlertController can only have one action with a style of DOAlertActionStyleCancel", arguments:getVaList([error ?? "nil"]))
+                    NSException.raise(NSExceptionName(rawValue: "NSInternalInconsistencyException"), format:"YangAlertController can only have one action with a style of YangAlertActionStyleCancel", arguments:getVaList([error ?? "nil"]))
                     return
                 }
             }
@@ -730,31 +742,31 @@ extension DOAlertController {
         button.setTitle(action.title, for: UIControlState())
         button.isEnabled = action.enabled
         button.layer.cornerRadius = buttonCornerRadius
-        button.addTarget(self, action: #selector(DOAlertController.buttonTapped(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(YangAlertController.buttonTapped(_:)), for: .touchUpInside)
         button.tag = buttons.count + 1
         buttons.append(button)
         buttonContainer.addSubview(button)
     }
     
-    // Adds a text field to an alert.
-    open func addTextFieldWithConfigurationHandler(_ configurationHandler: ((UITextField?) -> Void)!) {
+    // 添加文本框.
+    open func addTextFieldWithConfigurationHandler(_ configurationHandler: ((YangTextField?) -> Void)!) {
         
-        // You can add a text field only if the preferredStyle property is set to DOAlertControllerStyle.Alert.
+        // 添加文本框如何添加文本框的类型和testField代理
         if (!isAlert()) {
             let error: NSError? = nil
-            NSException.raise(NSExceptionName(rawValue: "NSInternalInconsistencyException"), format: "Text fields can only be added to an alert controller of style DOAlertControllerStyleAlert", arguments:getVaList([error ?? "nil"]))
+            NSException.raise(NSExceptionName(rawValue: "NSInternalInconsistencyException"), format: "Text fields can only be added to an alert controller of style YangAlertControllerStyleAlert", arguments:getVaList([error ?? "nil"]))
             return
         }
         if (textFields == nil) {
             textFields = []
         }
         
-        let textField = UITextField()
+        let textField = YangTextField()
         textField.frame.size = CGSize(width: innerContentWidth, height: textFieldHeight)
         textField.borderStyle = UITextBorderStyle.none
         textField.backgroundColor = textFieldBgColor
         textField.delegate = self
-        
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         if ((configurationHandler) != nil) {
             configurationHandler(textField)
         }
@@ -765,7 +777,7 @@ extension DOAlertController {
     
     open func isAlert() -> Bool { return preferredStyle == .alert }
     
-    // MARK: UITextFieldDelegate Methods
+    // MARK: 文本框代理、外部通过正则表达式来调整
     
     open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.canResignFirstResponder) {
@@ -775,14 +787,50 @@ extension DOAlertController {
         return true
     }
     
-    // MARK: UIViewControllerTransitioningDelegate Methods
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let yangTextField = textField as! YangTextField
+        if (yangTextField.text?.count ?? 0) > yangTextField.textFieldMinLength {
+            for button in buttons {
+                let action = actions[button.tag - 1] as! YangAlertAction
+                if (action.style != YangAlertActionStyle.cancel) {
+                    button.isEnabled = true
+                }
+            }
+        } else {
+            for button in buttons {
+                let action = actions[button.tag - 1] as! YangAlertAction
+                if (action.style != YangAlertActionStyle.cancel) {
+                    button.isEnabled = false
+                }
+            }
+        }
+    }
+    
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let yangTextField = textField as! YangTextField
+        if yangTextField.textFieldPattern.count == 0 {
+            return true
+        }
+        let predicate = NSPredicate(format: "SELF MATCHES %@", yangTextField.textFieldPattern)
+        return predicate.evaluate(with: string)
+    }
+    
+    // MARK: 转场动画
     open
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         layoutView(presenting)
-        return DOAlertAnimation(isPresenting: true)
+        return YangAlertAnimation(isPresenting: true)
     }
     
     open func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DOAlertAnimation(isPresenting: false)
+        return YangAlertAnimation(isPresenting: false)
     }
+}
+
+// MARK: 自定义文本框，设置内容约束
+open class YangTextField: UITextField {
+
+    open var textFieldMinLength: Int = 1
+    open var textFieldPattern: String = ""
+    
 }

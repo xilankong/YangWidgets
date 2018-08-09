@@ -18,9 +18,15 @@ enum YangSliderViewIndicatorType {
     @objc optional func reloadView()
 }
 
-public class YangSliderView: UIView {
+@objc public protocol YangSliderViewDelegate: NSObjectProtocol {
+    @objc optional func sliderView_switchToTab(currentIndex: Int)
+}
+
+@objc public class YangSliderView: UIView {
     
     //MARK: - properties
+    
+    @objc public weak var delegate: YangSliderViewDelegate?
     
     private var titles: [String] = []
     
@@ -38,7 +44,7 @@ public class YangSliderView: UIView {
     //tab的边距
     private var itemMargin: CGFloat = 0.0
     
-    private var itemWidth: CGFloat = 93.0
+    private var itemWidth: CGFloat = 80.0
     
     private var items: [UILabel] = []
     
@@ -54,13 +60,13 @@ public class YangSliderView: UIView {
     fileprivate let indicatorAnimatePadding: CGFloat = 8.0
     
     //标题字体
-    var itemFont: UIFont = UIFont.systemFont(ofSize: 15)
+    @objc public var itemFont: UIFont = UIFont.systemFont(ofSize: 15)
     
     //选中颜色
-    public var itemSelectedColor: UIColor = UIColor.red
+    @objc public var itemSelectedColor: UIColor = UIColor.red
     
     //未选中颜色
-    public var itemUnselectedColor: UIColor = UIColor.gray
+    @objc public var itemUnselectedColor: UIColor = UIColor.gray
     
     //下标距离底部距离
     var bottomPadding: CGFloat = 0.0
@@ -153,6 +159,7 @@ public class YangSliderView: UIView {
         changeItemTitle(fromIndex, to: toIndex)
         resetTabScrollViewContentOffset(item)
         resetMainScrollViewContentOffset(toIndex)
+        delegate?.sliderView_switchToTab?(currentIndex: toIndex)
         self.controllers[toIndex].reloadView?()
     }
     

@@ -78,7 +78,7 @@
 		A39A0FF93A8D49D0116D30BC305FAED1 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E2604C76A4CBBA3BDDF92E7D984916 /* ConstraintViewDSL.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		A3ADE9EB8C96D1D9D30E256C5AB035E0 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514DFE55D608D4BA1B2072A75DEF1A39 /* ConstraintRelation.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		A691666F629924C7C7A937D3A87BEC27 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC352D6B27F26C9F977881BA9E90720C /* ConstraintInsetTarget.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		AA1FBF6423A4F7896282C350E56EE0B5 /* DOAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F4CABCDC9A50B7EFF22E31999D6573 /* DOAlertController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AA1FBF6423A4F7896282C350E56EE0B5 /* YangAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F4CABCDC9A50B7EFF22E31999D6573 /* YangAlertController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		ACB56CB7AD3BF82C12AA1B38EA564880 /* YangProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3C1D2753A169042C42D777D7C850BA /* YangProgressBar.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B173725F14B1B6C39AE449857946929B /* RealLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314A073BD250390786946DFEEBA2B303 /* RealLogger.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B574CECA1467DB9329BFF105285E1C86 /* Pods-YangWidgets_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1AF26F7761638158FB7EC37A7E02BA /* Pods-YangWidgets_Example-dummy.m */; };
@@ -194,7 +194,7 @@
 		29E2378F48727345AD435AD076F45F94 /* YangNavigationHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangNavigationHelper-prefix.pch"; sourceTree = "<group>"; };
 		2A2252DB475261B226630C6D6A648D92 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
 		2B1AF26F7761638158FB7EC37A7E02BA /* Pods-YangWidgets_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YangWidgets_Example-dummy.m"; sourceTree = "<group>"; };
-		30F4CABCDC9A50B7EFF22E31999D6573 /* DOAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DOAlertController.swift; sourceTree = "<group>"; };
+		30F4CABCDC9A50B7EFF22E31999D6573 /* YangAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangAlertController.swift; sourceTree = "<group>"; };
 		314A073BD250390786946DFEEBA2B303 /* RealLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RealLogger.swift; sourceTree = "<group>"; };
 		32973C9FF91C1E034B9F83EC40834336 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		3351B9B781525D31030C0AE18A10A867 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		4F134C955F7BE323AC1BB6DA757D32C9 /* Pods-YangWidgets_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Example-frameworks.sh"; sourceTree = "<group>"; };
 		4F6FB585F20EDC0F8980D6230084D031 /* BlurLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlurLayer.swift; sourceTree = "<group>"; };
 		514DFE55D608D4BA1B2072A75DEF1A39 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
-		51757CCA631AC966763A88B4CF0E5498 /* YangNavigationHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YangNavigationHelper.framework; path = YangNavigationHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51757CCA631AC966763A88B4CF0E5498 /* YangNavigationHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YangNavigationHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539FC05ACF432DCF8A7E4BAA0166ABA5 /* DDLogMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogMacros.h; path = Classes/DDLogMacros.h; sourceTree = "<group>"; };
 		5415F47F2C7538B203B3BDC5C3F591B1 /* XRCarouselView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XRCarouselView.m; sourceTree = "<group>"; };
 		55E848E20EFD578EEFC394F37A3CEA6A /* YangNavigationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YangNavigationHelper.h; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		5BA8796E1EECCCC34EB497ED5C5F74CA /* YangRootNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YangRootNavigationController.h; sourceTree = "<group>"; };
 		5F0D8A0C8F4F07D9210F9E090DBD8429 /* Pods-YangWidgets_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YangWidgets_Example-resources.sh"; sourceTree = "<group>"; };
 		607C56A8531096A64C3D59E36CE2C29B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6212206D98A9F550EA7158D13639B820 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6212206D98A9F550EA7158D13639B820 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A0E7EED4D128BF04839E80664A7627 /* DDLog+LOGV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DDLog+LOGV.h"; path = "Classes/DDLog+LOGV.h"; sourceTree = "<group>"; };
 		644B318689B118FA8ADDB366B65227F9 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
 		6472CDDF7BDF49A4EC87ED90DDAE87F3 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		91E8F7DC8BB16CD0AEABB92054590D22 /* UIImage+Blur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
 		921D0FED553B4B68479C3078A0C7BFCE /* YangWidgets-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YangWidgets-prefix.pch"; sourceTree = "<group>"; };
 		930ED1E76689416059250BE6FF3CFA14 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		956532A937C1475EB935B4237F2ADDFA /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		964B5018DEA9C8F0C60D694949BA858D /* YangPageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YangPageControl.swift; sourceTree = "<group>"; };
 		967DF1CAB6488DBDB0A1367ECBBA1EF5 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,7 +270,7 @@
 		9C8A946BCB016F7EDF6613BA5C9CDF64 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		A099FEF87393D6D37D6C4BFBB186EA66 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		A205A6B672C54C28E65D9D0D27B727C9 /* CocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CocoaLumberjack.h; path = Classes/CocoaLumberjack.h; sourceTree = "<group>"; };
-		A21EE322A312411A5DF012AA5BCAFF13 /* Pods_YangWidgets_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Example.framework; path = "Pods-YangWidgets_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21EE322A312411A5DF012AA5BCAFF13 /* Pods_YangWidgets_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YangWidgets_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A239FAD3779B5215C4D85EC4EFCC325C /* UINavigationBar+Custom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Custom.h"; sourceTree = "<group>"; };
 		A23EE3957A987B5C3E3B84A509099267 /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Classes/DDASLLogger.m; sourceTree = "<group>"; };
 		A81CD6514429BDDE56BE1E99DE5B8634 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
@@ -286,14 +286,14 @@
 		BC6564CB9D00E67A36E34406A5B5290E /* DDLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Classes/DDLog.m; sourceTree = "<group>"; };
 		BE3FC14FF214A490F1BB6882B3F92082 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		BE5A6F8CD9A5D8392F87621B003AF8F8 /* TrackingMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TrackingMode.swift; sourceTree = "<group>"; };
-		BFFEB0683A5E4B37A5CD39DCB7BB089D /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaLumberjack.framework; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFFEB0683A5E4B37A5CD39DCB7BB089D /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07012EF59A6DD5DA9FDEB41A9AD8927 /* Pods-YangWidgets_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YangWidgets_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C2593921A1466A5AAFD5C78728F8532A /* Pods-YangWidgets_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YangWidgets_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2E2604C76A4CBBA3BDDF92E7D984916 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
-		C559AA9A603B5C01A2765F240D9E0EF4 /* YangWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YangWidgets.framework; path = YangWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C559AA9A603B5C01A2765F240D9E0EF4 /* YangWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YangWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C836F1B46A012A510B8BF1D157ACF386 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		CD30C64D6655892436913D158F63E09F /* UIView+YangToast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+YangToast.swift"; sourceTree = "<group>"; };
-		CE3FAC48A7B6BB87A794CBCB4C2A1945 /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YangWidgets_Tests.framework; path = "Pods-YangWidgets_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3FAC48A7B6BB87A794CBCB4C2A1945 /* Pods_YangWidgets_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YangWidgets_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE91E09344F3F60FA517E56A593C7159 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
 		D4CE165E4CD66BC7F6C7942712C35B9C /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		D502127CF71B26A5405C9F056703AEE0 /* CocoaLumberjack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CocoaLumberjack.modulemap; sourceTree = "<group>"; };
@@ -378,7 +378,6 @@
 			children = (
 				D3D22C8D6E4A76DA619EEBAB9FF8D2C4 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -395,7 +394,6 @@
 			children = (
 				EDC1A1C2E1C4CDCAEF08B6DBC62961F8 /* ToastOverlays.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -404,7 +402,6 @@
 			children = (
 				CDF297B6C20EF22CB848125EA7649E75 /* YangPageControl */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -447,7 +444,6 @@
 				1C8D36BC54FF04BAA27F1B68E6BF47BF /* UILayoutSupport+Extensions.swift */,
 				BFED0E3F88080CEA101A4A844644501B /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -456,7 +452,6 @@
 			children = (
 				3905E0F574A342F30761AC040309242E /* YangDragButton */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -465,7 +460,6 @@
 			children = (
 				3ADD64EA9E47270A24E7C88F46007C4D /* YangLogger */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -487,7 +481,6 @@
 			children = (
 				EEBE334DEB1CC878F9690F483099F5AC /* YangCarousel */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -514,7 +507,6 @@
 			children = (
 				9D6444A37F809F7FB00D984B6DF92B19 /* YangToast */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -523,7 +515,6 @@
 			children = (
 				AFC9A9949F7CBB681DD36BEA0B6DABEB /* DragButton.swift */,
 			);
-			name = YangDragButton;
 			path = YangDragButton;
 			sourceTree = "<group>";
 		};
@@ -548,7 +539,6 @@
 				314A073BD250390786946DFEEBA2B303 /* RealLogger.swift */,
 				98ED8AE38870262CA948109F18D9A9CD /* RealLogger+Convenient.swift */,
 			);
-			name = YangLogger;
 			path = YangLogger;
 			sourceTree = "<group>";
 		};
@@ -557,7 +547,6 @@
 			children = (
 				3811CE1D412DBD53AB07505FB585B849 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -584,7 +573,6 @@
 			children = (
 				8EB801D8741829E6ED5B67455DAB5A82 /* Assets */,
 			);
-			name = YangNavigationHelper;
 			path = YangNavigationHelper;
 			sourceTree = "<group>";
 		};
@@ -628,7 +616,6 @@
 				798E705EA96583FC173F2FB505B8489B /* YangDropMenuView.h */,
 				7B5813FDB93134041436411D52ECB0A5 /* YangDropMenuView.m */,
 			);
-			name = YangDropMenuView;
 			path = YangDropMenuView;
 			sourceTree = "<group>";
 		};
@@ -683,7 +670,6 @@
 				2A122E5F8508A0EB2D3596DEBB372B07 /* Extensions */,
 				C649C12B6FF3E2331FCD2B8A22E963D9 /* Support Files */,
 			);
-			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -711,7 +697,6 @@
 				55E848E20EFD578EEFC394F37A3CEA6A /* YangNavigationHelper.h */,
 				D44371F49980A1989373A2B8D6F2F868 /* Core */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -728,7 +713,6 @@
 			children = (
 				4C781F15C642AC1C9DD2FE455EC0AEA5 /* YangNavigationHelper.xcassets */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -750,7 +734,6 @@
 			children = (
 				3C3C1D2753A169042C42D777D7C850BA /* YangProgressBar.swift */,
 			);
-			name = YangProgressBar;
 			path = YangProgressBar;
 			sourceTree = "<group>";
 		};
@@ -765,9 +748,8 @@
 		98F351E5CE7941F7A083E2FE41A28A03 /* core */ = {
 			isa = PBXGroup;
 			children = (
-				30F4CABCDC9A50B7EFF22E31999D6573 /* DOAlertController.swift */,
+				30F4CABCDC9A50B7EFF22E31999D6573 /* YangAlertController.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -787,7 +769,6 @@
 				CD30C64D6655892436913D158F63E09F /* UIView+YangToast.swift */,
 				0C93FEF6C12369EC82221AAC5CAA44E0 /* core */,
 			);
-			name = YangToast;
 			path = YangToast;
 			sourceTree = "<group>";
 		};
@@ -796,7 +777,6 @@
 			children = (
 				E1AB4E219137935D00D176434025577B /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -805,7 +785,6 @@
 			children = (
 				20032D94692F5AE11C5A3A07D228A51E /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -838,7 +817,6 @@
 				BE5A6F8CD9A5D8392F87621B003AF8F8 /* TrackingMode.swift */,
 				91E8F7DC8BB16CD0AEABB92054590D22 /* UIImage+Blur.swift */,
 			);
-			name = YangBlurView;
 			path = YangBlurView;
 			sourceTree = "<group>";
 		};
@@ -847,7 +825,6 @@
 			children = (
 				31214134819296DA05B471ED25CC9AE7 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -856,7 +833,6 @@
 			children = (
 				C31204ABBC44DF54A2E3493E7A62B867 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -895,7 +871,6 @@
 			children = (
 				C5B843B1C7A46C57EA8D2D7808ADE749 /* YangSliderView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -904,7 +879,6 @@
 			children = (
 				FD161EAC430AB5B34DE68A0F8C2950D6 /* YangSliderView.swift */,
 			);
-			name = YangSliderView;
 			path = YangSliderView;
 			sourceTree = "<group>";
 		};
@@ -928,7 +902,6 @@
 				BB3AB3A83E718FAF1F2FC5B7855F9845 /* UIViewController+YangPopView.swift */,
 				98F351E5CE7941F7A083E2FE41A28A03 /* core */,
 			);
-			name = YangPopView;
 			path = YangPopView;
 			sourceTree = "<group>";
 		};
@@ -952,7 +925,6 @@
 				767CA21F658EA741BCBF2B4E53B8E23A /* YangGuidPageViewController.swift */,
 				964B5018DEA9C8F0C60D694949BA858D /* YangPageControl.swift */,
 			);
-			name = YangPageControl;
 			path = YangPageControl;
 			sourceTree = "<group>";
 		};
@@ -969,7 +941,6 @@
 			children = (
 				285FE0A029DE8675D344A89F2B4369C4 /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -978,7 +949,6 @@
 			children = (
 				5F08B42E44225A0A6ECE592EA7867203 /* YangDropMenuView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -988,7 +958,6 @@
 				5BA8796E1EECCCC34EB497ED5C5F74CA /* YangRootNavigationController.h */,
 				2409224E9D9D90974AB3AB16DBA22B82 /* YangRootNavigationController.m */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -998,7 +967,6 @@
 				B0C839E9A1D955DF7491B26CFC729983 /* YangBlurView */,
 				C7A985D34BC8347A501D5CE43C160248 /* YangPopView */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1007,7 +975,6 @@
 			children = (
 				16FC4FE029464C0CAA83B42A5F311C2D /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -1034,7 +1001,6 @@
 			children = (
 				94D2A85410621923958AD7F1BAF993DC /* YangProgressBar */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1043,7 +1009,6 @@
 			children = (
 				7F4DCF698FCFED836180FD2ED2FC8D7B /* Classes */,
 			);
-			name = YangNavigationHelper;
 			path = YangNavigationHelper;
 			sourceTree = "<group>";
 		};
@@ -1063,7 +1028,6 @@
 				5415F47F2C7538B203B3BDC5C3F591B1 /* XRCarouselView.m */,
 				AAE5418855D897C49E9E3BE42161C139 /* XRPlaceholder.png */,
 			);
-			name = YangCarousel;
 			path = YangCarousel;
 			sourceTree = "<group>";
 		};
@@ -1072,7 +1036,6 @@
 			children = (
 				D73C93DF058626277C7EEE63203793FE /* Classes */,
 			);
-			name = YangWidgets;
 			path = YangWidgets;
 			sourceTree = "<group>";
 		};
@@ -1401,7 +1364,7 @@
 				581070479CB52D34AEDF89CFC8059CA8 /* CaptureQuality.swift in Sources */,
 				0B86D48589950325A274F3134313E0CC /* CGContext+CGImage.swift in Sources */,
 				F60C604EA5D966C1BE54EFA7B0A1230A /* CGImage+Accelerate.swift in Sources */,
-				AA1FBF6423A4F7896282C350E56EE0B5 /* DOAlertController.swift in Sources */,
+				AA1FBF6423A4F7896282C350E56EE0B5 /* YangAlertController.swift in Sources */,
 				EB40E644F6C84A9531A6D3164F65F663 /* DragButton.swift in Sources */,
 				BFE56FBD845DF525B8070E07DAFE745E /* DynamicBlurView.swift in Sources */,
 				1DAD1398C45F207A976B5AC5D157CAB8 /* RealLogFormatter.swift in Sources */,

@@ -16,7 +16,7 @@ class YangDropMenuViewController: UIViewController, YangDropMenuDelegate, YangDr
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.blue
         
         view.addSubview(menuBar)
         menuBar.backgroundColor = UIColor.red
@@ -25,7 +25,6 @@ class YangDropMenuViewController: UIViewController, YangDropMenuDelegate, YangDr
         menu.dataSource = self
     }
     
-   
     @objc func showIn() {
         menu.show(in: view, andOrigin: CGPoint(x: 0, y: 145))
     }
