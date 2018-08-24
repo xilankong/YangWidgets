@@ -24,10 +24,6 @@
       "source_files": "YangWidgets/Classes/YangPageControl/**/*"
     },
     {
-      "name": "YangDropMenuView",
-      "source_files": "YangWidgets/Classes/YangDropMenuView/**/*"
-    },
-    {
       "name": "YangDragButton",
       "source_files": "YangWidgets/Classes/YangDragButton/**/*"
     },
@@ -37,12 +33,7 @@
     },
     {
       "name": "YangSliderView",
-      "source_files": "YangWidgets/Classes/YangSliderView/**/*",
-      "dependencies": {
-        "SnapKit": [
-
-        ]
-      }
+      "source_files": "YangWidgets/Classes/YangSliderView/**/*"
     },
     {
       "name": "YangProgressBar",

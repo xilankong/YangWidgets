@@ -13,7 +13,7 @@ import SnapKit
 class DemoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView: UITableView!
-    var dataList: [String] = ["YangDropMenuViewController",
+    var dataList: [String] = [
          "YangGuidPageDemoViewController",
          "YangSliderViewDemoController",
          "YangDragButtonViewController",

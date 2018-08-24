@@ -18,10 +18,6 @@ TODO: widgets in development
         page.source_files = 'YangWidgets/Classes/YangPageControl/**/*'
     end
 
-    s.subspec 'YangDropMenuView' do |menu|
-        menu.source_files = 'YangWidgets/Classes/YangDropMenuView/**/*'
-    end
-
     s.subspec 'YangDragButton' do |drag|
         drag.source_files = 'YangWidgets/Classes/YangDragButton/**/*'
     end

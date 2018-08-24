@@ -1,14 +1,14 @@
 //
 //  RealLogFormatter.swift
-//  Alamofire
 //
-//  Created by lbencs on 30/01/2018.
+//  Created by yanghuang on 16/12/5.
+//  Copyright © 2016年 yanghuang. All rights reserved.
 //
 
 import Foundation
 import CocoaLumberjack
 
-class RealLogFormatter: NSObject, DDLogFormatter {
+class LogFormatter: NSObject, DDLogFormatter {
     func format(message logMessage: DDLogMessage) -> String? {
         return "\(logMessage.flag.description)||\(logMessage.fileName)->\(logMessage.function ?? "")||🍌\(logMessage.line)||👉\(logMessage.message)"
     }

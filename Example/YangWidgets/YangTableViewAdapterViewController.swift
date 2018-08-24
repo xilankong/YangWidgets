@@ -18,6 +18,8 @@ class YangTableViewAdapterViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         initTableView()
+        LogError("错误信息")
+        LogInfo("普通消息")
     }
     
     func initUI() {

@@ -1,6 +1,6 @@
 //
-//  RealLogger.swift
-//  iReal
+//  Logger.swift
+//  i
 //
 //  Created by lbencs on 24/01/2018.
 //  Copyright © 2018 lbencs. All rights reserved.
@@ -9,7 +9,16 @@
 import Foundation
 import CocoaLumberjack
 
-public enum RealLogLevel {
+
+/// 日志等级
+///
+/// - all: 全部
+/// - verbose: 描述信息
+/// - debug: Debug信息
+/// - info: 普通信息
+/// - warning: 警告
+/// - error: 错误
+public enum LogLevel {
     case all
     case verbose
     case debug
@@ -17,7 +26,8 @@ public enum RealLogLevel {
     case warning
     case error
 }
-public enum RealLogFlag {
+
+public enum LogFlag {
     case verbose
     case debug
     case info
@@ -29,38 +39,38 @@ public enum RealLogFlag {
 ///
 /// - debug: 1. 日志以同步的方式输出
 /// - release: 1. 日志以异步的方式输出
-public enum RealLogPattern {
+public enum LogPattern {
     case debug
     case release
 }
 
-final public class RealLogger {
+final public class Logger {
     
-    public static let share = RealLogger()
+    public static let share = Logger()
     
-    public static var debugLogLevel: RealLogLevel = .debug
-    public static var releaseLogLevel: RealLogLevel = .info
+    public static var debugLogLevel: LogLevel = .debug
+    public static var releaseLogLevel: LogLevel = .info
     
-    /// 模式： RealLogPattern
-    public var pattern: RealLogPattern = .debug
+    /// 模式： LogPattern
+    public var pattern: LogPattern = .debug
     
     private init() {
         
         if let ddoslogger = DDOSLogger.sharedInstance {
-            ddoslogger.logFormatter = RealLogFormatter()
+            ddoslogger.logFormatter = LogFormatter()
             DDLog.add(ddoslogger, with: pattern.level.toLumberjack)
         }
        
         let fileManager = DDLogFileManagerDefault()
         if let fileLogger = DDFileLogger(logFileManager: fileManager) {
-            fileLogger.logFormatter = RealLogFormatter()
+            fileLogger.logFormatter = LogFormatter()
             DDLog.add(fileLogger, with: pattern.level.toLumberjack)
         }
         
         DDLog.remove(DDTTYLogger.sharedInstance)
     }
 
-    func log(flag: RealLogFlag, message: @autoclosure () -> Any?, file: StaticString, function: StaticString?, line: UInt) {
+    func log(flag: LogFlag, message: @autoclosure () -> Any?, file: StaticString, function: StaticString?, line: UInt) {
         let message = DDLogMessage(
             message: "\(message() ?? "")",
             level: pattern.level.toLumberjack,
@@ -76,16 +86,16 @@ final public class RealLogger {
     }
 }
 
-extension RealLogPattern {
+extension LogPattern {
     var isAsync: Bool {
         return self == .release
     }
-    public var level: RealLogLevel {
+    public var level: LogLevel {
         switch self {
         case .debug:
-            return RealLogger.debugLogLevel
+            return Logger.debugLogLevel
         case .release:
-            return RealLogger.debugLogLevel
+            return Logger.debugLogLevel
         }
     }
 }
@@ -109,7 +119,7 @@ extension DDLogFlag {
     }
 }
 
-extension RealLogFlag {
+extension LogFlag {
     var toLumberjack: DDLogFlag {
         switch self {
         case .verbose:
@@ -126,7 +136,7 @@ extension RealLogFlag {
     }
 }
 
-extension RealLogLevel {
+extension LogLevel {
     var toLumberjack: DDLogLevel {
         switch self {
         case .all:

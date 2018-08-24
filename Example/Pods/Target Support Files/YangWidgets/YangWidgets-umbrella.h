@@ -11,7 +11,7 @@
 #endif
 
 #import "XRCarouselView.h"
-#import "YangDropMenuView.h"
+#import "YangCarouselView.h"
 #import "DynamicBlurView.h"
 
 FOUNDATION_EXPORT double YangWidgetsVersionNumber;
