@@ -1,12 +1,13 @@
 //
-//  XRCarouselView.h
+//  YangCarouselView.h
+//  YangCarouselView
 //
-//  Created by 肖睿 on 16/3/17.
-//  Copyright © 2016年 肖睿. All rights reserved.
+//  Created by xilankong on 08/24/2018.
+//  Copyright (c) 2018 xilankong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-@class XRCarouselView;
+@class YangCarouselView;
 
 typedef void(^ClickBlock)(NSInteger index);
 
@@ -28,17 +29,15 @@ typedef NS_ENUM(NSInteger, GifPlayMode) {
 };
 
 //图片切换的方式
-typedef NS_ENUM(NSInteger, ChangeMode) {
-    ChangeModeDefault,  //轮播滚动
-    ChangeModeFade      //淡入淡出
+typedef NS_ENUM(NSInteger, CarouselMode) {
+    CarouselModeDefault,  //轮播滚动
+    CarouselModeFade      //淡入淡出
 };
-
-
 
 /**
  *  代理
  */
-@protocol XRCarouselViewDelegate <NSObject>
+@protocol YangCarouselViewDelegate <NSObject>
 
 /**
  *  该方法用来处理图片的点击，会返回图片在数组中的索引
@@ -47,10 +46,9 @@ typedef NS_ENUM(NSInteger, ChangeMode) {
  *  @param carouselView 控件本身
  *  @param index        图片索引
  */
-- (void)carouselView:(XRCarouselView *)carouselView clickImageAtIndex:(NSInteger)index;
+- (void)carouselView:(YangCarouselView *)carouselView clickImageAtIndex:(NSInteger)index;
 
 @end
-
 
 /**
  *  C语言函数，创建本地gif图片
@@ -65,16 +63,20 @@ UIImage *gifImageNamed(NSString *imageName);
  *  控件的frame必须设置，xib\sb创建的可不设置
  *  其他属性都有默认值，可不设置
  */
-@interface XRCarouselView : UIView
+@interface YangCarouselView : UIView
 
 
 #pragma mark 属性
 
+/**
+ *  设置图片的切换模式，默认为ChangeModeDefault
+ */
+@property (nonatomic, assign) NSInteger currentIndex;
 
 /**
  *  设置图片的切换模式，默认为ChangeModeDefault
  */
-@property (nonatomic, assign) ChangeMode changeMode;
+@property (nonatomic, assign) CarouselMode carouselMode;
 
 
 /**
@@ -105,23 +107,6 @@ UIImage *gifImageNamed(NSString *imageName);
 
 
 /**
- *  轮播的图片数组，可以是本地图片（UIImage，不能是图片名称），也可以是网络路径
- *  支持网络gif图片，本地gif需做处理后传入
- */
-@property (nonatomic, strong) NSArray *imageArray;
-
-
-/**
- *  图片描述的字符串数组，应与图片顺序对应
- *
- *  图片描述控件默认是隐藏的
- *  设置该属性，控件会显示
- *  设置为nil或空数组，控件会隐藏
- */
-@property (nonatomic, strong) NSArray *describeArray;
-
-
-/**
  *  每一页停留时间，默认为5s，最少1s
  *  当设置的值小于1s时，则为默认值
  */
@@ -148,7 +133,7 @@ UIImage *gifImageNamed(NSString *imageName);
 /**
  *  代理，用来处理图片的点击
  */
-@property (nonatomic, weak) id<XRCarouselViewDelegate> delegate;
+@property (nonatomic, weak) id<YangCarouselViewDelegate> delegate;
 
 
 #pragma mark 方法
@@ -197,6 +182,14 @@ UIImage *gifImageNamed(NSString *imageName);
  */
 - (void)setDescribeTextColor:(UIColor *)color font:(UIFont *)font bgColor:(UIColor *)bgColor;
 
+
+/**
+ 开启轮播
+
+ @param imageArray 图片数组
+ @param describeArray 描述数组
+ */
+- (void)startWithImageArray:(NSArray<UIImage *> *)imageArray andDescribeArray:(NSArray<NSString *> *)describeArray;
 
 /**
  *  清除沙盒中的图片缓存

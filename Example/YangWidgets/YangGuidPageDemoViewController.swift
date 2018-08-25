@@ -10,7 +10,7 @@ import UIKit
 import YangWidgets
 import YangNavigationHelper
 
-class YangGuidPageDemoViewController: YangGuidPageViewController {
+class YangGuidPageDemoViewController: YangGuidePageViewController {
 
     
     override func viewDidLoad() {
@@ -22,13 +22,13 @@ class YangGuidPageDemoViewController: YangGuidPageViewController {
     }
 
     override func initData() {
-        let pageOne =  YangGuidPageView()
+        let pageOne =  YangGuidePageView()
         pageOne.backgroundColor = UIColor.red
         guidPages.append(pageOne)
-        let pageTwo =  YangGuidPageView()
+        let pageTwo =  YangGuidePageView()
         pageTwo.backgroundColor = UIColor.blue
         guidPages.append(pageTwo)
-        let pageThree =  YangGuidPageView(withImage: #imageLiteral(resourceName: "bgImageView"))
+        let pageThree =  YangGuidePageView(withImage: #imageLiteral(resourceName: "bgImageView"))
         guidPages.append(pageThree)
     }
 

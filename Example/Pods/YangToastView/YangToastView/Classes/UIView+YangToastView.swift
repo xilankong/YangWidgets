@@ -7,9 +7,12 @@
 
 import UIKit
 
+
 @objc public extension UIView {
     
     @objc public func showToast(withMessage message: String) {
+        
+        ToastOverlays.removeAllToast(inView: self)
         let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             toast.removeFromSuperview()
@@ -17,6 +20,8 @@ import UIKit
     }
     
     @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval) {
+        
+        ToastOverlays.removeAllToast(inView: self)
         let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + time) {
             toast.removeFromSuperview()
@@ -24,6 +29,7 @@ import UIKit
     }
     
     @objc public func showToast(withMessage message: String, dismissAfter time: TimeInterval, dismissComplete complete: @escaping (() -> Void)) {
+        ToastOverlays.removeAllToast(inView: self)
         let toast = ToastOverlays.showToast(inView: self, withText: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + time) {
             toast.removeFromSuperview()
@@ -32,16 +38,23 @@ import UIKit
     }
     
     @objc public func showLoading() {
-        ToastOverlays.showLoading(inView: self, withText: "wait a moment")
+        ToastOverlays.removeAllToast(inView: self)
+        ToastOverlays.showLoading(inView: self)
+    }
+    
+    @objc public func showLoading(withText text: String) {
+        ToastOverlays.removeAllToast(inView: self)
+        ToastOverlays.showLoading(inView: self, withText: text)
     }
     
     @objc public func hideLoading() {
         ToastOverlays.removeAllToast(inView: self)
     }
     
-    @objc public func showProgressLoading() {
-        ToastOverlays.showProgressLoading(inView: self, withText: "progress")
-        ToastOverlays.updateLoadingProgress(self, progress: 0.6)
+    @objc public func showProgressLoading() -> UIProgressView {
+        ToastOverlays.removeAllToast(inView: self)
+        let view = ToastOverlays.showProgressLoading(inView: self, withText: "progress")
+        return view.viewWithTag(ToastOverlays.progressViewTag) as! UIProgressView
     }
     
 }

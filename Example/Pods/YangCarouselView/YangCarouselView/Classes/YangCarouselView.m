@@ -1,11 +1,12 @@
 //
-//  XRCarouselView.m
+//  YangCarouselView.m
+//  YangCarouselView
 //
-//  Created by 肖睿 on 16/3/17.
-//  Copyright © 2016年 肖睿. All rights reserved.
+//  Created by xilankong on 08/24/2018.
+//  Copyright (c) 2018 xilankong. All rights reserved.
 //
 
-#import "XRCarouselView.h"
+#import "YangCarouselView.h"
 #import <ImageIO/ImageIO.h>
 
 #define DEFAULTTIME 5
@@ -14,16 +15,20 @@
 #define DES_LABEL_H 20
 
 
+/**
+ NSTimer ios 10.0 的方法执行
+ */
 @interface NSTimer (XRTimer)
-+ (NSTimer *)xr_timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *))block;
++ (NSTimer *)yang_timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *))block;
 @end
-
 
 @implementation NSTimer (XRTimer)
 
-+ (NSTimer *)xr_timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *))block {
++ (NSTimer *)yang_timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *))block {
     if ([self respondsToSelector:@selector(timerWithTimeInterval:repeats:block:)]) {
-        return [self timerWithTimeInterval:interval repeats:repeats block:block];
+        if (@available(iOS 10.0, *)) {
+            return [self timerWithTimeInterval:interval repeats:repeats block:block];
+        } else {}
     }
     return [self timerWithTimeInterval:interval target:self selector:@selector(timerAction:) userInfo:block repeats:repeats];
 }
@@ -36,7 +41,7 @@
 
 
 
-@interface XRCarouselView()<UIScrollViewDelegate>
+@interface YangCarouselView()<UIScrollViewDelegate>
 //轮播的图片数组
 @property (nonatomic, strong) NSMutableArray *images;
 //图片描述控件，默认在底部
@@ -59,23 +64,42 @@
 @property (nonatomic, strong) NSTimer *timer;
 //任务队列
 @property (nonatomic, strong) NSOperationQueue *queue;
+
+
+
+/**
+ *  轮播的图片数组，可以是本地图片（UIImage，不能是图片名称），也可以是网络路径
+ *  支持网络gif图片，本地gif需做处理后传入
+ */
+@property (nonatomic, strong) NSArray *imageArray;
+
+
+/**
+ *  图片描述的字符串数组，应与图片顺序对应
+ *
+ *  图片描述控件默认是隐藏的
+ *  设置该属性，控件会显示
+ *  设置为nil或空数组，控件会隐藏
+ */
+@property (nonatomic, strong) NSArray *describeArray;
+
+
 @end
 
 static NSString *cache;
 
 
-@implementation XRCarouselView
+@implementation YangCarouselView
 #pragma mark- 初始化方法
 //创建用来缓存图片的文件夹
 + (void)initialize {
-    cache = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"XRCarousel"];
+    cache = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"YangCarousel"];
     BOOL isDir = NO;
     BOOL isExists = [[NSFileManager defaultManager] fileExistsAtPath:cache isDirectory:&isDir];
     if (!isExists || !isDir) {
         [[NSFileManager defaultManager] createDirectoryAtPath:cache withIntermediateDirectories:YES attributes:nil error:nil];
     }
 }
-
 
 #pragma mark 代码创建
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -149,7 +173,6 @@ static NSString *cache;
     return _describeLabel;
 }
 
-
 - (UIPageControl *)pageControl {
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc] init];
@@ -158,18 +181,42 @@ static NSString *cache;
     return _pageControl;
 }
 
-
 #pragma mark- --------设置相关方法--------
-#pragma mark 设置图片的内容模式
-- (void)setContentMode:(UIViewContentMode)contentMode {
-    _contentMode = contentMode;
-    _currImageView.contentMode = contentMode;
-    _otherImageView.contentMode = contentMode;
+
+- (NSInteger)currentIndex {
+    return _currIndex;
 }
 
-#pragma mark 设置图片数组
-- (void)setImageArray:(NSArray *)imageArray{
+//- (void)setCurrentIndex:(NSInteger)currentIndex {
+//    if (currentIndex < _images.count) {
+//        self.currIndex = currentIndex;
+//        self.pageControl.currentPage = self.currIndex;
+//        self.describeLabel.text = self.describeArray[self.currIndex];
+//    }
+//}
+
+- (void)startWithImageArray:(NSArray<UIImage *> *) imageArray andDescribeArray:(NSArray<NSString *> *)describeArray {
+    //设置描述数组
+    _describeArray = describeArray;
+    if (!describeArray.count) {
+        _describeArray = nil;
+        self.describeLabel.hidden = YES;
+    } else {
+        //如果描述的个数与图片个数不一致，则补空字符串
+        if (describeArray.count < imageArray.count) {
+            NSMutableArray *describes = [NSMutableArray arrayWithArray:describeArray];
+            for (NSInteger i = describeArray.count; i < imageArray.count; i++) {
+                [describes addObject:@""];
+            }
+            _describeArray = describes;
+        }
+        self.describeLabel.hidden = NO;
+        _describeLabel.text = _describeArray[_currIndex];
+    }
+    //重新计算pageControl的位置
+    self.pagePosition = _pagePosition;
     
+    //设置图片
     if (!imageArray.count) return;
     
     _imageArray = imageArray;
@@ -181,7 +228,7 @@ static NSString *cache;
         } else if ([imageArray[i] isKindOfClass:[NSString class]]){
             //如果是网络图片，则先添加占位图片，下载完成后替换
             if (_placeholderImage) [_images addObject:_placeholderImage];
-            else [_images addObject:[UIImage imageNamed:@"XRPlaceholder"]];
+            else [_images addObject:[UIImage imageNamed:@"nil"]];
             [self downloadImages:i];
         }
     }
@@ -194,27 +241,11 @@ static NSString *cache;
     [self layoutSubviews];
 }
 
-
-#pragma mark 设置描述数组
-- (void)setDescribeArray:(NSArray *)describeArray{
-    _describeArray = describeArray;
-    if (!describeArray.count) {
-        _describeArray = nil;
-        self.describeLabel.hidden = YES;
-    } else {
-        //如果描述的个数与图片个数不一致，则补空字符串
-        if (describeArray.count < _images.count) {
-            NSMutableArray *describes = [NSMutableArray arrayWithArray:describeArray];
-            for (NSInteger i = describeArray.count; i < _images.count; i++) {
-                [describes addObject:@""];
-            }
-            _describeArray = describes;
-        }
-        self.describeLabel.hidden = NO;
-        _describeLabel.text = _describeArray[_currIndex];
-    }
-    //重新计算pageControl的位置
-    self.pagePosition = _pagePosition;
+#pragma mark 设置图片的内容模式
+- (void)setContentMode:(UIViewContentMode)contentMode {
+    _contentMode = contentMode;
+    _currImageView.contentMode = contentMode;
+    _otherImageView.contentMode = contentMode;
 }
 
 #pragma mark 设置scrollView的contentSize
@@ -224,7 +255,7 @@ static NSString *cache;
         self.scrollView.contentOffset = CGPointMake(self.width * 2, 0);
         self.currImageView.frame = CGRectMake(self.width * 2, 0, self.width, self.height);
         
-        if (_changeMode == ChangeModeFade) {
+        if (_carouselMode == CarouselModeFade) {
             //淡入淡出模式，两个imageView都在同一位置，改变透明度就可以了
             _currImageView.frame = CGRectMake(0, 0, self.width, self.height);
             _otherImageView.frame = self.currImageView.frame;
@@ -311,16 +342,17 @@ static NSString *cache;
     [self startTimer];
 }
 
-- (void)setChangeMode:(ChangeMode)changeMode {
-    _changeMode = changeMode;
-    if (changeMode == ChangeModeFade) {
+
+-(void)setCarouselMode:(CarouselMode)carouselMode {
+    _carouselMode = carouselMode;
+    if (_carouselMode == CarouselModeFade) {
         _gifPlayMode = GifPlayModeAlways;
     }
 }
 
 #pragma mark 设置gif播放方式
 - (void)setGifPlayMode:(GifPlayMode)gifPlayMode {
-    if (_changeMode == ChangeModeFade) return;
+    if (_carouselMode == CarouselModeFade) return;
     _gifPlayMode = gifPlayMode;
     if (gifPlayMode == GifPlayModeAlways) {
         [self gifAnimating:YES];
@@ -336,7 +368,7 @@ static NSString *cache;
     //如果定时器已开启，先停止再重新开启
     if (self.timer) [self stopTimer];
     __weak typeof(self) weakSelf = self;
-    self.timer = [NSTimer xr_timerWithTimeInterval:_time < 1? DEFAULTTIME: _time repeats:YES block:^(NSTimer * _Nonnull timer) {
+    self.timer = [NSTimer yang_timerWithTimeInterval:_time < 1? DEFAULTTIME: _time repeats:YES block:^(NSTimer * _Nonnull timer) {
         [weakSelf nextPage];
     }];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
@@ -348,7 +380,7 @@ static NSString *cache;
 }
 
 - (void)nextPage {
-    if (_changeMode == ChangeModeFade) {
+    if (_carouselMode == CarouselModeFade) {
         //淡入淡出模式，不需要修改scrollview偏移量，改变两张图片的透明度即可
         self.nextIndex = (self.currIndex + 1) % _images.count;
         self.otherImageView.image = _images[_nextIndex];
@@ -356,7 +388,7 @@ static NSString *cache;
         [UIView animateWithDuration:1.2 animations:^{
             self.currImageView.alpha = 0;
             self.otherImageView.alpha = 1;
-            self.pageControl.currentPage = _nextIndex;
+            self.pageControl.currentPage = self.nextIndex;
         } completion:^(BOOL finished) {
             [self changeToNext];
         }];
@@ -410,8 +442,8 @@ static NSString *cache;
         if (image) {
             self.images[index] = image;
             //如果下载的图片为当前要显示的图片，直接到主线程给imageView赋值，否则要等到下一轮才会显示
-            if (_currIndex == index) [_currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
-            if (_autoCache) [data writeToFile:path atomically:YES];
+            if (self.currIndex == index) [self.currImageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+            if (self.autoCache) [data writeToFile:path atomically:YES];
         }
     }];
     [self.queue addOperation:download];
@@ -492,7 +524,7 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
     [self changeCurrentPageWithOffset:offsetX];
     //向右滚动
     if (offsetX < self.width * 2) {
-        if (_changeMode == ChangeModeFade) {
+        if (_carouselMode == CarouselModeFade) {
             self.currImageView.alpha = offsetX / self.width - 1;
             self.otherImageView.alpha = 2 - offsetX / self.width;
         } else self.otherImageView.frame = CGRectMake(self.width, 0, self.width, self.height);
@@ -504,7 +536,7 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
         
     //向左滚动
     } else if (offsetX > self.width * 2){
-        if (_changeMode == ChangeModeFade) {
+        if (_carouselMode == CarouselModeFade) {
             self.otherImageView.alpha = offsetX / self.width - 2;
             self.currImageView.alpha = 3 - offsetX / self.width;
         } else self.otherImageView.frame = CGRectMake(CGRectGetMaxX(_currImageView.frame), 0, self.width, self.height);
@@ -516,7 +548,7 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
 }
 
 - (void)changeToNext {
-    if (_changeMode == ChangeModeFade) {
+    if (_carouselMode == CarouselModeFade) {
         self.currImageView.alpha = 1;
         self.otherImageView.alpha = 0;
     }
@@ -539,7 +571,7 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
 
 //该方法用来修复滚动过快导致分页异常的bug
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (_changeMode == ChangeModeFade) return;
+    if (_carouselMode == CarouselModeFade) return;
     CGPoint currPointInSelf = [_scrollView convertPoint:_currImageView.frame.origin toView:self];
     if (currPointInSelf.x >= -self.width / 2 && currPointInSelf.x <= self.width / 2)
         [self.scrollView setContentOffset:CGPointMake(self.width * 2, 0) animated:YES];
@@ -569,7 +601,6 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
 
 @end
 
-
 UIImage *gifImageNamed(NSString *imageName) {
     
     if (![imageName hasSuffix:@".gif"]) {
@@ -582,8 +613,3 @@ UIImage *gifImageNamed(NSString *imageName) {
     
     return [UIImage imageNamed:imageName];
 }
-
-
-
-
-

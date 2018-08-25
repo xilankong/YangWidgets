@@ -31,7 +31,7 @@ open class ToastOverlays: NSObject {
         
         return blocker
     }
-    
+
     @discardableResult
     open class func showLoadingInWindow(withText text: String) -> UIView {
         let blocker = addMainWindowBlocker()
@@ -141,14 +141,14 @@ open class ToastOverlays: NSObject {
         
         if horizontalLayout {
             actualSize = CGSize(width: accessoryView.frame.size.width + label.frame.size.width + padding * 3,
-                                height: max(label.frame.size.height, accessoryView.frame.size.height) + padding * 2)
+                height: max(label.frame.size.height, accessoryView.frame.size.height) + padding * 2)
             
             label.frame = label.frame.offsetBy(dx: accessoryView.frame.size.width + padding * 2, dy: padding)
             
             accessoryView.frame = accessoryView.frame.offsetBy(dx: padding, dy: (actualSize.height - accessoryView.frame.size.height)/2)
         } else {
             actualSize = CGSize(width: max(accessoryView.frame.size.width, label.frame.size.width) + padding * 2,
-                                height: label.frame.size.height + accessoryView.frame.size.height + padding * 3)
+                height: label.frame.size.height + accessoryView.frame.size.height + padding * 3)
             
             label.frame = label.frame.offsetBy(dx: padding, dy: accessoryView.frame.size.height + padding * 2)
             
@@ -158,7 +158,7 @@ open class ToastOverlays: NSObject {
         // Container view
         let containerViewRect = CGRect(origin: .zero, size: actualSize)
         let containerView = UIView(frame: containerViewRect)
-        
+     
         containerView.tag = containerViewTag
         containerView.layer.cornerRadius = cornerRadius
         containerView.backgroundColor = backgroundColor
@@ -173,7 +173,7 @@ open class ToastOverlays: NSObject {
         parentView.addSubview(containerView)
         
         Utils.centerViewInSuperview(containerView)
-        
+
         return containerView
     }
     
@@ -183,7 +183,7 @@ open class ToastOverlays: NSObject {
         label.frame = label.frame.offsetBy(dx: padding, dy: padding)
         
         let actualSize = CGSize(width: label.frame.size.width + padding * 2,
-                                height: label.frame.size.height + padding * 2)
+            height: label.frame.size.height + padding * 2)
         
         // Container view
         let containerViewRect = CGRect(origin: .zero, size: actualSize)
@@ -196,13 +196,13 @@ open class ToastOverlays: NSObject {
             x: parentView.bounds.size.width/2,
             y: parentView.bounds.size.height/2
         )
-        
+
         containerView.addSubview(label)
         
         parentView.addSubview(containerView)
         
         Utils.centerViewInSuperview(containerView)
-        
+
         return containerView
     }
     
@@ -229,7 +229,7 @@ open class ToastOverlays: NSObject {
         let textSize = text.size(withAttributes: [NSAttributedStringKey.font: font])
         
         let labelRect = CGRect(origin: .zero, size: textSize)
-        
+
         let label = UILabel(frame: labelRect)
         label.font = font
         label.textColor = textColor
@@ -248,21 +248,21 @@ open class ToastOverlays: NSObject {
         blocker.tag = containerViewTag
         
         blocker.translatesAutoresizingMaskIntoConstraints = false
-        
+
         window.addSubview(blocker)
         
         let viewsDictionary = ["blocker": blocker]
         
         // Add constraints to handle orientation change
         let constraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[blocker]-0-|",
-                                                          options: [],
-                                                          metrics: nil,
-                                                          views: viewsDictionary)
+            options: [],
+            metrics: nil,
+            views: viewsDictionary)
         
         let constraintsH = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[blocker]-0-|",
-                                                          options: [],
-                                                          metrics: nil,
-                                                          views: viewsDictionary)
+            options: [],
+            metrics: nil,
+            views: viewsDictionary)
         
         window.addConstraints(constraintsV + constraintsH)
         
@@ -271,7 +271,7 @@ open class ToastOverlays: NSObject {
     
     //MARK: - create constraints
     open class Utils {
-        
+
         open static func centerViewInSuperview(_ view: UIView) {
             assert(view.superview != nil, "`view` should have a superview")
             
